@@ -13,10 +13,11 @@ import { ReservationModule } from './reservation/reservation.module';
 import { ExperimentModule } from './experiment/experiment.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, environment.i18n);
 }
 
 @NgModule({
