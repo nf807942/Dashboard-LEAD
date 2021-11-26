@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './shared/components/home/home.component';
-
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'test1', component: ToolbarComponent },
+  { path: 'test2', component: SidenavComponent },
 ];
 
 @NgModule({

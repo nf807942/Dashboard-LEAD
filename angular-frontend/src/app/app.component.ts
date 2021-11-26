@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,16 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'angular-frontend';
 
-  constructor(private http: HttpClient) {
+  sidenavLinks = [
+    {icon: 'home', text: 'glu', route:''},
+    {icon: 'home', text: 'tatum', route:'test'}
+  ];
 
+  constructor(
+    private http: HttpClient,
+    private translate: TranslateService) {
+    this.translate.setDefaultLang('fr');
+    this.translate.use('fr');
   }
 
   ngOnInit(): void {

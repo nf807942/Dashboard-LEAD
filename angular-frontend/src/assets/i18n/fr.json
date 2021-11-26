@@ -1,0 +1,12 @@
+{
+    "LANGUAGE": {
+        "FR": "Français",
+        "EN": "Anglais"
+    },
+    "APP": {
+        "DASHBOARD": "Tableau de bord"
+    },
+    "TOOLTIPS": {
+        "CHANGE_LANGUAGE": "Changer la langue"
+    }
+}

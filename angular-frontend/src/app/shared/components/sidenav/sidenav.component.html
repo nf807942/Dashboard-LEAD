@@ -1,0 +1,14 @@
+<mat-drawer-container class="full-height" autosize>
+    <mat-drawer #drawer mode="side" opened="true" class="sidenav">
+        <mat-nav-list class="no-padding">
+            <a mat-list-item [routerLink]="link.route" *ngFor="let link of sidenavLinks">
+                <div class="flex row align-center sidenav-link"><mat-icon>{{link.icon}}</mat-icon><span>{{link.text | translate}}</span></div>
+            </a>
+         </mat-nav-list>
+    </mat-drawer>
+  
+    <div class="sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+  
+</mat-drawer-container>
