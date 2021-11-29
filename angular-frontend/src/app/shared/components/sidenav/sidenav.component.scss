@@ -1,7 +1,18 @@
-.sidenav {
-    min-width: 150px;
+#sidenav {
+    min-width: 200px;
+    background-color: #58319B;
 }
 
 .sidenav-link {
     gap: 0.5em;
+}
+
+.sidenav-row {
+    color: white;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.sidenav-spacer {
+    height: 2em;
 }

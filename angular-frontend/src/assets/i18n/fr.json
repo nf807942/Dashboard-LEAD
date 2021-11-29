@@ -8,5 +8,21 @@
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Changer la langue"
+    },
+    "SIDENAV": {
+        "MODULES": "Accueil",
+        "LOGIN": "Connexion",
+        "LOGOUT": "Deconnexion",
+
+        "NOTATION": {
+            "ADD-POINTS": "Ajout points",
+            "ADD-STUDENT": "Ajout étudiant"
+        }
+    },
+    "MODULES": {
+        "NOTATION": "Module notation",
+        "LOAN": "Module prêts",
+        "EXPERIMENT": "Module expérience",
+        "RESERVATION": "Module salles"
     }
 }

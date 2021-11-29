@@ -4,16 +4,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from 'src/environments/environment';
 
 // Custom modules
 import { SharedModule } from './shared/shared.module';
-import { NotationModule } from './notation/student.module';
+import { NotationModule } from './notation/notation.module';
 import { LoanModule } from './loan/loan.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { ExperimentModule } from './experiment/experiment.module';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { environment } from 'src/environments/environment';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -26,9 +26,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    AppRoutingModule,
 
     // Custom Modules
     SharedModule,
@@ -38,7 +38,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     ReservationModule,
 
      // ngx-translate and the loader module
-     HttpClientModule,
      TranslateModule.forRoot({
          loader: {
              provide: TranslateLoader,
@@ -47,7 +46,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
          }
      })
   ],
-  providers: [],
+  exports: [
+    AppRoutingModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

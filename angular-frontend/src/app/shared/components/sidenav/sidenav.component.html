@@ -1,9 +1,16 @@
 <mat-drawer-container class="full-height" autosize>
-    <mat-drawer #drawer mode="side" opened="true" class="sidenav">
+    <mat-drawer #drawer mode="side" opened="true" id="sidenav">
         <mat-nav-list class="no-padding">
-            <a mat-list-item [routerLink]="link.route" *ngFor="let link of sidenavLinks">
-                <div class="flex row align-center sidenav-link"><mat-icon>{{link.icon}}</mat-icon><span>{{link.text | translate}}</span></div>
-            </a>
+            <div *ngFor="let link of all_links">
+                <a mat-list-item *ngIf="!link.gap && ((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected))" 
+                [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive">
+                    <div class="flex row sidenav-row">
+                        <div class="flex row align-center sidenav-link"><mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>{{link.text | translate}}</div>
+                        <mat-icon [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
+                    </div>
+                </a>
+                <div *ngIf="link.gap" class="sidenav-spacer"></div>
+            </div>
          </mat-nav-list>
     </mat-drawer>
   

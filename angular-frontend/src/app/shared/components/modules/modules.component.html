@@ -1,0 +1,9 @@
+<h1 id="welcome-title" color="primary">Welcome to your dashboard Jhon !</h1>
+
+<mat-grid-list cols="4" gutterSize="1em" id="modules-grid">
+
+    <a [routerLink]="module.route" *ngFor="let module of modulesList;let index = index">
+      <mat-grid-tile matRipple [style.animation-delay]="index * 0.1 + 's'">{{module.text | translate}}</mat-grid-tile>
+    </a>
+
+  </mat-grid-list>

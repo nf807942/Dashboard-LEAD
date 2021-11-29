@@ -8,5 +8,21 @@
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Change language"
+    },
+    "SIDENAV": {
+        "MODULES": "Home",
+        "LOGIN": "Login",
+        "LOGOUT": "Logout",
+
+        "NOTATION": {
+            "ADD-POINTS": "Add points",
+            "ADD-STUDENT": "Add student"
+        }
+    },
+    "MODULES": {
+        "NOTATION": "Notation module",
+        "LOAN": "Loan module",
+        "EXPERIMENT": "Experiment module",
+        "RESERVATION": "Reservation module"
     }
 }

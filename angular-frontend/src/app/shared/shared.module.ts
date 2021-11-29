@@ -1,28 +1,34 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../material.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { AppRoutingModule } from '../app-routing.module';
 
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ModulesComponent } from './components/modules/modules.component';
 
 
 @NgModule({
   declarations: [
     ToolbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    ModulesComponent,
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MaterialModule,
     TranslateModule,
-    AppRoutingModule
   ],
   exports: [
     ToolbarComponent,
     SidenavComponent,
-    MaterialModule
+
+    CommonModule,
+    RouterModule,
+    MaterialModule,
+    TranslateModule,
   ]
 })
 export class SharedModule { }
