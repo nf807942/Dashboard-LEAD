@@ -1,7 +1,7 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { ConnectionService } from '../../services/connection.service';
-import { SidenavService } from './sidenav.service';
+import { CrossComponentService } from '../../services/cross-component.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -39,12 +39,12 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     public connectionService: ConnectionService,
-    private sidenavService: SidenavService,
+    private crossComponentService: CrossComponentService,
     private changeDetector: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.sidenavService.linksChanged.subscribe((links) => {
+    this.crossComponentService.linksChanged.subscribe((links) => {
       this.all_links = [...this.first_links, ...links, ...this.last_links];
       this.changeDetector.detectChanges();
     });

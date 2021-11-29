@@ -1,0 +1,22 @@
+#module-box {
+    margin-left: 2em;
+    margin-right: 2em;
+    margin-top: 2em;
+}
+
+#module-box-title {
+    text-align: center;
+    color: white;
+    background-color: #673ab7;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    font-size: 30px;
+    line-height: initial;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#module-box-content {
+    background-color: rgba(0, 0, 0, 0.05);
+    min-height: 100px;
+    padding: 1em;
+}

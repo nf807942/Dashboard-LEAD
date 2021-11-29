@@ -9,9 +9,9 @@ export class ModulesComponent implements OnInit {
 
   modulesList = [
     {text: 'MODULES.NOTATION', route: 'notation'},
-    {text: 'MODULES.LOAN', route: ''},
-    {text: 'MODULES.EXPERIMENT', route: ''},
-    {text: 'MODULES.RESERVATION', route: ''},
+    {text: 'MODULES.LOAN', route: 'loan'},
+    {text: 'MODULES.EXPERIMENT', route: 'experiment'},
+    {text: 'MODULES.RESERVATION', route: 'reservation'},
   ];
 
   constructor(

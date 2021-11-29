@@ -16,7 +16,28 @@
 
         "NOTATION": {
             "ADD-POINTS": "Ajout points",
-            "ADD-STUDENT": "Ajout étudiant"
+            "ADD-STUDENT": "Ajout étudiant",
+            "STUDENTS": "Étudiants"
+        },
+        "LOAN": {
+            "ADD-LOAN": "Faire un prêt",
+            "MY-LOAN": "Mes prêts",
+            "OLD-LOAN": "Précedents prêts",
+            "TYPES": "Types",
+            "RESOURCES": "Ressources",
+            "LOAN-REQUESTS": "Requêtes de prêt",
+            "LOANS": "Prêts en cours"
+        },
+        "EXPERIMENT": {
+            "MY-EXPERIMENTS": "Mes expériences",
+            "OLD-EXPERIMENTS": "Précedentes expériences",
+            "EXPERIMENTS": "Expériences"
+        } ,
+        "RESERVATION": {
+            "BUILDINGS": "Bâtiments",
+            "ROOMS": "Salles",
+            "RESERVE": "Réserver",
+            "MY-RESERVATIONS": "Mes réservations"
         }
     },
     "MODULES": {

@@ -7,6 +7,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ModulesComponent } from './components/modules/modules.component';
+import { ModuleContainerComponent } from './components/module-container/module-container.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { ModulesComponent } from './components/modules/modules.component';
   exports: [
     ToolbarComponent,
     SidenavComponent,
+    ModuleContainerComponent,
 
     CommonModule,
     RouterModule,

@@ -16,7 +16,28 @@
 
         "NOTATION": {
             "ADD-POINTS": "Add points",
-            "ADD-STUDENT": "Add student"
+            "ADD-STUDENT": "Add student",
+            "STUDENTS": "Students"
+        },
+        "LOAN": {
+            "ADD-LOAN": "Make a loan",
+            "MY-LOAN": "My loans",
+            "OLD-LOAN": "My previous loans",
+            "TYPES": "Types",
+            "RESOURCES": "Resources",
+            "LOAN-REQUESTS": "Loan requests",
+            "LOANS": "Loans"
+        },
+        "EXPERIMENT": {
+            "MY-EXPERIMENTS": "My experiments",
+            "OLD-EXPERIMENTS": "My previous experiments",
+            "EXPERIMENTS": "Experiments"
+        },
+        "RESERVATION": {
+            "BUILDINGS": "Buildings",
+            "ROOMS": "Rooms",
+            "RESERVE": "Reserve",
+            "MY-RESERVATIONS": "My reservations"
         }
     },
     "MODULES": {

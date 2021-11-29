@@ -1,12 +1,29 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AddLoanComponent } from './components/add-loan/add-loan.component';
+import { MyLoanComponent } from './components/my-loan/my-loan.component';
+import { TypesComponent } from './components/types/types.component';
+import { ResourcesComponent } from './components/resources/resources.component';
+import { LoansComponent } from './components/loans/loans.component';
+import { LoanRequestsComponent } from './components/loan-requests/loan-requests.component';
+import { OldLoanComponent } from './components/old-loan/old-loan.component';
+import { LoanTemplateComponent } from './components/loan-template/loan-template.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AddLoanComponent,
+    MyLoanComponent,
+    TypesComponent,
+    ResourcesComponent,
+    LoansComponent,
+    LoanRequestsComponent,
+    OldLoanComponent,
+    LoanTemplateComponent
+  ],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class LoanModule { }
