@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 
 @Component({
   selector: 'app-add-loan',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddLoanComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private crossComponentService: CrossComponentService
+  ) { }
 
   ngOnInit(): void {
+    this.crossComponentService.title = 'SIDENAV.LOAN.ADD-LOAN';
   }
 
 }
