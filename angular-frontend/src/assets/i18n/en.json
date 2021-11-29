@@ -4,7 +4,8 @@
         "EN": "English"
     },
     "APP": {
-        "DASHBOARD": "Dashboard"
+        "DASHBOARD": "Dashboard",
+        "ADD": "Add"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Change language"
@@ -45,5 +46,20 @@
         "LOAN": "Loan module",
         "EXPERIMENT": "Experiment module",
         "RESERVATION": "Reservation module"
+    },
+    "TABLE": {
+        "FILTER": "Filter",
+        "NO_MATCH": "No data matching the filter",
+        "EDIT": "Edit",
+        "DELETE": "Delete",
+
+        "ID": "Id",
+        "LABEL": "Label"
+    },
+    "PAGINATOR": {
+        "ITEMS_PER_PAGE": "Items by page",
+        "OF_LABEL": "of",
+        "NEXT_PAGE": "Next page",
+        "PREVIOUS_PAGE": "Previous page"
     }
 }

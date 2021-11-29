@@ -1,0 +1,46 @@
+<mat-form-field appearance="standard">
+    <mat-label>{{"TABLE.FILTER" | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" #input [formControl]="filter">
+</mat-form-field>
+
+<div>
+  <table #table mat-table [dataSource]="dataSource" matSort>
+    <ng-container [matColumnDef]="column.property" *ngFor="let column of columns">
+      <!-- Définition de l'header -->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="column.button"> {{column.name | translate}} </th>
+
+      <!-- Définition des cellules -->
+      <td mat-cell *matCellDef="let element">
+        <ng-container *ngIf="!column.button">{{element[column.property]}}</ng-container>
+        <ng-container *ngIf="column.button"><button mat-raised-button [color]="column.buttonColor" (click)="column.buttonAction(element)"><mat-icon>{{column.buttonIcon}}</mat-icon> {{column.buttonText | translate}}</button></ng-container>
+      </td>
+    </ng-container>
+
+    <!-- Géneration des rows -->
+    <tr mat-header-row *matHeaderRowDef="columnsName"></tr>
+    <tr mat-row *matRowDef="let row; columns: columnsName;"></tr>
+
+    <!-- Ligne si aucun résultat du filtre-->
+    <tr class="mat-row" *matNoDataRow [style.display]="loading ? 'none' : ''">
+      <td class="mat-cell" [attr.colspan]="columns.length">{{"TABLE.NO_MATCH" | translate}} "{{input.value}}"</td>
+    </tr>
+
+    <!-- Ligne si chargement -->
+    <tr mat-header-row *matHeaderRowDef="loading ? ['loading'] : []" [style.display]="loading ? '' : 'none'" ></tr>
+
+    <!-- Cellule spinner chargement -->
+    <ng-container matColumnDef="loading">
+      <th mat-header-cell [attr.colspan]="columns.length" *matHeaderCellDef>
+        <div class="spinner-table">
+          <mat-progress-spinner
+            color="primary"
+            mode="indeterminate">
+          </mat-progress-spinner>
+        </div>
+      </th>
+    </ng-container>
+
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

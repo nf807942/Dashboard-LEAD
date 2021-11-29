@@ -22,6 +22,7 @@ export class ToolbarComponent implements OnInit {
 
   changeLanguage(language: string): void {
     this.translate.use(language);
+    this.currentLanguage = language;
   }
 
 }

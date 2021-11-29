@@ -4,7 +4,8 @@
         "EN": "Anglais"
     },
     "APP": {
-        "DASHBOARD": "Tableau de bord"
+        "DASHBOARD": "Tableau de bord",
+        "ADD": "Ajouter"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Changer la langue"
@@ -45,5 +46,20 @@
         "LOAN": "Module prêts",
         "EXPERIMENT": "Module expérience",
         "RESERVATION": "Module salles"
+    },
+    "TABLE": {
+        "FILTER": "Filtre",
+        "NO_MATCH": "Aucune données pour le filtre",
+        "EDIT": "Editer",
+        "DELETE": "Supprimer",
+
+        "ID": "Id",
+        "LABEL": "Label"
+    },
+    "PAGINATOR": {
+        "ITEMS_PER_PAGE": "Élements par page",
+        "OF_LABEL": "sur",
+        "NEXT_PAGE": "Page suivante",
+        "PREVIOUS_PAGE": "Page précedente"
     }
 }

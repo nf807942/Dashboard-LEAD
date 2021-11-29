@@ -4,15 +4,12 @@
     <a [routerLink]="'/'" id="title-toolbar">{{'APP.DASHBOARD' | translate}}</a>
     <span class="spacer"></span>
 
-    <ng-container>
-
-        <button mat-button [matMenuTriggerFor]="menuLanguage" [matTooltip]="'TOOLTIPS.CHANGE_LANGUAGE' | translate">
-            <mat-icon>language</mat-icon> {{'LANGUAGE.' + currentLanguage | uppercase | translate}}
-            <mat-icon>arrow_drop_down</mat-icon>
-        </button>
-        <mat-menu #menuLanguage="matMenu">
-            <a mat-menu-item (click)="changeLanguage('fr')">{{'LANGUAGE.FR' | translate}}</a>
-            <a mat-menu-item (click)="changeLanguage('en')">{{'LANGUAGE.EN' | translate}}</a>
-        </mat-menu>
-    </ng-container>
+    <button mat-button [matMenuTriggerFor]="menuLanguage" [matTooltip]="'TOOLTIPS.CHANGE_LANGUAGE' | translate">
+        <mat-icon>language</mat-icon> {{'LANGUAGE.' + currentLanguage | uppercase | translate}}
+        <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menuLanguage="matMenu">
+        <a mat-menu-item (click)="changeLanguage('fr')">{{'LANGUAGE.FR' | translate}}</a>
+        <a mat-menu-item (click)="changeLanguage('en')">{{'LANGUAGE.EN' | translate}}</a>
+    </mat-menu>
 </mat-toolbar>

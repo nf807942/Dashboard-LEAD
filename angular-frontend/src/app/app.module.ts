@@ -14,6 +14,8 @@ import { NotationModule } from './notation/notation.module';
 import { LoanModule } from './loan/loan.module';
 import { ReservationModule } from './reservation/reservation.module';
 import { ExperimentModule } from './experiment/experiment.module';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -48,6 +50,12 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   ],
   exports: [
     AppRoutingModule
+  ],
+  providers:  [
+    {
+      provide: MatPaginatorIntl,
+      useClass: CustomMatPaginatorIntl,
+    }
   ],
   bootstrap: [AppComponent]
 })
