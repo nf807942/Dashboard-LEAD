@@ -1,7 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -17,14 +15,12 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private http: HttpClient,
     private translate: TranslateService) {
     this.translate.setDefaultLang('fr');
     this.translate.use('fr');
   }
 
   ngOnInit(): void {
-    this.http.get(environment.url+'api/students').subscribe(result => console.log(result));
   }
 
 }
