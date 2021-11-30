@@ -1,0 +1,23 @@
+<div [formGroup]="form">
+    <div [ngSwitch]="question.controlType">
+        <input *ngIf="question.hidden" type="hidden" [formControlName]="question.key">
+        <mat-form-field appearance="outline" class="full-width" *ngIf="!question.hidden">
+            <mat-label>{{question.label | translate}}</mat-label>
+
+            <input matInput *ngSwitchCase="'textbox'" [placeholder]="question.value" [formControlName]="question.key" [type]="question.type">
+
+            <mat-select *ngSwitchCase="'dropdown'" [formControlName]="question.key">
+                <ng-container *ngIf="!question.options_observable">
+                    <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
+                </ng-container>
+                <ng-container *ngIf="question.options_observable">
+                    <mat-option *ngFor="let opt of observable_values" [value]="opt[question.options_observable_key]">{{opt[question.options_observable_value]}}</mat-option>
+                </ng-container>
+            </mat-select>
+
+            <mat-icon matSuffix *ngIf="question.icon">{{question.icon}}</mat-icon>
+            <mat-hint *ngIf="question.hint">{{question.hint}}</mat-hint>
+            <mat-error *ngIf="!isValid">{{"FORM.REQUIRED" |translate}}</mat-error>
+        </mat-form-field>
+    </div>
+</div>

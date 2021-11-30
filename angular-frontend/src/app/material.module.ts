@@ -10,6 +10,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
@@ -35,12 +36,13 @@ import {MatSortModule} from '@angular/material/sort';
     MatButtonModule,
     MatDialogModule,
     MatRippleModule,
+    MatSelectModule,
     MatTableModule,
     MatInputModule,
     MatIconModule,
     MatMenuModule,
     MatListModule,
-    MatSortModule
+    MatSortModule,
   ]
 })
 export class MaterialModule { }

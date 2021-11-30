@@ -67,11 +67,22 @@ export class TableComponent implements OnInit, AfterViewInit {
   removeData(data_to_remove: any[]): void {
     const current_data = this.dataSource.data;
     data_to_remove.forEach(element => {
-      const index = current_data.indexOf(element, 0);
+      const index = current_data.findIndex(x => JSON.stringify(x) === JSON.stringify(element));
       if (index > -1) {
         current_data.splice(index, 1);
       }
     });
+    this.dataSource.data = current_data;
+
+    this.table.renderRows();
+  }
+
+  updateData(old_data: any, new_data: any): void {
+    const current_data = this.dataSource.data;
+    const index = current_data.findIndex(x => JSON.stringify(x) === JSON.stringify(old_data))
+    if (index > -1) {
+      current_data[index] = new_data;
+    }
     this.dataSource.data = current_data;
 
     this.table.renderRows();
@@ -83,7 +94,7 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.table.renderRows();
   }
 
-  updateData(): void {
+  updateTable(): void {
     this.table.renderRows();
   }
 }

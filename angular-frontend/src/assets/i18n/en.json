@@ -5,9 +5,12 @@
     },
     "APP": {
         "DASHBOARD": "Dashboard",
-        "ADD": "Add",
         "CLOSE": "Close",
-        "DETAILS": "Details"
+        "DETAILS": "Details",
+        "CANCEL": "Cancel",
+        "ADD": "Add",
+        "UPDATE": "Update",
+        "DELETE": "Delete"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Change language"
@@ -67,5 +70,14 @@
     "SNACKBAR": {
         "DETAILS": "View details",
         "ERROR-SERVER": "A error has occured on the server-side"
+    },
+    "FORM": {
+        "LABEL": "Label",
+        "REQUIRED": "This field is required"
+    },
+    "DIALOG": {
+        "ADD": "Add element",
+        "UPDATE": "Update element",
+        "DELETE": "Delete element"
     }
 }

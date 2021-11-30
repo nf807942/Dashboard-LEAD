@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>{{data.title | translate}}</h2>
+<mat-dialog-content>
+    <app-dynamic-form [questions]="data.questions" #dynamicForm></app-dynamic-form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button [mat-dialog-close]="null" cdkFocusInitial>{{"APP.CANCEL" | translate}}</button>
+    <button mat-flat-button [mat-dialog-close]="dynamicForm.value" [color]="data.actionColor" [disabled]="dynamicForm.form.status === 'INVALID' || dynamicForm.loading" cdkFocusInitial>{{data.actionName | translate}}</button>
+</mat-dialog-actions>

@@ -5,9 +5,12 @@
     },
     "APP": {
         "DASHBOARD": "Tableau de bord",
-        "ADD": "Ajouter",
         "CLOSE": "Fermer",
-        "DETAILS": "Détails"
+        "DETAILS": "Détails",
+        "CANCEL": "Annuler",
+        "ADD": "Ajouter",
+        "UPDATE": "Modifier",
+        "DELETE": "Supprimer"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Changer la langue"
@@ -66,6 +69,18 @@
     },
     "SNACKBAR": {
         "DETAILS": "Voir détails",
-        "ERROR-SERVER": "Une erreur s'est produite sur le serveur"
+        "ERROR-SERVER": "Une erreur s'est produite sur le serveur",
+        "PUT-SUCCESS": "L'élément a été rajouté avec succès",
+        "PATCH-SUCCESS": "L'élément a été modifié avec succès",
+        "DELETE-SUCCESS": "L'élément a été supprimé avec succès"
+    },
+    "FORM": {
+        "LABEL": "Label",
+        "REQUIRED": "Ce champ est requis"
+    },
+    "DIALOG": {
+        "ADD": "Ajouter un élément",
+        "UPDATE": "Modifier l'élement",
+        "DELETE": "Supprimer l'élement"
     }
 }

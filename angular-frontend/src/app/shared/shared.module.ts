@@ -12,6 +12,9 @@ import { TableComponent } from './components/table/table.component';
 import { ModuleContainerComponent } from './components/module-container/module-container.component';
 import { MessageSnackbarComponent } from './components/message-snackbar/message-snackbar.component';
 import { DetailsDialogComponent } from './components/dialogs/details-dialog/details-dialog.component';
+import { CreateEditDeleteDialogComponent } from './components/dialogs/create-edit-delete-dialog/create-edit-delete-dialog.component';
+import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { DetailsDialogComponent } from './components/dialogs/details-dialog/deta
     TableComponent,
     ModuleContainerComponent,
     MessageSnackbarComponent,
-    DetailsDialogComponent
+    DetailsDialogComponent,
+    CreateEditDeleteDialogComponent,
+    DynamicFormQuestionComponent,
+    DynamicFormComponent
   ],
   imports: [
     FormsModule,
@@ -38,6 +44,7 @@ import { DetailsDialogComponent } from './components/dialogs/details-dialog/deta
     TableComponent,
     ModuleContainerComponent,
     MessageSnackbarComponent,
+    DynamicFormComponent,
 
     FormsModule,
     CommonModule,
