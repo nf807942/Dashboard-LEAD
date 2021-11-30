@@ -1,0 +1,9 @@
+<div id="snackbar-spacer">
+    <div>
+        <mat-icon *ngIf="data.icon">{{data.icon}}</mat-icon>
+        <span> {{data.message | translate}}</span>
+    </div>
+    <div>
+        <button mat-stroked-button *ngIf="data.details" (click)="openDetails()">{{"SNACKBAR.DETAILS" | translate}}</button>
+    </div>
+</div>

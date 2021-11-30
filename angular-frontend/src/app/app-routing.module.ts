@@ -35,6 +35,7 @@ const routes: Routes = [
   },
   { path: 'loan', component: LoanTemplateComponent,
   children: [
+      { path: '', redirectTo: 'add-loan', pathMatch: 'full' },
       { path: 'add-loan', component: AddLoanComponent },
       { path: 'my-loan', component: MyLoanComponent },
       { path: 'old-loan', component: OldLoanComponent },

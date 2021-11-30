@@ -5,7 +5,9 @@
     },
     "APP": {
         "DASHBOARD": "Tableau de bord",
-        "ADD": "Ajouter"
+        "ADD": "Ajouter",
+        "CLOSE": "Fermer",
+        "DETAILS": "Détails"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Changer la langue"
@@ -61,5 +63,9 @@
         "OF_LABEL": "sur",
         "NEXT_PAGE": "Page suivante",
         "PREVIOUS_PAGE": "Page précedente"
+    },
+    "SNACKBAR": {
+        "DETAILS": "Voir détails",
+        "ERROR-SERVER": "Une erreur s'est produite sur le serveur"
     }
 }

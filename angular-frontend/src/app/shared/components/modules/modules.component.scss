@@ -16,8 +16,8 @@ mat-grid-tile {
     transition: background-color 0.3s;
     animation-name: fadeIn;
     animation-fill-mode: both;
-    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);;
-    animation-duration: 0.75s;
+    animation-timing-function: ease-out;
+    animation-duration: 0.8s;
 }
 
 @keyframes fadeIn {

@@ -5,7 +5,9 @@
     },
     "APP": {
         "DASHBOARD": "Dashboard",
-        "ADD": "Add"
+        "ADD": "Add",
+        "CLOSE": "Close",
+        "DETAILS": "Details"
     },
     "TOOLTIPS": {
         "CHANGE_LANGUAGE": "Change language"
@@ -61,5 +63,9 @@
         "OF_LABEL": "of",
         "NEXT_PAGE": "Next page",
         "PREVIOUS_PAGE": "Previous page"
+    },
+    "SNACKBAR": {
+        "DETAILS": "View details",
+        "ERROR-SERVER": "A error has occured on the server-side"
     }
 }
