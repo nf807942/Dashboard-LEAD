@@ -61,8 +61,10 @@ export class StudentsComponent implements OnInit {
     {name: 'TABLE.STUDENT-YEAR', property: 'studyYear'},
     {name: 'TABLE.STUDENT-NUMBER', property: 'studentNumber'},
     {name: 'TABLE.STUDENT-POINTS', property: 'points'},
-    {name: 'TABLE.EDIT', property: 'edit', button: true, buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
-    {name: 'TABLE.DELETE', property: 'delete', button: true, buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action},
+    {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
+      {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
+      {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
+    ]},
   ];
 
   students: Observable<Student[]> = null;

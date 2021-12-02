@@ -5,7 +5,7 @@
     },
     "APP": {
         "DASHBOARD": "Tableau de bord",
-        "WELCOME": "Bienvenue sur votre tableau de bord!",
+        "WELCOME": "Bienvenue sur votre tableau de bord !",
         "CLOSE": "Fermer",
         "DETAILS": "Détails",
         "CANCEL": "Annuler",
@@ -57,6 +57,7 @@
         "NO-MATCH": "Aucune données pour le filtre",
         "EDIT": "Éditer",
         "DELETE": "Supprimer",
+        "ACTIONS": "Actions",
 
         "ID": "Id",
         "LABEL": "Label",

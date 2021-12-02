@@ -17,3 +17,9 @@ table {
 td:nth-last-child(1) {
     width: 0;
 }
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}

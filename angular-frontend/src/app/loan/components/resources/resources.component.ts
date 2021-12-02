@@ -43,8 +43,10 @@ export class ResourcesComponent implements OnInit {
   columns: CustomColumn[] = [
     {name: 'TABLE.NAME', property: 'name'},
     {name: 'TABLE.TYPE_NAME', property: 'type', subproperty: 'label'},
-    {name: 'TABLE.EDIT', property: 'edit', button: true, buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
-    {name: 'TABLE.DELETE', property: 'delete', button: true, buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action},
+    {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
+      {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
+      {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
+    ]},
   ];
 
   resources: Observable<Resource[]> = null;

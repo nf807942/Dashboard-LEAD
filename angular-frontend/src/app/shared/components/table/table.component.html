@@ -14,7 +14,11 @@
         <ng-container *ngIf="!column.button && !column.subproperty && !column.calculatedProperty">{{element[column.property]}}</ng-container>
         <ng-container *ngIf="column.calculatedProperty">{{column.calculatedProperty(element)}}</ng-container>
         <ng-container *ngIf="column.subproperty">{{element[column.property][column.subproperty]}}</ng-container>
-        <ng-container *ngIf="column.button"><button mat-raised-button [color]="column.buttonColor" (click)="column.buttonAction(element)"><mat-icon>{{column.buttonIcon}}</mat-icon> {{column.buttonText | translate}}</button></ng-container>
+        <ng-container *ngIf="column.button">
+          <div class="buttons">
+            <button *ngFor="let button of column.buttons" mat-raised-button [color]="button.buttonColor" (click)="button.buttonAction(element)"><mat-icon>{{button.buttonIcon}}</mat-icon> {{button.buttonText | translate}}</button>
+          </div>
+        </ng-container>
       </td>
     </ng-container>
 

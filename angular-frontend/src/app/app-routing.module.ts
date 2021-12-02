@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: '', component: ModulesComponent },
   { path: 'notation', component: NotationTemplateComponent,
     children: [
+      { path: '', redirectTo: 'add-points', pathMatch: 'full' },
       { path: 'add-points', component: AddPointsComponent },
       { path: 'students', component: StudentsComponent },
     ]
@@ -45,12 +46,14 @@ const routes: Routes = [
   },
   { path: 'experiment', component: ExperimentTemplateComponent,
   children: [
+      { path: '', redirectTo: 'my-experiments', pathMatch: 'full' },
       { path: 'my-experiments', component: MyExperimentsComponent },
       { path: 'old-experiments', component: OldExperimentsComponent },
       { path: 'experiments', component: ExperimentsComponent },
   ]},
   { path: 'reservation', component: ReservationTemplateComponent,
   children: [
+      { path: '', redirectTo: 'buildings', pathMatch: 'full' },
       { path: 'buildings', component: BuildingsComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'reserve', component: ReserveComponent },

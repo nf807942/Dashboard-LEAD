@@ -57,6 +57,7 @@
         "NO-MATCH": "No data matching the filter",
         "EDIT": "Edit",
         "DELETE": "Delete",
+        "ACTIONS": "Actions",
 
         "ID": "Id",
         "LABEL": "Label",
