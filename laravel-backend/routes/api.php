@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\StudentController;
 use \App\Http\Controllers\TypeController;
+use \App\Http\Controllers\ResourceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,4 +37,17 @@ Route::patch('/loan/type/{id}',
 Route::delete('/loan/type/{id}',
     [TypeController::class, 'deleteType']
 );
+
+// RESOURCE
+Route::get('/loan/resources',
+    [ResourceController::class, 'getResources']
+);
+Route::put('/loan/resource',
+    [ResourceController::class, 'putResource']
+);
+Route::patch('/loan/resource/{id}',
+    [ResourceController::class, 'patchResource']
+);
+Route::delete('/loan/resource/{id}',
+    [ResourceController::class, 'deleteResource']
 );
