@@ -17,9 +17,9 @@ class StudentFactory extends Factory
         return [
             'firstName' => $this->faker->firstName(),
             'lastName' => $this->faker->lastName(),
-            'temps' => 0,
-            'studyYear' => ['L1', 'L2', 'L3', 'M1', 'M2'][random_int(0, 4)],
-            'studentNumber' => Str::random(8),
+            'points' => 0,
+            'studyYear' => $this->faker->randomElement(['L1', 'L2', 'L3', 'M1', 'M2']),
+            'studentNumber' => $this->faker->bothify('#########?'),
         ];
     }
 }

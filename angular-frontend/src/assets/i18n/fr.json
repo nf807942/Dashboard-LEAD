@@ -14,7 +14,7 @@
         "DELETE": "Supprimer"
     },
     "TOOLTIPS": {
-        "CHANGE_LANGUAGE": "Changer la langue"
+        "CHANGE-LANGUAGE": "Changer la langue"
     },
     "SIDENAV": {
         "MODULES": "Accueil",
@@ -23,7 +23,6 @@
 
         "NOTATION": {
             "ADD-POINTS": "Ajout points",
-            "ADD-STUDENT": "Ajout étudiant",
             "STUDENTS": "Étudiants"
         },
         "LOAN": {
@@ -55,14 +54,20 @@
     },
     "TABLE": {
         "FILTER": "Filtre",
-        "NO_MATCH": "Aucune données pour le filtre",
-        "EDIT": "Editer",
+        "NO-MATCH": "Aucune données pour le filtre",
+        "EDIT": "Éditer",
         "DELETE": "Supprimer",
 
         "ID": "Id",
         "LABEL": "Label",
         "NAME": "Nom",
-        "TYPE_NAME": "Type de la ressource"
+        "TYPE_NAME": "Type de la ressource",
+        "STUDENT-NAME": "Étudiant",
+        "STUDENT-YEAR": "Année",
+        "STUDENT-NUMBER": "Numéro Étudiant",
+        "STUDENT-POINTS": "Points",
+        "STUDENT-FIRST-NAME": "Prénom",
+        "STUDENT-LAST-NAME": "Nom"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",

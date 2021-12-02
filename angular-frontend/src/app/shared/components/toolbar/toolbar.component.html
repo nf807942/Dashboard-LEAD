@@ -4,7 +4,7 @@
     <a [routerLink]="'/'" id="title-toolbar">{{'APP.DASHBOARD' | translate}}</a>
     <span class="spacer"></span>
 
-    <button mat-button [matMenuTriggerFor]="menuLanguage" [matTooltip]="'TOOLTIPS.CHANGE_LANGUAGE' | translate">
+    <button mat-button [matMenuTriggerFor]="menuLanguage" [matTooltip]="'TOOLTIPS.CHANGE-LANGUAGE' | translate">
         <mat-icon>language</mat-icon> {{'LANGUAGE.' + currentLanguage | uppercase | translate}}
         <mat-icon>arrow_drop_down</mat-icon>
     </button>

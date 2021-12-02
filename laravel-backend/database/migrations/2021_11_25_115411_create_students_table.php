@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('lastName');
             $table->string('studyYear');
             $table->string('studentNumber');
-            $table->integer('temps');
+            $table->integer('points')->default('0');
             $table->timestamps();
         });
     }

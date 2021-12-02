@@ -51,3 +51,19 @@ Route::patch('/loan/resource/{id}',
 Route::delete('/loan/resource/{id}',
     [ResourceController::class, 'deleteResource']
 );
+
+// NOTATION
+
+// STUDENT
+Route::get('/notation/students',
+    [StudentController::class, 'getStudents']
+);
+Route::put('/notation/student',
+    [StudentController::class, 'putStudent']
+);
+Route::patch('/notation/student/{id}',
+    [StudentController::class, 'patchStudent']
+);
+Route::delete('/notation/student/{id}',
+    [StudentController::class, 'deleteStudent']
+);

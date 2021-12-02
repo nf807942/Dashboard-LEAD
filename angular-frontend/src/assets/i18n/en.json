@@ -14,7 +14,7 @@
         "DELETE": "Delete"
     },
     "TOOLTIPS": {
-        "CHANGE_LANGUAGE": "Change language"
+        "CHANGE-LANGUAGE": "Change language"
     },
     "SIDENAV": {
         "MODULES": "Home",
@@ -23,7 +23,6 @@
 
         "NOTATION": {
             "ADD-POINTS": "Add points",
-            "ADD-STUDENT": "Add student",
             "STUDENTS": "Students"
         },
         "LOAN": {
@@ -55,14 +54,20 @@
     },
     "TABLE": {
         "FILTER": "Filter",
-        "NO_MATCH": "No data matching the filter",
+        "NO-MATCH": "No data matching the filter",
         "EDIT": "Edit",
         "DELETE": "Delete",
 
         "ID": "Id",
         "LABEL": "Label",
         "NAME": "Name",
-        "TYPE_NAME": "Type of resource"
+        "TYPE_NAME": "Type of resource",
+        "STUDENT-NAME": "Student",
+        "STUDENT-YEAR": "Year",
+        "STUDENT-NUMBER": "Student id",
+        "STUDENT-POINTS": "Points",
+        "STUDENT-FIRST-NAME": "First name",
+        "STUDENT-LAST-NAME": "Last name"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",

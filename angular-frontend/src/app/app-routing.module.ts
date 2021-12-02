@@ -13,7 +13,6 @@ import { OldLoanComponent } from './loan/components/old-loan/old-loan.component'
 import { ResourcesComponent } from './loan/components/resources/resources.component';
 import { TypesComponent } from './loan/components/types/types.component';
 import { AddPointsComponent } from './notation/components/add-points/add-points.component';
-import { AddStudentComponent } from './notation/components/add-student/add-student.component';
 import { NotationTemplateComponent } from './notation/components/notation-template/notation-template.component';
 import { StudentsComponent } from './notation/components/students/students.component';
 import { BuildingsComponent } from './reservation/components/buildings/buildings.component';
@@ -29,7 +28,6 @@ const routes: Routes = [
   { path: 'notation', component: NotationTemplateComponent,
     children: [
       { path: 'add-points', component: AddPointsComponent },
-      { path: 'add-student', component: AddStudentComponent },
       { path: 'students', component: StudentsComponent },
     ]
   },

@@ -7,12 +7,13 @@
   <table #table mat-table [dataSource]="dataSource" matSort>
     <ng-container [matColumnDef]="column.property" *ngFor="let column of columns">
       <!-- Définition de l'header -->
-        <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="column.button"> {{column.name | translate}} </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header [disabled]="column.button"> {{column.name | translate}} </th>
 
       <!-- Définition des cellules -->
       <td mat-cell *matCellDef="let element">
-        <ng-container *ngIf="!column.button && !column.subproperty">{{element[column.property]}}</ng-container>
-        <ng-container *ngIf="!column.button && column.subproperty">{{element[column.property][column.subproperty]}}</ng-container>
+        <ng-container *ngIf="!column.button && !column.subproperty && !column.calculatedProperty">{{element[column.property]}}</ng-container>
+        <ng-container *ngIf="column.calculatedProperty">{{column.calculatedProperty(element)}}</ng-container>
+        <ng-container *ngIf="column.subproperty">{{element[column.property][column.subproperty]}}</ng-container>
         <ng-container *ngIf="column.button"><button mat-raised-button [color]="column.buttonColor" (click)="column.buttonAction(element)"><mat-icon>{{column.buttonIcon}}</mat-icon> {{column.buttonText | translate}}</button></ng-container>
       </td>
     </ng-container>
@@ -23,7 +24,7 @@
 
     <!-- Ligne si aucun résultat du filtre-->
     <tr class="mat-row" *matNoDataRow [style.display]="loading ? 'none' : ''">
-      <td class="mat-cell" [attr.colspan]="columns.length">{{"TABLE.NO_MATCH" | translate}} "{{input.value}}"</td>
+      <td class="mat-cell" [attr.colspan]="columns.length">{{"TABLE.NO-MATCH" | translate}} "{{input.value}}"</td>
     </tr>
 
     <!-- Ligne si chargement -->

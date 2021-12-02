@@ -15,7 +15,6 @@ export class NotationTemplateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.crossComponentService.links = [
       {text: 'SIDENAV.NOTATION.ADD-POINTS', route:'notation/add-points'},
-      {text: 'SIDENAV.NOTATION.ADD-STUDENT', route:'notation/add-student'},
       {text: 'SIDENAV.NOTATION.STUDENTS', route:'notation/students'}
     ];
   }
