@@ -11,7 +11,8 @@
 
       <!-- Définition des cellules -->
       <td mat-cell *matCellDef="let element">
-        <ng-container *ngIf="!column.button">{{element[column.property]}}</ng-container>
+        <ng-container *ngIf="!column.button && !column.subproperty">{{element[column.property]}}</ng-container>
+        <ng-container *ngIf="!column.button && column.subproperty">{{element[column.property][column.subproperty]}}</ng-container>
         <ng-container *ngIf="column.button"><button mat-raised-button [color]="column.buttonColor" (click)="column.buttonAction(element)"><mat-icon>{{column.buttonIcon}}</mat-icon> {{column.buttonText | translate}}</button></ng-container>
       </td>
     </ng-container>

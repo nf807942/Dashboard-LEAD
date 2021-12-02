@@ -5,6 +5,7 @@
     },
     "APP": {
         "DASHBOARD": "Tableau de bord",
+        "WELCOME": "Bienvenue sur votre tableau de bord!",
         "CLOSE": "Fermer",
         "DETAILS": "Détails",
         "CANCEL": "Annuler",
@@ -59,7 +60,9 @@
         "DELETE": "Supprimer",
 
         "ID": "Id",
-        "LABEL": "Label"
+        "LABEL": "Label",
+        "NAME": "Nom",
+        "TYPE_NAME": "Type de la ressource"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",
@@ -75,7 +78,6 @@
         "DELETE-SUCCESS": "L'élément a été supprimé avec succès"
     },
     "FORM": {
-        "LABEL": "Label",
         "REQUIRED": "Ce champ est requis"
     },
     "DIALOG": {

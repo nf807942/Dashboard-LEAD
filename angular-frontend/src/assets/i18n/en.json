@@ -5,6 +5,7 @@
     },
     "APP": {
         "DASHBOARD": "Dashboard",
+        "WELCOME": "Welcome to your dashboard!",
         "CLOSE": "Close",
         "DETAILS": "Details",
         "CANCEL": "Cancel",
@@ -59,7 +60,9 @@
         "DELETE": "Delete",
 
         "ID": "Id",
-        "LABEL": "Label"
+        "LABEL": "Label",
+        "NAME": "Name",
+        "TYPE_NAME": "Type of resource"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",
@@ -72,7 +75,6 @@
         "ERROR-SERVER": "A error has occured on the server-side"
     },
     "FORM": {
-        "LABEL": "Label",
         "REQUIRED": "This field is required"
     },
     "DIALOG": {

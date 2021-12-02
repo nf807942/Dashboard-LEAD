@@ -5,6 +5,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTable, MatTableDataSource} from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { CustomColumn } from './custom-column';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -67,7 +68,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   removeData(data_to_remove: any[]): void {
     const current_data = this.dataSource.data;
     data_to_remove.forEach(element => {
-      const index = current_data.findIndex(x => JSON.stringify(x) === JSON.stringify(element));
+      const index = current_data.findIndex(x => _.isEqual(x, element))
       if (index > -1) {
         current_data.splice(index, 1);
       }
@@ -77,9 +78,9 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.table.renderRows();
   }
 
-  updateData(old_data: any, new_data: any): void {
+  patchData(old_data: any, new_data: any): void {
     const current_data = this.dataSource.data;
-    const index = current_data.findIndex(x => JSON.stringify(x) === JSON.stringify(old_data))
+    const index = current_data.findIndex(x => _.isEqual(x, old_data))
     if (index > -1) {
       current_data[index] = new_data;
     }

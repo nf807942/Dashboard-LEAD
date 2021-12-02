@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\TypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/students',
-    [StudentController::class, 'getStudents']
+// LOAN
+
+// TYPE
+Route::get('/loan/types',
+    [TypeController::class, 'getTypes']
+);
+Route::put('/loan/type',
+    [TypeController::class, 'putType']
+);
+Route::patch('/loan/type/{id}',
+    [TypeController::class, 'patchType']
+);
+Route::delete('/loan/type/{id}',
+    [TypeController::class, 'deleteType']
+);
 );

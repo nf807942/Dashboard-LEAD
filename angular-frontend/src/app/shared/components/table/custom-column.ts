@@ -1,6 +1,7 @@
 export interface CustomColumn {
     name: string;
     property: string;
+    subproperty?: string;
 
     button?: boolean;
     buttonText?: string;
