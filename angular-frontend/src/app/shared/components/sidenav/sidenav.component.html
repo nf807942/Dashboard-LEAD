@@ -1,21 +1,25 @@
 <mat-drawer-container class="full-height" autosize>
     <mat-drawer #drawer mode="side" opened="true" id="sidenav">
-        <mat-nav-list class="no-padding">
-            <div *ngFor="let link of all_links">
-                <a mat-list-item *ngIf="!link.gap && ((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected))" 
-                [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive">
-                    <div class="flex row sidenav-row">
-                        <div class="flex row align-center sidenav-link"><mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>{{link.text | translate}}</div>
-                        <mat-icon [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
-                    </div>
-                </a>
-                <div *ngIf="link.gap" class="sidenav-spacer"></div>
-            </div>
-         </mat-nav-list>
+        <div class="flex column full-height">
+            <mat-nav-list class="no-padding">
+                <div *ngFor="let link of all_links">
+                    <a mat-list-item *ngIf="!link.gap && ((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected))" 
+                    [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive">
+                        <div class="flex row sidenav-row">
+                            <div class="flex row align-center sidenav-link"><mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>{{link.text | translate}}</div>
+                            <mat-icon [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
+                        </div>
+                    </a>
+                    <div *ngIf="link.gap" class="sidenav-spacer"></div>
+                </div>
+            </mat-nav-list>
+            <div class="spacer"></div>
+            <img [src]="environement.assets + 'images/lead_logo.png'"/>
+        </div>
     </mat-drawer>
   
     <div class="sidenav-content">
         <router-outlet></router-outlet>
     </div>
-  
+
 </mat-drawer-container>

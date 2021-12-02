@@ -19,7 +19,7 @@ import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pag
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http, environment.i18n);
+  return new TranslateHttpLoader(http, environment.assets + 'i18n/');
 }
 
 @NgModule({

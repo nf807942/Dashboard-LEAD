@@ -1,5 +1,6 @@
 import { trigger, transition, style, animate } from '@angular/animations';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { ConnectionService } from '../../services/connection.service';
 import { CrossComponentService } from '../../services/cross-component.service';
 
@@ -21,6 +22,8 @@ import { CrossComponentService } from '../../services/cross-component.service';
   ]
 })
 export class SidenavComponent implements OnInit {
+
+  environement = environment;
 
   @ViewChild('drawer') drawer;
 
