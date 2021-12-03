@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\BuildingController;
+use \App\Http\Controllers\RoomController;
 use \App\Http\Controllers\TypeController;
 use \App\Http\Controllers\ResourceController;
 
@@ -66,4 +68,34 @@ Route::patch('/notation/student/{id}',
 );
 Route::delete('/notation/student/{id}',
     [StudentController::class, 'deleteStudent']
+);
+
+// RESERVATION
+
+// BUILDING
+Route::get('/reservation/buildings',
+    [BuildingController::class, 'getBuildings']
+);
+Route::put('/reservation/building',
+    [BuildingController::class, 'putBuilding']
+);
+Route::patch('/reservation/building/{id}',
+    [BuildingController::class, 'patchBuilding']
+);
+Route::delete('/reservation/building/{id}',
+    [BuildingController::class, 'deleteBuilding']
+);
+
+// ROOM
+Route::get('/reservation/rooms',
+    [RoomController::class, 'getRooms']
+);
+Route::put('/reservation/room',
+    [RoomController::class, 'putRoom']
+);
+Route::patch('/reservation/room/{id}',
+    [RoomController::class, 'patchRoom']
+);
+Route::delete('/reservation/room/{id}',
+    [RoomController::class, 'deleteRoom']
 );

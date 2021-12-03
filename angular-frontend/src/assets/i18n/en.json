@@ -62,13 +62,19 @@
         "ID": "Id",
         "LABEL": "Label",
         "NAME": "Name",
-        "TYPE_NAME": "Type of resource",
+        "TYPE-NAME": "Type of resource",
         "STUDENT-NAME": "Student",
         "STUDENT-YEAR": "Year",
         "STUDENT-NUMBER": "Student id",
         "STUDENT-POINTS": "Points",
         "STUDENT-FIRST-NAME": "First name",
-        "STUDENT-LAST-NAME": "Last name"
+        "STUDENT-LAST-NAME": "Last name",
+        "BUILDING-NAME": "Building name",
+        "BUILDING-ADDRESS": "Address",
+        "BUILDING-PC": "Zip code",
+        "BUILDING-CITY": "City",
+        "ROOM-NUMBER": "Room number",
+        "ROOM-FLOOR": "Floor"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",

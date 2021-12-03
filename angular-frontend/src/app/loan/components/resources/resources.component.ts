@@ -25,7 +25,7 @@ export class ResourcesComponent implements OnInit {
     }),
     new DropdownQuestion({
       key: 'type_id',
-      label: 'TABLE.TYPE_NAME',
+      label: 'TABLE.TYPE-NAME',
       options_observable: this.loanService.getTypes(),
       options_observable_key: 'id',
       options_observable_value: 'label',
@@ -42,7 +42,7 @@ export class ResourcesComponent implements OnInit {
 
   columns: CustomColumn[] = [
     {name: 'TABLE.NAME', property: 'name'},
-    {name: 'TABLE.TYPE_NAME', property: 'type', subproperty: 'label'},
+    {name: 'TABLE.TYPE-NAME', property: 'type', subproperty: 'label'},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
       {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
       {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
