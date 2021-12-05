@@ -79,7 +79,15 @@
         "BUILDING-PC": "Code postal",
         "BUILDING-CITY": "Ville",
         "ROOM-NUMBER": "Numéro de salle",
-        "ROOM-FLOOR": "Étage"
+        "ROOM-FLOOR": "Étage",
+        "EXPERIMENT-TITLE": "Titre",
+        "EXPERIMENT-DESCRIPTION": "Description",
+        "EXPERIMENT-TIME": "Durée",
+        "EXPERIMENT-MIN-SUBJECTS": "Nb min de sujets",
+        "EXPERIMENT-MAN-SUBJECTS": "Nb max de sujets",
+        "EXPERIMENT-EXPERIMENTALIST": "Expérimentateur",
+        "EXPERIMENT-START-DATE": "Date de début",
+        "EXPERIMENT-END-DATE": "Date de fin"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",

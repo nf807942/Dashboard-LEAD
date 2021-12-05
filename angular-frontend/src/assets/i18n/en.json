@@ -79,7 +79,15 @@
         "BUILDING-PC": "Zip code",
         "BUILDING-CITY": "City",
         "ROOM-NUMBER": "Room number",
-        "ROOM-FLOOR": "Floor"
+        "ROOM-FLOOR": "Floor",
+        "EXPERIMENT-TITLE": "Title",
+        "EXPERIMENT-DESCRIPTION": "Description",
+        "EXPERIMENT-TIME": "Duration",
+        "EXPERIMENT-MIN-SUBJECTS": "Min number of subjects",
+        "EXPERIMENT-MAN-SUBJECTS": "Max number of subjects",
+        "EXPERIMENT-EXPERIMENTALIST": "Experimentalist",
+        "EXPERIMENT-START-DATE": "Start date",
+        "EXPERIMENT-END-DATE": "End date"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",

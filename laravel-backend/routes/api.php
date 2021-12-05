@@ -9,6 +9,7 @@ use \App\Http\Controllers\BuildingController;
 use \App\Http\Controllers\RoomController;
 use \App\Http\Controllers\TypeController;
 use \App\Http\Controllers\ResourceController;
+use \App\Http\Controllers\ExperimentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,4 +112,20 @@ Route::patch('/reservation/room/{id}',
 );
 Route::delete('/reservation/room/{id}',
     [RoomController::class, 'deleteRoom']
+);
+
+// EXPERIMENT
+
+// EXPERIMENT
+Route::get('/experiment/experiments',
+    [ExperimentController::class, 'getExperiments']
+);
+Route::put('/experiment/experiment',
+    [ExperimentController::class, 'putExperiment']
+);
+Route::patch('/experiment/experiment/{id}',
+    [ExperimentController::class, 'patchExperiment']
+);
+Route::delete('/experiment/experiment/{id}',
+    [ExperimentController::class, 'deleteExperiment']
 );

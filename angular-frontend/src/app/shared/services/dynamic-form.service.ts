@@ -14,11 +14,19 @@ export class DynamicFormService {
 
     questions = (questions.sort((a, b) => a.order - b.order));
 
-    questions.forEach(question => {
-      let value = question.value || '';
+    questions.filter(question => !question.isRow).forEach(question => {
+      let value = (question.value != null) ? question.value : '';
       group[question.key] = question.required ? new FormControl({value:value, disabled: question.disabled}, Validators.required)
                                               : new FormControl({value:value, disabled: question.disabled});
     });
+    questions.filter(question => question.isRow).forEach(question => {
+      question.rows.forEach(row => {
+        let value = (row.value != null) ? row.value : '';
+        group[row.key] = row.required ? new FormControl({value:value, disabled: row.disabled}, Validators.required)
+                                                : new FormControl({value:value, disabled: row.disabled});
+      })
+    });
+
     return new FormGroup(group);
   }
 }

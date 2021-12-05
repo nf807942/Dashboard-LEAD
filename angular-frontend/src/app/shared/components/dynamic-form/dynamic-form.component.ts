@@ -29,10 +29,23 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
   }
 
   get value(): any {
+    this.questions.forEach(question => {
+      this.parseInt(question);
+      if(question.isRow) {
+        question.rows.forEach(row => this.parseInt(row));
+      }
+    })
+
     return this.form.getRawValue();
   }
 
   get loading(): boolean {
     return this.qsts_array.findIndex(qst => qst.loading === true) !== -1;
+  }
+
+  parseInt(question): void {
+    if(question.type === 'number') {
+      this.form.controls[question.key].setValue(parseInt(this.form.controls[question.key].value));
+    }
   }
 }

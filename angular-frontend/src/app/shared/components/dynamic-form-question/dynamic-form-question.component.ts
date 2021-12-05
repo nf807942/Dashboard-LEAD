@@ -50,6 +50,9 @@ export class DynamicFormQuestion {
   options_observable_key: string;
   options_observable_value: string;
 
+  isRow: boolean;
+  rows: DynamicFormQuestion[];
+
   constructor(options: {
           value?: any;
           key?: string;
@@ -67,6 +70,9 @@ export class DynamicFormQuestion {
           options_observable?: Observable<any[]>;
           options_observable_key?: string;
           options_observable_value?: string;
+
+          isRow?: boolean;
+          rows?: DynamicFormQuestion[];
       } = {}) {
       this.value = options.value;
       this.key = options.key || '';
@@ -84,6 +90,9 @@ export class DynamicFormQuestion {
       this.options_observable = options.options_observable || null;
       this.options_observable_key = options.options_observable_key || '';
       this.options_observable_value = options.options_observable_value || '';
+
+      this.isRow = options.isRow || false;
+      this.rows = options.rows || [];
   }
 }
 
@@ -97,4 +106,8 @@ export class DropdownQuestion extends DynamicFormQuestion {
 
 export class HiddenQuestion extends DynamicFormQuestion {
   override hidden = true;
+}
+
+export class RowQuestion extends DynamicFormQuestion {
+  override isRow = true;
 }

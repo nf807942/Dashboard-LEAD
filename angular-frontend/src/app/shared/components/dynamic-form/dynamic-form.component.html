@@ -1,7 +1,10 @@
 <div>
     <form [formGroup]="form">
         <div *ngFor="let question of questions">
-            <app-dynamic-form-question #qst [question]="question" [form]="form"></app-dynamic-form-question>
+            <div *ngIf="question.isRow" class="flex gap">
+                <app-dynamic-form-question class="grow" #qst [question]="row" [form]="form" *ngFor="let row of question.rows"></app-dynamic-form-question>
+            </div>
+            <app-dynamic-form-question #qst [question]="question" [form]="form" *ngIf="!question.isRow"></app-dynamic-form-question>
         </div>
     </form>
 </div>
