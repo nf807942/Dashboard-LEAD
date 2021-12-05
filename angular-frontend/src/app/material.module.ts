@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatFormFieldModule } from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -27,6 +28,7 @@ import {MatSortModule} from '@angular/material/sort';
   ],
   exports:[
     MatProgressSpinnerModule,
+    MatAutocompleteModule,
     MatSlideToggleModule,
     MatFormFieldModule,
     MatPaginatorModule,

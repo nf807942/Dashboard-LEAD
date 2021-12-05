@@ -11,7 +11,8 @@
         "CANCEL": "Cancel",
         "ADD": "Add",
         "UPDATE": "Update",
-        "DELETE": "Delete"
+        "DELETE": "Delete",
+        "VALIDATE": "Validate"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language"
@@ -84,7 +85,11 @@
     },
     "SNACKBAR": {
         "DETAILS": "View details",
-        "ERROR-SERVER": "A error has occured on the server-side"
+        "ERROR-SERVER": "A error has occured on the server-side",
+        "PUT-SUCCESS": "Element successfully added",
+        "PATCH-SUCCESS": "Element successfully updated",
+        "DELETE-SUCCESS": "Element successfully removed",
+        "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added"
     },
     "FORM": {
         "REQUIRED": "This field is required"
@@ -93,5 +98,12 @@
         "ADD": "Add element",
         "UPDATE": "Update element",
         "DELETE": "Delete element"
+    },
+    "NOTATION": {
+        "DEFAULT-TIME": "Default time",
+        "TIME-TO-ADD": "Time to add",
+        "ADD-TIME": "Add time",
+        "STUDENT": "Student",
+        "MINUTE-SHORT": "min"
     }
 }

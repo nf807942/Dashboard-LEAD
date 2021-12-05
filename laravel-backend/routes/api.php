@@ -57,6 +57,9 @@ Route::delete('/loan/resource/{id}',
 // NOTATION
 
 // STUDENT
+Route::post('/notation/add-time',
+    [StudentController::class, 'addTime']
+);
 Route::get('/notation/students',
     [StudentController::class, 'getStudents']
 );

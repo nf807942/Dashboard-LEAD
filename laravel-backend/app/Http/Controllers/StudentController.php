@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
+    public function addTime(Request $request) {
+        $request = $request->all();
+        foreach ($request as &$entry) {
+            $student = Student::findOrFail($entry['id']);
+            $student->points = $student->points + $entry['time'];
+            $student->save();
+        }
+        return response()->json($request, 200);
+    }
+
     public function getStudents() {
         $students = Student::all();
         return response()->json($students, 200);

@@ -1,1 +1,36 @@
-<p>add-points works!</p>
+<div class="row-student-points">
+    <div class="grow"></div>
+    <mat-form-field appearance="fill">
+        <mat-label>{{"NOTATION.DEFAULT-TIME" | translate}}</mat-label>
+        <mat-select (selectionChange)="updateDefaultTime($event.value)">
+            <mat-option *ngFor="let time of times" [value]="time">
+                {{time}} {{"NOTATION.MINUTE-SHORT" | translate}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="row-student-points" *ngFor="let line of ' '.repeat(autocompletions.length).split(''), let i = index">
+    <mat-form-field appearance="fill" class="row-student">
+        <mat-label>{{"NOTATION.STUDENT" | translate}}</mat-label>
+        <input matInput [formControl]="autocompletions[i]" [matAutocomplete]="auto" type="text">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="addLine(i)">
+            <mat-option *ngFor="let student of filteredOptions[i] | async" [value]="student">
+                {{displayFn(student)}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>{{"NOTATION.TIME-TO-ADD" | translate}}</mat-label>
+        <mat-select [formControl]="times_selectors[i]" (selectionChange)="addLine(i)">
+            <mat-option *ngFor="let time of times" [value]="time">
+                {{time}} {{"NOTATION.MINUTE-SHORT" | translate}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="full-width flex">
+    <div class="grow"></div>
+    <button mat-raised-button color="primary" (click)="addTime()"><mat-icon>done</mat-icon> {{"NOTATION.ADD-TIME" | translate}}</button>
+</div>

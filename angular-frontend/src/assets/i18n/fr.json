@@ -11,7 +11,8 @@
         "CANCEL": "Annuler",
         "ADD": "Ajouter",
         "UPDATE": "Modifier",
-        "DELETE": "Supprimer"
+        "DELETE": "Supprimer",
+        "VALIDATE": "Valider"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue"
@@ -87,7 +88,8 @@
         "ERROR-SERVER": "Une erreur s'est produite sur le serveur",
         "PUT-SUCCESS": "L'élément a été rajouté avec succès",
         "PATCH-SUCCESS": "L'élément a été modifié avec succès",
-        "DELETE-SUCCESS": "L'élément a été supprimé avec succès"
+        "DELETE-SUCCESS": "L'élément a été supprimé avec succès",
+        "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté"
     },
     "FORM": {
         "REQUIRED": "Ce champ est requis"
@@ -96,5 +98,12 @@
         "ADD": "Ajouter un élément",
         "UPDATE": "Modifier l'élement",
         "DELETE": "Supprimer l'élement"
+    },
+    "NOTATION": {
+        "DEFAULT-TIME": "Temps par défaut",
+        "TIME-TO-ADD": "Temps à rajouter",
+        "ADD-TIME": "Ajouter temps",
+        "STUDENT": "Étudiant",
+        "MINUTE-SHORT": "min"
     }
 }
