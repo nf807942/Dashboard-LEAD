@@ -12,7 +12,11 @@
         "ADD": "Add",
         "UPDATE": "Update",
         "DELETE": "Delete",
-        "VALIDATE": "Validate"
+        "VALIDATE": "Validate",
+        "EXPORT": "Export",
+        "EXPORT-AS": "Export as",
+        "IMPORT": "Import",
+        "IMPORT-FROM": "Import from"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language"
@@ -89,7 +93,8 @@
         "PUT-SUCCESS": "Element successfully added",
         "PATCH-SUCCESS": "Element successfully updated",
         "DELETE-SUCCESS": "Element successfully removed",
-        "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added"
+        "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added",
+        "NOTATION-IMPORT-SUCCESS": "Data successfully imported"
     },
     "FORM": {
         "REQUIRED": "This field is required"

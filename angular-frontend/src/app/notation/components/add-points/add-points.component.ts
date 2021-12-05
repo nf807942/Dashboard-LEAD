@@ -55,7 +55,6 @@ export class AddPointsComponent implements OnInit {
   }
 
   updateDefaultTime(time: number): void {
-    console.log(time)
     this.times_selectors.forEach(times_selector => {
       times_selector.setValue(time);
     });

@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+
 use \App\Http\Controllers\StudentController;
 use \App\Http\Controllers\BuildingController;
 use \App\Http\Controllers\RoomController;
@@ -71,6 +72,15 @@ Route::patch('/notation/student/{id}',
 );
 Route::delete('/notation/student/{id}',
     [StudentController::class, 'deleteStudent']
+);
+Route::get('/notation/export-XLSX',
+    [StudentController::class, 'exportXLSX']
+);
+Route::get('/notation/export-CSV',
+    [StudentController::class, 'exportCSV']
+);
+Route::post('/notation/import',
+    [StudentController::class, 'import']
 );
 
 // RESERVATION

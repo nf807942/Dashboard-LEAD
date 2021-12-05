@@ -25,8 +25,8 @@ export class ApiService {
     return environment.url + 'api/' + module + '/' + endpoint + (id ? '/' + id : '');
   }
 
-  get(module: string, endpoint: string): Observable<any> {
-    return this.http.get(this.url(module, endpoint)).pipe(
+  get(module: string, endpoint: string, options: any = {}): Observable<any> {
+    return this.http.get(this.url(module, endpoint), options).pipe(
       this.errorCatching,
       catchError(() => of([]))
     );

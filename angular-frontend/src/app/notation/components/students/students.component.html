@@ -1,6 +1,13 @@
-<div class="flex row">
+<div class="flex row gap">
     <div class="grow"></div>
-    <button mat-raised-button color="primary" (click)="this.createAction.action()"><mat-icon>add</mat-icon>{{"APP.ADD" | translate}}</button>
+    <button mat-raised-button color="primary" [matMenuTriggerFor]="exportMenu"><mat-icon>cloud_download</mat-icon> {{"APP.EXPORT" | translate}}</button>
+    <mat-menu #exportMenu="matMenu">
+        <button mat-menu-item (click)="exportXLSX()">{{"APP.EXPORT-AS" | translate}} XLSX</button>
+        <button mat-menu-item (click)="exportCSV()">{{"APP.EXPORT-AS" | translate}} CSV</button>
+    </mat-menu>
+    <input type="file" class="hidden" (change)="import($event.target.files)" #fileUpload accept=".csv, .xlsx">
+    <button mat-raised-button color="primary"  (click)="fileUpload.click()"><mat-icon>cloud_upload</mat-icon> {{"APP.IMPORT" | translate}}</button>
+    <button mat-raised-button color="primary" (click)="this.createAction.action()"><mat-icon>add</mat-icon> {{"APP.ADD" | translate}}</button>
 </div>
 
 <app-table #table [data]="students" [columns]="columns"></app-table>

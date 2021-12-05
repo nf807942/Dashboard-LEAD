@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentsExport;
+use App\Imports\StudentsImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -43,5 +46,20 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $student->delete();
         return response()->json($student, 200);
+    }
+
+    public function exportXLSX() {
+        return Excel::download(new StudentsExport, 'students.xlsx');
+    }
+
+    public function exportCSV() {
+        return Excel::download(new StudentsExport, 'students.csv');
+    }
+
+    public function import() {
+        Student::truncate();
+
+        Excel::import(new StudentsImport, request()->file('file'));
+        return response()->json(Student::all(), 200);
     }
 }

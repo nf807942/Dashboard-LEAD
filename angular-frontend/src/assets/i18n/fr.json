@@ -12,7 +12,11 @@
         "ADD": "Ajouter",
         "UPDATE": "Modifier",
         "DELETE": "Supprimer",
-        "VALIDATE": "Valider"
+        "VALIDATE": "Valider",
+        "EXPORT": "Exporter",
+        "EXPORT-AS": "Exporter sous",
+        "IMPORT": "Importer",
+        "IMPORT-FROM": "Importer depuis"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue"
@@ -89,7 +93,8 @@
         "PUT-SUCCESS": "L'élément a été rajouté avec succès",
         "PATCH-SUCCESS": "L'élément a été modifié avec succès",
         "DELETE-SUCCESS": "L'élément a été supprimé avec succès",
-        "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté"
+        "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté",
+        "NOTATION-IMPORT-SUCCESS": "Les données ont été importées avec succès"
     },
     "FORM": {
         "REQUIRED": "Ce champ est requis"

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DynamicFormQuestion, TextboxQuestion, HiddenQuestion, DropdownQuestion } from 'src/app/shared/components/dynamic-form-question/dynamic-form-question.component';
 import { CustomColumn } from 'src/app/shared/components/table/custom-column';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
@@ -97,6 +97,23 @@ export class StudentsComponent implements OnInit {
         this.notationService.deleteStudent(data).subscribe(this.notationService.api.deleteTableUpdate(this.table));
       }
     });
+  }
+
+  exportXLSX(): void {
+    this.notationService.exportXLSX();
+  }
+
+  exportCSV(): void {
+    this.notationService.exportCSV();
+  }
+
+  import(file: FileList): void {
+    if(file.length > 0) {
+      this.notationService.import(file.item(0)).subscribe(data => {
+        this.table.clearData();
+        this.table.addData(data);
+      });
+    }
   }
 
 }
