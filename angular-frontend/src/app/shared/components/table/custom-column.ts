@@ -3,6 +3,7 @@ export interface CustomColumn {
     property: string;
     subproperty?: string;
     calculatedProperty?: any;
+    type?: string;
 
     button?: boolean;
     buttons?: {

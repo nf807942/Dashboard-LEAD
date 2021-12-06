@@ -38,7 +38,6 @@ export class ExperimentsComponent implements OnInit {
       key: 'id',
     }),
   ];
-
   createAction = this.createEditDeleteDialogService.buildCreateAction(this.questions);
   patchAction = this.createEditDeleteDialogService.buildEditAction(this.questions);
   deleteAction = this.createEditDeleteDialogService.buildDeleteAction(this.questions);
@@ -50,8 +49,8 @@ export class ExperimentsComponent implements OnInit {
     {name: 'TABLE.EXPERIMENT-MIN-SUBJECTS', property: 'min_subjects'},
     {name: 'TABLE.EXPERIMENT-MAN-SUBJECTS', property: 'max_subjects'},
     {name: 'TABLE.EXPERIMENT-EXPERIMENTALIST', property: 'experimentalist'},
-    {name: 'TABLE.EXPERIMENT-START-DATE', property: 'start_date'},
-    {name: 'TABLE.EXPERIMENT-END-DATE', property: 'end_date'},
+    {name: 'TABLE.EXPERIMENT-START-DATE', property: 'start_date', type: 'date'},
+    {name: 'TABLE.EXPERIMENT-END-DATE', property: 'end_date', type: 'date'},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
       {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
       {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}

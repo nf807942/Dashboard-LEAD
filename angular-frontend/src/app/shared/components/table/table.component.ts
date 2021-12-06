@@ -6,6 +6,7 @@ import {MatTable, MatTableDataSource} from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { CustomColumn } from './custom-column';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 
 @Component({
@@ -45,6 +46,17 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sortingDataAccessor = (item, property) => {
+      let column = this.columns.find(column => column.property === property);
+
+      if (column.calculatedProperty) {
+        return column.calculatedProperty(item);
+      } else if (column.subproperty) {
+        return item[property][column.subproperty];
+      } else {
+        return item[property];
+      }
+    }
     this.dataSource.sort = this.sort;
   }
 
@@ -97,5 +109,14 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   updateTable(): void {
     this.table.renderRows();
+  }
+
+  formating(column: CustomColumn, data: any): string {
+    if(column.type) {
+      if(column.type === 'date') {
+        return moment(data).format('L');
+      }
+    }
+    return data
   }
 }
