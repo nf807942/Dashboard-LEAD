@@ -16,7 +16,11 @@
         "EXPORT": "Export",
         "EXPORT-AS": "Export as",
         "IMPORT": "Import",
-        "IMPORT-FROM": "Import from"
+        "IMPORT-FROM": "Import from",
+        "USERNAME": "Username / Email",
+        "PASSWORD": "Password",
+        "PASSWORD-ERROR": "Connection error, please check the username and password",
+        "CONNECT-TO": "Connection to the app"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language"

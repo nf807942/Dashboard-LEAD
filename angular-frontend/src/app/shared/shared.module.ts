@@ -15,6 +15,7 @@ import { DetailsDialogComponent } from './components/dialogs/details-dialog/deta
 import { CreateEditDeleteDialogComponent } from './components/dialogs/create-edit-delete-dialog/create-edit-delete-dialog.component';
 import { DynamicFormQuestionComponent } from './components/dynamic-form-question/dynamic-form-question.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.com
     DetailsDialogComponent,
     CreateEditDeleteDialogComponent,
     DynamicFormQuestionComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    LoginComponent,
   ],
   imports: [
     FormsModule,

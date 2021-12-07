@@ -16,7 +16,11 @@
         "EXPORT": "Exporter",
         "EXPORT-AS": "Exporter sous",
         "IMPORT": "Importer",
-        "IMPORT-FROM": "Importer depuis"
+        "IMPORT-FROM": "Importer depuis",
+        "USERNAME": "Utilisateur / Adresse mail",
+        "PASSWORD": "Mot de passe",
+        "PASSWORD-ERROR": "Erreur de connexion, vérifiez le nom d'utilisateur et le mot de passe",
+        "CONNECT-TO": "Connexion à l'application"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue"

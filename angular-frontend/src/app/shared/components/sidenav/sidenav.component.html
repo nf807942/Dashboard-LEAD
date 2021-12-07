@@ -4,7 +4,7 @@
             <mat-nav-list class="no-padding">
                 <div *ngFor="let link of all_links">
                     <a mat-list-item *ngIf="!link.gap && ((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected))" 
-                    [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive">
+                    [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive" (click)="link.action ? link.action() : {}">
                         <div class="flex row sidenav-row">
                             <div class="flex row align-center sidenav-link"><mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>{{link.text | translate}}</div>
                             <mat-icon [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
@@ -18,8 +18,6 @@
         </div>
     </mat-drawer>
   
-    <div class="sidenav-content">
-        <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
 
 </mat-drawer-container>

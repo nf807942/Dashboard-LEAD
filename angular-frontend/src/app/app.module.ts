@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,7 @@ import { ReservationModule } from './reservation/reservation.module';
 import { ExperimentModule } from './experiment/experiment.module';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
+import { LoggedInterceptor } from './shared/interceptors/logged.interceptor';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -55,6 +56,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     {
       provide: MatPaginatorIntl,
       useClass: CustomMatPaginatorIntl,
+    },
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: LoggedInterceptor,
+        multi: true
     }
   ],
   bootstrap: [AppComponent]

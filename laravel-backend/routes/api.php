@@ -22,110 +22,116 @@ use \App\Http\Controllers\ExperimentController;
 |
 */
 
+// AUTHENTIFICATION
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/logout', function (Request $request) {
+    Auth::logout();
+    return response()->json(true, 200);
 });
 
 // LOAN
 
 // TYPE
-Route::get('/loan/types',
+Route::middleware('auth:sanctum')->get('/loan/types',
     [TypeController::class, 'getTypes']
 );
-Route::put('/loan/type',
+Route::middleware('auth:sanctum')->put('/loan/type',
     [TypeController::class, 'putType']
 );
-Route::patch('/loan/type/{id}',
+Route::middleware('auth:sanctum')->patch('/loan/type/{id}',
     [TypeController::class, 'patchType']
 );
-Route::delete('/loan/type/{id}',
+Route::middleware('auth:sanctum')->delete('/loan/type/{id}',
     [TypeController::class, 'deleteType']
 );
 
 // RESOURCE
-Route::get('/loan/resources',
+Route::middleware('auth:sanctum')->get('/loan/resources',
     [ResourceController::class, 'getResources']
 );
-Route::put('/loan/resource',
+Route::middleware('auth:sanctum')->put('/loan/resource',
     [ResourceController::class, 'putResource']
 );
-Route::patch('/loan/resource/{id}',
+Route::middleware('auth:sanctum')->patch('/loan/resource/{id}',
     [ResourceController::class, 'patchResource']
 );
-Route::delete('/loan/resource/{id}',
+Route::middleware('auth:sanctum')->delete('/loan/resource/{id}',
     [ResourceController::class, 'deleteResource']
 );
 
 // NOTATION
 
 // STUDENT
-Route::post('/notation/add-time',
+Route::middleware('auth:sanctum')->post('/notation/add-time',
     [StudentController::class, 'addTime']
 );
-Route::get('/notation/students',
+Route::middleware('auth:sanctum')->get('/notation/students',
     [StudentController::class, 'getStudents']
 );
-Route::put('/notation/student',
+Route::middleware('auth:sanctum')->put('/notation/student',
     [StudentController::class, 'putStudent']
 );
-Route::patch('/notation/student/{id}',
+Route::middleware('auth:sanctum')->patch('/notation/student/{id}',
     [StudentController::class, 'patchStudent']
 );
-Route::delete('/notation/student/{id}',
+Route::middleware('auth:sanctum')->delete('/notation/student/{id}',
     [StudentController::class, 'deleteStudent']
 );
-Route::get('/notation/export-XLSX',
+Route::middleware('auth:sanctum')->get('/notation/export-XLSX',
     [StudentController::class, 'exportXLSX']
 );
-Route::get('/notation/export-CSV',
+Route::middleware('auth:sanctum')->get('/notation/export-CSV',
     [StudentController::class, 'exportCSV']
 );
-Route::post('/notation/import',
+Route::middleware('auth:sanctum')->post('/notation/import',
     [StudentController::class, 'import']
 );
 
 // RESERVATION
 
 // BUILDING
-Route::get('/reservation/buildings',
+Route::middleware('auth:sanctum')->get('/reservation/buildings',
     [BuildingController::class, 'getBuildings']
 );
-Route::put('/reservation/building',
+Route::middleware('auth:sanctum')->put('/reservation/building',
     [BuildingController::class, 'putBuilding']
 );
-Route::patch('/reservation/building/{id}',
+Route::middleware('auth:sanctum')->patch('/reservation/building/{id}',
     [BuildingController::class, 'patchBuilding']
 );
-Route::delete('/reservation/building/{id}',
+Route::middleware('auth:sanctum')->delete('/reservation/building/{id}',
     [BuildingController::class, 'deleteBuilding']
 );
 
 // ROOM
-Route::get('/reservation/rooms',
+Route::middleware('auth:sanctum')->get('/reservation/rooms',
     [RoomController::class, 'getRooms']
 );
-Route::put('/reservation/room',
+Route::middleware('auth:sanctum')->put('/reservation/room',
     [RoomController::class, 'putRoom']
 );
-Route::patch('/reservation/room/{id}',
+Route::middleware('auth:sanctum')->patch('/reservation/room/{id}',
     [RoomController::class, 'patchRoom']
 );
-Route::delete('/reservation/room/{id}',
+Route::middleware('auth:sanctum')->delete('/reservation/room/{id}',
     [RoomController::class, 'deleteRoom']
 );
 
 // EXPERIMENT
 
 // EXPERIMENT
-Route::get('/experiment/experiments',
+Route::middleware('auth:sanctum')->get('/experiment/experiments',
     [ExperimentController::class, 'getExperiments']
 );
-Route::put('/experiment/experiment',
+Route::middleware('auth:sanctum')->put('/experiment/experiment',
     [ExperimentController::class, 'putExperiment']
 );
-Route::patch('/experiment/experiment/{id}',
+Route::middleware('auth:sanctum')->patch('/experiment/experiment/{id}',
     [ExperimentController::class, 'patchExperiment']
 );
-Route::delete('/experiment/experiment/{id}',
+Route::middleware('auth:sanctum')->delete('/experiment/experiment/{id}',
     [ExperimentController::class, 'deleteExperiment']
 );

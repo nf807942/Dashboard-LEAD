@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,8 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private translate: TranslateService) {
+    private translate: TranslateService,
+    private http: HttpClient) {
     this.translate.setDefaultLang('fr');
     this.translate.use('fr');
   }

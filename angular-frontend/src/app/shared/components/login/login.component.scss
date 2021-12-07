@@ -1,0 +1,29 @@
+.login-div {
+    width: 50%;
+    margin: auto;
+    padding: 1em;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.login-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-title {
+    margin-bottom: 1em;
+    span {
+        font-size: large;
+    }
+}
+
+.button-spinner {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}

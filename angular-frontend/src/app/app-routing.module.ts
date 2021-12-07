@@ -20,12 +20,14 @@ import { MyReservationsComponent } from './reservation/components/my-reservation
 import { ReservationTemplateComponent } from './reservation/components/reservation-template/reservation-template.component';
 import { ReserveComponent } from './reservation/components/reserve/reserve.component';
 import { RoomsComponent } from './reservation/components/rooms/rooms.component';
+import { LoginComponent } from './shared/components/login/login.component';
 import { ModulesComponent } from './shared/components/modules/modules.component';
+import { LoggedGuard } from './shared/guards/logged.guard';
 
 const routes: Routes = [
-  { path: 'login', component: ModulesComponent },
-  { path: '', component: ModulesComponent },
-  { path: 'notation', component: NotationTemplateComponent,
+  { path: 'login', component: LoginComponent },
+  { path: '', component: ModulesComponent, canActivate: [LoggedGuard] },
+  { path: 'notation', component: NotationTemplateComponent, canActivate: [LoggedGuard],
     children: [
       { path: '', redirectTo: 'add-points', pathMatch: 'full' },
       { path: 'add-points', component: AddPointsComponent },

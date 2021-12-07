@@ -1,0 +1,24 @@
+
+<div class="flex full-height">
+    <div class="login-div mat-elevation-z8">
+        <div class="login-title"><span>{{"APP.CONNECT-TO" | translate}} :</span></div>
+        <form [formGroup]="form" (keyup.enter)="login()">
+            <mat-form-field appearance="fill">
+                <mat-label>{{"APP.USERNAME" | translate}}</mat-label>
+                <input matInput required formControlName="email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"APP.PASSWORD" | translate}}</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+                <button mat-icon-button matSuffix (click)="hide = !hide" type="button">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </form>
+        <div class="login-button">
+            <button mat-raised-button color="primary" (click)="login()" [disabled]="!form.valid || loading">
+                <div class="button-spinner">{{"SIDENAV.LOGIN" | translate}}<mat-spinner *ngIf="loading" diameter="25"></mat-spinner></div>
+            </button>
+        </div>
+    </div>
+</div>

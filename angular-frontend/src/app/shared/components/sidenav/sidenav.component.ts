@@ -35,7 +35,7 @@ export class SidenavComponent implements OnInit {
   mids_links = [];
   last_links = [
     {icon: '', text: '', route:'', gap:true},
-    {icon: 'logout', text: 'SIDENAV.LOGOUT', route:'logout'},
+    {icon: 'logout', text: 'SIDENAV.LOGOUT', action: () => this.connectionService.logout()},
   ];
 
   all_links = [...this.first_links, ...this.mids_links, ...this.last_links]
