@@ -23,6 +23,14 @@ import { CrossComponentService } from '../../services/cross-component.service';
 })
 export class SidenavComponent implements OnInit {
 
+  get open(): boolean {
+    return localStorage.getItem('sidenav-open') === 'true';
+  }
+
+  set open(b: boolean) {
+    localStorage.setItem('sidenav-open', b ? 'true' : 'false');
+  }
+
   environement = environment;
 
   @ViewChild('drawer') drawer;
@@ -44,6 +52,9 @@ export class SidenavComponent implements OnInit {
     public connectionService: ConnectionService,
     private crossComponentService: CrossComponentService,
     private changeDetector: ChangeDetectorRef) {
+      if(localStorage.getItem('sidenav-open') === null) {
+        this.open = true;
+      }
   }
 
   ngOnInit(): void {
@@ -55,6 +66,7 @@ export class SidenavComponent implements OnInit {
 
   toggle(): void {
     this.drawer.toggle();
+    this.open = !this.open;
   }
 
 }

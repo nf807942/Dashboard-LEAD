@@ -1,5 +1,5 @@
 <mat-drawer-container class="full-height" autosize>
-    <mat-drawer #drawer mode="side" opened="true" id="sidenav">
+    <mat-drawer #drawer mode="side" [opened]="open" id="sidenav">
         <div class="flex column full-height">
             <mat-nav-list class="no-padding">
                 <div *ngFor="let link of all_links">
