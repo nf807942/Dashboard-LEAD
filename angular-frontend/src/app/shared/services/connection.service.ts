@@ -32,7 +32,7 @@ export class ConnectionService {
     private router: Router,
   ) {
     if(localStorage.getItem('authenticated') === null) {
-      this.connected = true;
+      this.connected = false;
     }
   }
 

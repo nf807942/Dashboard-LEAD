@@ -3,7 +3,7 @@
 <mat-grid-list cols="3" gutterSize="1em" id="modules-grid">
 
     <a [routerLink]="module.route" *ngFor="let module of modulesList;let index = index">
-      <mat-grid-tile [style.background-image]="'url(' + environement.assets + 'images/' + module.image + ')'" matRipple [style.animation-delay]="index * 0.1 + 's'">
+      <mat-grid-tile [style.background-image]="'url(' + 'assets/images/' + module.image + ')'" matRipple [style.animation-delay]="index * 0.1 + 's'">
         <div class="module-title"><span>{{module.text | translate}}</span></div></mat-grid-tile>
     </a>
 

@@ -41,15 +41,14 @@
           },
           "configurations": {
             "production": {
-              "index": "src/index.prod.html",
+              "index": "src/index.html",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "outputPath": "../laravel-backend/public/angular",
-              "deployUrl": "angular/",
+              "outputPath": "dist/dashboard",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
