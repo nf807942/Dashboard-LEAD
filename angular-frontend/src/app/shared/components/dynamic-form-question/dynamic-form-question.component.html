@@ -17,7 +17,8 @@
 
             <mat-icon matSuffix *ngIf="question.icon">{{question.icon}}</mat-icon>
             <mat-hint *ngIf="question.hint">{{question.hint}}</mat-hint>
-            <mat-error *ngIf="!isValid">{{"FORM.REQUIRED" |translate}}</mat-error>
+            <mat-error *ngIf="form.get(question.key).errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+            <mat-error *ngIf="form.get(question.key).errors?.email">{{"FORM.EMAIL" |translate}}</mat-error>
         </mat-form-field>
     </div>
 </div>

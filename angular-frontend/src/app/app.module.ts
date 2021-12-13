@@ -17,6 +17,7 @@ import { ExperimentModule } from './experiment/experiment.module';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
 import { LoggedInterceptor } from './shared/interceptors/logged.interceptor';
+import { AdminModule } from './admin/admin.module';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     LoanModule,
     ExperimentModule,
     ReservationModule,
+    AdminModule,
 
      // ngx-translate and the loader module
      TranslateModule.forRoot({

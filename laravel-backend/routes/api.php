@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 
 use \App\Http\Controllers\StudentController;
 use \App\Http\Controllers\BuildingController;
@@ -10,6 +10,7 @@ use \App\Http\Controllers\RoomController;
 use \App\Http\Controllers\TypeController;
 use \App\Http\Controllers\ResourceController;
 use \App\Http\Controllers\ExperimentController;
+use \App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,23 @@ Route::get('/logout', function (Request $request) {
     Auth::logout();
     return response()->json(true, 200);
 });
+
+// ADMINISTRATION
+Route::middleware('auth:sanctum')->get('/admin/users',
+    [AdminController::class, 'getUsers']
+)->can('admin', User::class);
+Route::middleware('auth:sanctum')->get('/admin/roles',
+    [AdminController::class, 'getRoles']
+)->can('admin', User::class);
+Route::middleware('auth:sanctum')->put('/admin/user',
+    [AdminController::class, 'putUser']
+)->can('admin', User::class);
+Route::middleware('auth:sanctum')->patch('/admin/user/{id}',
+    [AdminController::class, 'patchUser']
+)->can('admin', User::class);
+Route::middleware('auth:sanctum')->delete('/admin/user/{id}',
+    [AdminController::class, 'deleteUser']
+)->can('admin', User::class);
 
 // LOAN
 

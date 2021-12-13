@@ -1,0 +1,6 @@
+<div class="flex row">
+    <div class="grow"></div>
+    <button mat-raised-button color="primary" (click)="this.createAction.action()"><mat-icon>add</mat-icon>{{"APP.ADD" | translate}}</button>
+</div>
+
+<app-table #table [data]="users" [columns]="columns"></app-table>
