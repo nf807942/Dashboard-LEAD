@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { DynamicFormQuestion, TextboxQuestion, HiddenQuestion, DropdownQuestion } from 'src/app/shared/components/dynamic-form-question/dynamic-form-question.component';
 import { CustomColumn } from 'src/app/shared/components/table/custom-column';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
+import { ConnectionService } from 'src/app/shared/services/connection.service';
 import { CreateEditDeleteDialogService } from 'src/app/shared/services/create-edit-delete-dialog.service';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { Student } from '../../models/student';
@@ -61,9 +62,9 @@ export class StudentsComponent implements OnInit {
     {name: 'TABLE.STUDENT-YEAR', property: 'studyYear'},
     {name: 'TABLE.STUDENT-NUMBER', property: 'studentNumber'},
     {name: 'TABLE.STUDENT-POINTS', property: 'points'},
-    {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
-      {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
-      {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
+    {name: 'TABLE.ACTIONS', property: 'actions', button: true, admin: true, buttons: [
+      {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action, admin: true},
+      {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action, admin: true}
     ]},
   ];
 
@@ -73,6 +74,7 @@ export class StudentsComponent implements OnInit {
     private notationService: NotationService,
     private crossComponentService: CrossComponentService,
     public createEditDeleteDialogService: CreateEditDeleteDialogService,
+    public connectionService: ConnectionService
   ) {
     this.students = this.notationService.getStudents();
   }

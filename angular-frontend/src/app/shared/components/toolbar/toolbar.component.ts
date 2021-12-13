@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ConnectionService } from '../../services/connection.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,7 +14,8 @@ export class ToolbarComponent implements OnInit {
   currentLanguage: string;
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    public connectionService: ConnectionService
   ) { }
 
   ngOnInit(): void {

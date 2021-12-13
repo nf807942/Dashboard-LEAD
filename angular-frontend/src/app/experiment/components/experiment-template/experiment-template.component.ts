@@ -15,7 +15,7 @@ export class ExperimentTemplateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.crossComponentService.links = [
       {text: 'SIDENAV.EXPERIMENT.MY-EXPERIMENTS', route:'experiment/my-experiments'},
-      {text: 'SIDENAV.EXPERIMENT.OLD-EXPERIMENTS', route:'experiment/old-experiments'},
+      {gap:true},
       {text: 'SIDENAV.EXPERIMENT.EXPERIMENTS', route:'experiment/experiments'}
     ];
   }

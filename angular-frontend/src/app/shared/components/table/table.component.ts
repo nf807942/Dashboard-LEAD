@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { CustomColumn } from './custom-column';
 import * as _ from 'lodash';
 import * as moment from 'moment';
+import { ConnectionService } from '../../services/connection.service';
 
 
 @Component({
@@ -29,12 +30,14 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   loading = true;
 
-  constructor() {
+  constructor(
+    private connectionService: ConnectionService
+  ) {
     this.dataSource = new MatTableDataSource([]);
   }
 
   get columnsName(): string[] {
-    return this.columns.map(column => column.property)
+    return this.columns.filter(column => (this.connectionService.isAdmin() && column.admin) || !column.admin).map(column => column.property)
   }
 
   ngOnInit(): void {

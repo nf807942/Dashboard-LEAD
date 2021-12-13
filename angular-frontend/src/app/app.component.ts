@@ -17,8 +17,7 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
-    private translate: TranslateService,
-    private http: HttpClient) {
+    private translate: TranslateService) {
     this.translate.setDefaultLang('fr');
     this.translate.use('fr');
   }

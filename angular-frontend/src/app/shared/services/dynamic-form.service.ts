@@ -15,18 +15,24 @@ export class DynamicFormService {
     questions = (questions.sort((a, b) => a.order - b.order));
 
     questions.filter(question => !question.isRow).forEach(question => {
-      let value = (question.value != null) ? question.value : '';
-      group[question.key] = question.required ? new FormControl({value:value, disabled: question.disabled}, Validators.required)
-                                              : new FormControl({value:value, disabled: question.disabled});
+      this.addQuestion(question, group);
     });
     questions.filter(question => question.isRow).forEach(question => {
       question.rows.forEach(row => {
-        let value = (row.value != null) ? row.value : '';
-        group[row.key] = row.required ? new FormControl({value:value, disabled: row.disabled}, Validators.required)
-                                                : new FormControl({value:value, disabled: row.disabled});
+        this.addQuestion(row, group);
       })
     });
 
     return new FormGroup(group);
+  }
+
+  private addQuestion(qst: DynamicFormQuestion, group: any): void {
+    let validators = [
+      qst.required ? Validators.required : null,
+      qst.type === 'email' ? Validators.email : null,
+    ].filter(validator => validator !== null);
+
+    let value = (qst.value != null) ? qst.value : '';
+    group[qst.key] = new FormControl({value:value, disabled: qst.disabled}, {validators:validators});
   }
 }

@@ -23,7 +23,9 @@
         "CONNECT-TO": "Connection to the app"
     },
     "TOOLTIPS": {
-        "CHANGE-LANGUAGE": "Change language"
+        "CHANGE-LANGUAGE": "Change language",
+        "ADMINISTRATION": "Administration panel",
+        "ACCOUNT": "Manage account"
     },
     "SIDENAV": {
         "MODULES": "Home",
@@ -53,13 +55,17 @@
             "ROOMS": "Rooms",
             "RESERVE": "Reserve",
             "MY-RESERVATIONS": "My reservations"
+        },
+        "ADMIN": {
+            "USERS": "Users"
         }
     },
     "MODULES": {
         "NOTATION": "Notation module",
         "LOAN": "Loan module",
         "EXPERIMENT": "Experiment module",
-        "RESERVATION": "Reservation module"
+        "RESERVATION": "Reservation module",
+        "INTERNSHIP": "Internship module"
     },
     "TABLE": {
         "FILTER": "Filter",
@@ -71,6 +77,10 @@
         "ID": "Id",
         "LABEL": "Label",
         "NAME": "Name",
+        "USER-NAME": "Nom",
+        "USER-EMAIL": "Email",
+        "USER-ROLE": "Rôle",
+        "USER-PASSWORD": "Password",
         "TYPE-NAME": "Type of resource",
         "STUDENT-NAME": "Student",
         "STUDENT-YEAR": "Year",
@@ -106,10 +116,12 @@
         "PATCH-SUCCESS": "Element successfully updated",
         "DELETE-SUCCESS": "Element successfully removed",
         "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added",
-        "NOTATION-IMPORT-SUCCESS": "Data successfully imported"
+        "NOTATION-IMPORT-SUCCESS": "Data successfully imported",
+        "FORBIDDEN": "Access forbidden"
     },
     "FORM": {
-        "REQUIRED": "This field is required"
+        "REQUIRED": "This field is required",
+        "EMAIL": "Email address expected"
     },
     "DIALOG": {
         "ADD": "Add element",
@@ -122,5 +134,10 @@
         "ADD-TIME": "Add time",
         "STUDENT": "Student",
         "MINUTE-SHORT": "min"
+    },
+    "ROLE": {
+        "ADMIN": "Admin",
+        "MEMBER": "Member",
+        "INTERN": "Inter"
     }
 }

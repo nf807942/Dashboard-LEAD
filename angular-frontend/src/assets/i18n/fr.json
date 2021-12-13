@@ -23,7 +23,9 @@
         "CONNECT-TO": "Connexion à l'application"
     },
     "TOOLTIPS": {
-        "CHANGE-LANGUAGE": "Changer la langue"
+        "CHANGE-LANGUAGE": "Changer la langue",
+        "ADMINISTRATION": "Panel d'administration",
+        "ACCOUNT": "Gérer le compte"
     },
     "SIDENAV": {
         "MODULES": "Accueil",
@@ -53,13 +55,17 @@
             "ROOMS": "Salles",
             "RESERVE": "Réserver",
             "MY-RESERVATIONS": "Mes réservations"
+        },
+        "ADMIN": {
+            "USERS": "Utilisateurs"
         }
     },
     "MODULES": {
         "NOTATION": "Module notation",
         "LOAN": "Module prêts",
         "EXPERIMENT": "Module expérience",
-        "RESERVATION": "Module salles"
+        "RESERVATION": "Module salles",
+        "INTERNSHIP": "Module stage"
     },
     "TABLE": {
         "FILTER": "Filtre",
@@ -71,6 +77,10 @@
         "ID": "Id",
         "LABEL": "Label",
         "NAME": "Nom",
+        "USER-NAME": "Nom",
+        "USER-EMAIL": "Email",
+        "USER-ROLE": "Rôle",
+        "USER-PASSWORD": "Mot de passe",
         "TYPE-NAME": "Type de la ressource",
         "STUDENT-NAME": "Étudiant",
         "STUDENT-YEAR": "Année",
@@ -106,10 +116,12 @@
         "PATCH-SUCCESS": "L'élément a été modifié avec succès",
         "DELETE-SUCCESS": "L'élément a été supprimé avec succès",
         "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté",
-        "NOTATION-IMPORT-SUCCESS": "Les données ont été importées avec succès"
+        "NOTATION-IMPORT-SUCCESS": "Les données ont été importées avec succès",
+        "FORBIDDEN": "Accès interdit"
     },
     "FORM": {
-        "REQUIRED": "Ce champ est requis"
+        "REQUIRED": "Ce champ est requis",
+        "EMAIL": "Une adresse email est attendue"
     },
     "DIALOG": {
         "ADD": "Ajouter un élément",
@@ -122,5 +134,10 @@
         "ADD-TIME": "Ajouter temps",
         "STUDENT": "Étudiant",
         "MINUTE-SHORT": "min"
+    },
+    "ROLE": {
+        "ADMIN": "Admin",
+        "MEMBER": "Membre",
+        "INTERN": "Stagiaire"
     }
 }

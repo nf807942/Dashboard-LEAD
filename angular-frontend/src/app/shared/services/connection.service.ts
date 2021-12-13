@@ -2,7 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
+import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -16,6 +16,15 @@ export class ConnectionService {
 
   set connected(b: boolean) {
     localStorage.setItem('authenticated', b ? 'true' : 'false');
+  }
+
+  get user(): User {
+    let user = localStorage.getItem('user');
+    return this.connected ? user ? new User(JSON.parse(user)) : null : null;
+  }
+
+  set user(u: User) {
+    localStorage.setItem('user', JSON.stringify(u));
   }
 
   constructor(
@@ -33,11 +42,23 @@ export class ConnectionService {
     });
   }
 
-  login(data: any): Observable<boolean> {
+  login(data: any): Observable<User> {
     return this.http.get(environment.url+'sanctum/csrf-cookie', {withCredentials: true}).pipe(
       mergeMap(() => this.http.post(environment.url+'api/login', data, {withCredentials: true})),
-      map(data => data as boolean),
-      catchError((error: HttpErrorResponse) =>  of(error.status !== 422))
+      catchError(() =>  of(false)),
+      //catchError((error: HttpErrorResponse) =>  of(error.status !== 422))
+      mergeMap((success) => {
+        if(success) {
+          return this.http.get(environment.url+'api/user', {withCredentials: true});
+        }
+        return of(null)
+      }),
+      catchError(() =>  of(null)),
+      tap((user: User) => {
+        if(user) {
+          this.user = user;
+        }
+      })
     );
   }
 
@@ -49,5 +70,28 @@ export class ConnectionService {
   redirectLogin(): void {
     this.connected = true;
     this.router.navigate(['/']);
+  }
+
+  isAdmin(): boolean {
+    let user = this.user;
+    if (user) {
+      return user.admin;
+    }
+    return false;
+  }
+}
+
+export class User {
+  id: number;
+  name: string;
+  email: string;
+  role: any;
+
+  constructor(data: Partial<User>){
+    Object.assign(this, data);
+  }
+
+  get admin(): any {
+    return this.role.label == 'ADMIN';
   }
 }

@@ -17,8 +17,11 @@ export class ApiService {
       this.connectionService.redirectLogout();
       return throwError(error);
     }
-
-    this.snackbarService.error(4, 'SNACKBAR.ERROR-SERVER', error.message);
+    if (error.status === 403) {
+      this.snackbarService.error(4, 'SNACKBAR.FORBIDDEN', error.message);
+    } else {
+      this.snackbarService.error(4, 'SNACKBAR.ERROR-SERVER', error.message);
+    }
     return throwError(error);
   })
 
