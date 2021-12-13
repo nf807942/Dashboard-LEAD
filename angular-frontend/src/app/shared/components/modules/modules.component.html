@@ -1,9 +1,10 @@
 <h1 id="welcome-title" color="primary">{{"APP.WELCOME" | translate}}</h1>
 
-<mat-grid-list cols="4" gutterSize="1em" id="modules-grid">
+<mat-grid-list cols="3" gutterSize="1em" id="modules-grid">
 
     <a [routerLink]="module.route" *ngFor="let module of modulesList;let index = index">
-      <mat-grid-tile matRipple [style.animation-delay]="index * 0.1 + 's'">{{module.text | translate}}</mat-grid-tile>
+      <mat-grid-tile [style.background-image]="'url(' + environement.assets + 'images/' + module.image + ')'" matRipple [style.animation-delay]="index * 0.1 + 's'">
+        <div class="module-title"><span>{{module.text | translate}}</span></div></mat-grid-tile>
     </a>
 
 </mat-grid-list>

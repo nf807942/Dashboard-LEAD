@@ -12,12 +12,18 @@
 }
 
 mat-grid-tile {
-    background-color: #DCD0F1;
+    background-size: cover;
+    //background-color: #DCD0F1;
+    background-color: #C5B0E8;
     transition: background-color 0.3s;
     animation-name: fadeIn;
     animation-fill-mode: both;
     animation-timing-function: ease-out;
     animation-duration: 0.8s;
+
+    font-size: 20px;
+    font-family: "Segoe UI";
+    text-align: center;
 }
 
 @keyframes fadeIn {
@@ -26,7 +32,8 @@ mat-grid-tile {
 }
 
 mat-grid-tile:hover {
-    background-color: #C5B0E8;
+    //@at-root: #C5B0E8;
+    background-color: #AE90DF;
 }
 
 #modules-grid {
@@ -37,4 +44,14 @@ mat-grid-tile:hover {
 
 a {
     color: unset;
+}
+
+.module-title {
+    display: flex;
+    height: 100%;
+    align-items: flex-end;
+
+    span {
+        padding-bottom: 5px;
+    }
 }
