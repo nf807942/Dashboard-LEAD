@@ -20,7 +20,10 @@
         "USERNAME": "Utilisateur / Adresse mail",
         "PASSWORD": "Mot de passe",
         "PASSWORD-ERROR": "Erreur de connexion, vérifiez le nom d'utilisateur et le mot de passe",
-        "CONNECT-TO": "Connexion à l'application"
+        "CONNECT-TO": "Connexion à l'application",
+        "LOADING": "Chargement...",
+        "BACK": "Retour",
+        "NO-RESULT": "Aucun résultat"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue",
@@ -117,11 +120,13 @@
         "DELETE-SUCCESS": "L'élément a été supprimé avec succès",
         "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté",
         "NOTATION-IMPORT-SUCCESS": "Les données ont été importées avec succès",
-        "FORBIDDEN": "Accès interdit"
+        "FORBIDDEN": "Accès interdit",
+        "MAKE-REQUEST-SUCCESS": "La requête à bien été réalisée"
     },
     "FORM": {
         "REQUIRED": "Ce champ est requis",
-        "EMAIL": "Une adresse email est attendue"
+        "EMAIL": "Une adresse email est attendue",
+        "DATE": "La date choisie est invalide"
     },
     "DIALOG": {
         "ADD": "Ajouter un élément",
@@ -134,6 +139,17 @@
         "ADD-TIME": "Ajouter temps",
         "STUDENT": "Étudiant",
         "MINUTE-SHORT": "min"
+    },
+    "LOAN": {
+        "CHOOSE-TYPE": "Choisir le type de la ressource",
+        "CHOOSE-RESOURCE": "Choisir la ressource",
+        "MAKE-REQUEST": "Faire la requête de prêt",
+        "SUMMARY": "Résumé",
+        "RESOURCE-NAME": "Nom de la ressource",
+        "RESOURCE-TYPE": "Type de la ressource",
+        "START-DATE": "Date de départ du prêt",
+        "END-DATE": "Date de fin du prêt",
+        "CHOOSE-END-DATE": "Choisir la date de fin du prêt"
     },
     "ROLE": {
         "ADMIN": "Admin",

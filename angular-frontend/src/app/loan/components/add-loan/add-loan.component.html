@@ -1,1 +1,63 @@
-<p>add-loan works!</p>
+<mat-stepper linear #stepper>
+    <mat-step>
+        <ng-template matStepLabel>{{"LOAN.CHOOSE-TYPE" | translate}}</ng-template>
+        <div *ngIf="types$ | async as types; else loading">
+            <mat-selection-list #types_list *ngIf="types.length !==0; else noContent" [multiple]="false" (selectionChange)="loadResources()">
+                <mat-list-option *ngFor="let type of types" [value]="type">
+                    {{type.label}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>{{"LOAN.CHOOSE-RESOURCE" | translate}}</ng-template>
+        <div *ngIf="resources$ | async as resources; else loading">
+            <mat-selection-list *ngIf="resources.length !==0; else noContent" #resources_list [multiple]="false" (selectionChange)="makeLoan()">
+                <mat-list-option *ngFor="let resource of resources" [value]="resource">
+                    {{resource.name}}
+                </mat-list-option>
+            </mat-selection-list>
+        </div>
+
+        <div class="stepper-button">
+            <button mat-raised-button (click)="backToTypes()">{{"APP.BACK" | translate}}</button>
+        </div>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>{{"LOAN.MAKE-REQUEST" | translate}}</ng-template>
+        <div class="column">
+            <p class="loan-sub-title">{{"LOAN.SUMMARY" | translate}} : </p>
+            <p>{{"LOAN.RESOURCE-NAME" | translate}} : {{selected?.name}}</p>
+            <p>{{"LOAN.RESOURCE-TYPE" | translate}} : {{selected?.type.label}}</p>
+            <p>{{"LOAN.START-DATE" | translate}} : {{date | date:'dd/MM/YYYY'}}</p>
+            <p class="loan-sub-title">{{"LOAN.CHOOSE-END-DATE" | translate}}</p>
+            <mat-form-field appearance="outline">
+                    <mat-label>{{"LOAN.END-DATE" | translate}}</mat-label>
+                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [formControl]="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="endDate.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+                    <mat-error *ngIf="endDate.errors?.matDatepickerFilter">{{"FORM.DATE" |translate}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="stepper-button">
+            <button mat-raised-button (click)="backToResources()">{{"APP.BACK" | translate}}</button>
+            <button mat-raised-button (click)="sendRequest()" color="primary" [disabled]="!endDate.valid">{{"APP.VALIDATE" | translate}}</button>
+        </div>
+    </mat-step>
+</mat-stepper>
+
+<ng-template #loading>
+    <div class="spinner-center">
+        <mat-spinner></mat-spinner>
+        {{"APP.LOADING" | translate}}
+    </div>
+</ng-template>
+
+<ng-template #noContent>
+    <div class="spinner-center">
+        {{"APP.NO-RESULT" | translate}}
+    </div>
+</ng-template>

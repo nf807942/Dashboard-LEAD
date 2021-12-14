@@ -20,7 +20,10 @@
         "USERNAME": "Username / Email",
         "PASSWORD": "Password",
         "PASSWORD-ERROR": "Connection error, please check the username and password",
-        "CONNECT-TO": "Connection to the app"
+        "CONNECT-TO": "Connection to the app",
+        "LOADING": "Loading...",
+        "BACK": "Back",
+        "NO-RESULT": "No result"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language",
@@ -117,11 +120,13 @@
         "DELETE-SUCCESS": "Element successfully removed",
         "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added",
         "NOTATION-IMPORT-SUCCESS": "Data successfully imported",
-        "FORBIDDEN": "Access forbidden"
+        "FORBIDDEN": "Access forbidden",
+        "MAKE-REQUEST-SUCCESS": "Request sent successfully"
     },
     "FORM": {
         "REQUIRED": "This field is required",
-        "EMAIL": "Email address expected"
+        "EMAIL": "Email address expected",
+        "DATE": "The chosen is invalid"
     },
     "DIALOG": {
         "ADD": "Add element",
@@ -134,6 +139,17 @@
         "ADD-TIME": "Add time",
         "STUDENT": "Student",
         "MINUTE-SHORT": "min"
+    },
+    "LOAN": {
+        "CHOOSE-TYPE": "Choose resource type",
+        "CHOOSE-RESOURCE": "Choose resource",
+        "MAKE-REQUEST": "Make loan request",
+        "SUMMARY": "Summary",
+        "RESOURCE-NAME": "Resource name",
+        "RESOURCE-TYPE": "resource type",
+        "START-DATE": "Loan start datet",
+        "END-DATE": "Loan end date",
+        "CHOOSE-END-DATE": "Choose the loan end date"
     },
     "ROLE": {
         "ADMIN": "Admin",

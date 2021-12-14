@@ -3,13 +3,16 @@ import { NgModule } from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatNativeDateModule} from '@angular/material/core';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
@@ -30,6 +33,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatPaginatorModule,
     MatGridListModule,
@@ -37,6 +42,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSidenavModule,
     MatTooltipModule,
     MatToolbarModule,
+    MatStepperModule,
     MatButtonModule,
     MatDialogModule,
     MatRippleModule,

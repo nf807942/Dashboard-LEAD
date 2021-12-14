@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { Resource } from '../models/resource';
 import { Type } from '../models/type';
 
@@ -11,6 +13,7 @@ export class LoanService {
 
   constructor(
     public api: ApiService,
+    private snackbarService: SnackbarService
   ) { }
 
   //#region Type
@@ -36,6 +39,10 @@ export class LoanService {
     return this.api.get('loan', 'resources');
   }
 
+  getResourcesOfType(type: Type): Observable<Resource[]> {
+    return this.api.post('loan', 'resources-of-type', {id: type.id});
+  }
+
   putResource(resource: Resource): Observable<Resource> {
     return this.api.put('loan', 'resource', resource);
   }
@@ -47,4 +54,10 @@ export class LoanService {
   deleteResource(resource: Resource): Observable<Resource> {
     return this.api.delete('loan', 'resource', resource.id);
   }
+
+  //#region Loan Request
+  makeLoanRequest(data : any): Observable<any> {
+    return this.api.post('loan', 'loan-request', data).pipe(tap(() => this.snackbarService.success(4, 'SNACKBAR.LOAN.MAKE-REQUEST-SUCCESS')));
+  }
+  //#endregion
 }

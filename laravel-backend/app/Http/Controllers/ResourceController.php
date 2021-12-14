@@ -6,11 +6,15 @@ use App\Models\Resource;
 use Illuminate\Http\Request;
 use function DeepCopy\deep_copy;
 
-
 class ResourceController extends Controller
 {
     public function getResources() {
         $resources = Resource::with('type')->get();
+        return response()->json($resources, 200);
+    }
+
+    public function getResourcesOfType(Request $request) {
+        $resources = Resource::with('type')->where('type_id', $request['id'])->get();
         return response()->json($resources, 200);
     }
 

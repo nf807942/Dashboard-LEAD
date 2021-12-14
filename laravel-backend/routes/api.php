@@ -11,6 +11,7 @@ use \App\Http\Controllers\TypeController;
 use \App\Http\Controllers\ResourceController;
 use \App\Http\Controllers\ExperimentController;
 use \App\Http\Controllers\AdminController;
+use \App\Http\Controllers\LoanRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,7 @@ Route::middleware('auth:sanctum')->delete('/admin/user/{id}',
     [AdminController::class, 'deleteUser']
 )->can('admin', User::class);
 
-// LOAN
+// --MODULE LOAN --
 
 // TYPE
 Route::middleware('auth:sanctum')->get('/loan/types',
@@ -69,6 +70,9 @@ Route::middleware('auth:sanctum')->delete('/loan/type/{id}',
 Route::middleware('auth:sanctum')->get('/loan/resources',
     [ResourceController::class, 'getResources']
 );
+Route::middleware('auth:sanctum')->post('/loan/resources-of-type',
+    [ResourceController::class, 'getResourcesOfType']
+);
 Route::middleware('auth:sanctum')->put('/loan/resource',
     [ResourceController::class, 'putResource']
 )->can('admin', User::class);
@@ -78,6 +82,12 @@ Route::middleware('auth:sanctum')->patch('/loan/resource/{id}',
 Route::middleware('auth:sanctum')->delete('/loan/resource/{id}',
     [ResourceController::class, 'deleteResource']
 )->can('admin', User::class);
+
+// LOAN REQUEST
+Route::middleware('auth:sanctum')->post('/loan/loan-request',
+    [LoanRequestController::class, 'makeLoanRequest']
+);
+
 
 // NOTATION
 
