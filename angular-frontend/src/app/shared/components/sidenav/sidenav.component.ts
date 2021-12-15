@@ -48,6 +48,8 @@ export class SidenavComponent implements OnInit {
 
   all_links = [...this.first_links, ...this.mids_links, ...this.last_links]
 
+  badges = [];
+
   constructor(
     public connectionService: ConnectionService,
     private crossComponentService: CrossComponentService,
@@ -62,11 +64,20 @@ export class SidenavComponent implements OnInit {
       this.all_links = [...this.first_links, ...links, ...this.last_links];
       this.changeDetector.detectChanges();
     });
+
+    this.crossComponentService.badgesChanged.subscribe((badges) => {
+      this.badges = badges;
+      this.changeDetector.detectChanges();
+    });
   }
 
   toggle(): void {
     this.drawer.toggle();
     this.open = !this.open;
+  }
+
+  getBadgeOfLink(link: any): number | null {
+    return this.badges.find(badge => badge.text === link.text)?.value
   }
 
 }

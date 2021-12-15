@@ -25,6 +25,11 @@ class LoanRequestController extends Controller
         return response()->json($loanRequests, 200);
     }
 
+    public function getCountLoanRequests() {
+        $count = LoanRequest::count();
+        return response()->json($count, 200);
+    }
+
     public function acceptLoanRequest($id) {
         // créer prêt si type = 0
         // modifié prêt si type = 1

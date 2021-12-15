@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { ConnectionService } from 'src/app/shared/services/connection.service';
+import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { LoanRequest } from '../models/loan-request';
 import { Resource } from '../models/resource';
@@ -15,7 +17,18 @@ export class LoanService {
   constructor(
     public api: ApiService,
     private snackbarService: SnackbarService,
+    private connectionService: ConnectionService,
+    private crossComponentService: CrossComponentService,
   ) { }
+
+  updateBadges() {
+    this.connectionService.isAdmin() ?
+    this.getCountLoanRequests().subscribe(count => {
+      this.crossComponentService.badges = [
+        {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', value: count === 0 ? null : count}
+      ]
+    }) : null;
+  }
 
   //#region Type
   getTypes(): Observable<Type[]> {
@@ -59,6 +72,7 @@ export class LoanService {
   //#region Loan Request
   makeLoanRequest(request : {id: number, end_date: Date}): Observable<LoanRequest> {
     return this.api.post('loan', 'loan-request', request).pipe(tap(() => {
+      if(this.connectionService.isAdmin()) this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-MAKE-REQUEST-SUCCESS')
     }));
   }
@@ -75,12 +89,14 @@ export class LoanService {
 
   acceptLoanRequest(request : LoanRequest): Observable<LoanRequest> {
     return this.api.post('loan', 'loan-request-accept', null, request.id).pipe(tap(() => {
+      this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-ACCEPT-REQUEST-SUCCESS');
     }));
   }
 
   rejectLoanRequest(request : LoanRequest): Observable<LoanRequest> {
     return this.api.post('loan', 'loan-request-reject', null, request.id).pipe(tap(() => {
+      this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-REJECT-REQUEST-SUCCESS')
     }));
   }

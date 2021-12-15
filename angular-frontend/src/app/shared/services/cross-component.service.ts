@@ -8,6 +8,7 @@ export class CrossComponentService {
 
   public linksChanged: BehaviorSubject<any[]> = new BehaviorSubject([]);
   public titleChanged: BehaviorSubject<string> = new BehaviorSubject('');
+  public badgesChanged: BehaviorSubject<any[]> = new BehaviorSubject([]);
 
   constructor() { }
 
@@ -25,5 +26,13 @@ export class CrossComponentService {
 
   public set title(v : string) {
     this.titleChanged.next(v);
+  }
+
+  public get badges() : any[] {
+    return this.badgesChanged.getValue();
+  }
+
+  public set badges(v : any[]) {
+    this.badgesChanged.next(v);
   }
 }

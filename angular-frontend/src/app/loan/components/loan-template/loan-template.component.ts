@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
+import { LoanService } from '../../services/loan.service';
 
 @Component({
   selector: 'app-loan-template',
@@ -10,6 +11,7 @@ export class LoanTemplateComponent implements OnInit, OnDestroy {
 
   constructor(
     private crossComponentService: CrossComponentService,
+    private loanService: LoanService
   ) { }
 
   ngOnInit(): void {
@@ -23,6 +25,8 @@ export class LoanTemplateComponent implements OnInit, OnDestroy {
       {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', route:'loan/loan-requests', admin: true},
       {text: 'SIDENAV.LOAN.LOANS', route:'loan/loans', admin: true},
     ];
+
+    this.loanService.updateBadges();
   }
 
   ngOnDestroy(): void {

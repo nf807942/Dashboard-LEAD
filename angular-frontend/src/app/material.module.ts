@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
+import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
@@ -49,6 +50,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatSelectModule,
     MatTableModule,
     MatInputModule,
+    MatBadgeModule,
     MatIconModule,
     MatMenuModule,
     MatListModule,
