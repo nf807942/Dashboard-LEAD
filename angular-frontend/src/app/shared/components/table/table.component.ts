@@ -64,7 +64,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+    const filterValue = this.filter.value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
@@ -83,7 +83,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   removeData(data_to_remove: any[]): void {
     const current_data = this.dataSource.data;
     data_to_remove.forEach(element => {
-      const index = current_data.findIndex(x => _.isEqual(x, element))
+      const index = current_data.findIndex(x => x.id === element.id)
       if (index > -1) {
         current_data.splice(index, 1);
       }
@@ -95,7 +95,7 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   patchData(old_data: any, new_data: any): void {
     const current_data = this.dataSource.data;
-    const index = current_data.findIndex(x => _.isEqual(x, old_data))
+    const index = current_data.findIndex(x => x.id === old_data.id)
     if (index > -1) {
       current_data[index] = new_data;
     }
