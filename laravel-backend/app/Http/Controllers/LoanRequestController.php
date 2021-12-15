@@ -19,4 +19,25 @@ class LoanRequestController extends Controller
         $created = LoanRequest::create($loanRequest);
         return response()->json($created, 200);
     }
+
+    public function getLoanRequests() {
+        $loanRequests = LoanRequest::with('user')->with('resource')->get();
+        return response()->json($loanRequests, 200);
+    }
+
+    public function acceptLoanRequest($id) {
+        // créer prêt si type = 0
+        // modifié prêt si type = 1
+        // supprimé prêt si type = 2
+
+        $loanRequest = LoanRequest::with('user')->with('resource')->findOrFail($id);
+        $loanRequest->delete();
+        return response()->json($loanRequest, 200);
+    }
+
+    public function rejectLoanRequest($id) {
+        $loanRequest = LoanRequest::with('user')->with('resource')->findOrFail($id);
+        $loanRequest->delete();
+        return response()->json($loanRequest, 200);
+    }
 }

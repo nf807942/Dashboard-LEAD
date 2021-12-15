@@ -117,7 +117,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   formating(column: CustomColumn, data: any): string {
     if(column.type) {
       if(column.type === 'date') {
-        return moment(data).format('L');
+        return moment(data).format('DD/MM/YYYY');
       }
     }
     return data

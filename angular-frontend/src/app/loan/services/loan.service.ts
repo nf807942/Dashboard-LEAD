@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { LoanRequest } from '../models/loan-request';
 import { Resource } from '../models/resource';
 import { Type } from '../models/type';
 
@@ -13,7 +14,7 @@ export class LoanService {
 
   constructor(
     public api: ApiService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
   ) { }
 
   //#region Type
@@ -56,8 +57,32 @@ export class LoanService {
   }
 
   //#region Loan Request
-  makeLoanRequest(data : any): Observable<any> {
-    return this.api.post('loan', 'loan-request', data).pipe(tap(() => this.snackbarService.success(4, 'SNACKBAR.LOAN.MAKE-REQUEST-SUCCESS')));
+  makeLoanRequest(request : {id: number, end_date: Date}): Observable<LoanRequest> {
+    return this.api.post('loan', 'loan-request', request).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.LOAN-MAKE-REQUEST-SUCCESS')
+    }));
+  }
+
+  getLoanRequests(): Observable<LoanRequest[]> {
+    return this.api.get('loan', 'loan-requests').pipe(
+      map((requests: LoanRequest[]) => requests.map(request => new LoanRequest(request)))
+    );
+  }
+
+  getCountLoanRequests(): Observable<number> {
+    return this.api.get('loan', 'count-loan-requests');
+  }
+
+  acceptLoanRequest(request : LoanRequest): Observable<LoanRequest> {
+    return this.api.post('loan', 'loan-request-accept', null, request.id).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.LOAN-ACCEPT-REQUEST-SUCCESS');
+    }));
+  }
+
+  rejectLoanRequest(request : LoanRequest): Observable<LoanRequest> {
+    return this.api.post('loan', 'loan-request-reject', null, request.id).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.LOAN-REJECT-REQUEST-SUCCESS')
+    }));
   }
   //#endregion
 }

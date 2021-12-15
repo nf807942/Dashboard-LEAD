@@ -44,8 +44,8 @@ export class ApiService {
     );
   }
 
-  post(module: string, endpoint: string, data: any): Observable<any> {
-    return this.http.post(this.url(module, endpoint, null), data, {withCredentials: true}).pipe(this.errorCatching);
+  post(module: string, endpoint: string, data: any, id?: number): Observable<any> {
+    return this.http.post(this.url(module, endpoint, id), data, {withCredentials: true}).pipe(this.errorCatching);
   }
 
   put(module: string, endpoint: string, data: any): Observable<any> {

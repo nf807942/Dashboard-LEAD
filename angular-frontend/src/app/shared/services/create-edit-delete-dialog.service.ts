@@ -49,6 +49,15 @@ export class CreateEditDeleteDialogService {
     return {subject, action};
   }
 
+  buildBlankAction(): {subject: Observable<any>, action: (data?: any) => any} {
+    let subject = new Subject<any>();
+    let action = (data) => {
+      subject.next(data);
+    };
+
+    return {subject, action};
+  }
+
   private generateAction(questions: DynamicFormQuestion[], subject: Subject<any>, color: string, name: string, title: string): (data?: any) => any {
     return (data?: any) => {
       if (data) {

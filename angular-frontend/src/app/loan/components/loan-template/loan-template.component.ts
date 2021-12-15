@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ConnectionService } from 'src/app/shared/services/connection.service';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { CrossComponentService } from 'src/app/shared/services/cross-component.s
 export class LoanTemplateComponent implements OnInit, OnDestroy {
 
   constructor(
-    private crossComponentService: CrossComponentService
+    private crossComponentService: CrossComponentService,
   ) { }
 
   ngOnInit(): void {
@@ -21,7 +20,7 @@ export class LoanTemplateComponent implements OnInit, OnDestroy {
       {gap:true},
       {text: 'SIDENAV.LOAN.TYPES', route:'loan/types', admin: true},
       {text: 'SIDENAV.LOAN.RESOURCES', route:'loan/resources', admin: true},
-      {text: 'SIDENAV.LOAN.LOAN-REQUESTS', route:'loan/loan-requests', admin: true},
+      {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', route:'loan/loan-requests', admin: true},
       {text: 'SIDENAV.LOAN.LOANS', route:'loan/loans', admin: true},
     ];
   }

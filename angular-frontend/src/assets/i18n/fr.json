@@ -45,7 +45,7 @@
             "OLD-LOAN": "Précedents prêts",
             "TYPES": "Types",
             "RESOURCES": "Ressources",
-            "LOAN-REQUESTS": "Requêtes de prêt",
+            "MANAGE-REQUESTS": "Gerer les requêtes",
             "LOANS": "Prêts en cours"
         },
         "EXPERIMENT": {
@@ -104,7 +104,14 @@
         "EXPERIMENT-MAN-SUBJECTS": "Nb max de sujets",
         "EXPERIMENT-EXPERIMENTALIST": "Expérimentateur",
         "EXPERIMENT-START-DATE": "Date de début",
-        "EXPERIMENT-END-DATE": "Date de fin"
+        "EXPERIMENT-END-DATE": "Date de fin",
+        "LOAN-REQUEST-USER": "Demandeur",
+        "LOAN-REQUEST-RESOURCE": "Ressource concernée",
+        "LOAN-REQUEST-TYPE": "Type de requête",
+        "LOAN-REQUEST-START-DATE": "Date de départ",
+        "LOAN-REQUEST-END-DATE": "Date de fin",
+        "LOAN-REQUEST-ACCEPT": "Accepter",
+        "LOAN-REQUEST-REJECT": "Refuser"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",
@@ -121,7 +128,9 @@
         "NOTATION-ADD-POINTS-SUCCESS": "Le temps a bien été rajouté",
         "NOTATION-IMPORT-SUCCESS": "Les données ont été importées avec succès",
         "FORBIDDEN": "Accès interdit",
-        "MAKE-REQUEST-SUCCESS": "La requête à bien été réalisée"
+        "LOAN-MAKE-REQUEST-SUCCESS": "La requête a bien été envoyée",
+        "LOAN-ACCEPT-REQUEST-SUCCESS": "La requête a bien été acceptée",
+        "LOAN-REJECT-REQUEST-SUCCESS": "La requête a été rejetée"
     },
     "FORM": {
         "REQUIRED": "Ce champ est requis",
@@ -149,7 +158,10 @@
         "RESOURCE-TYPE": "Type de la ressource",
         "START-DATE": "Date de départ du prêt",
         "END-DATE": "Date de fin du prêt",
-        "CHOOSE-END-DATE": "Choisir la date de fin du prêt"
+        "CHOOSE-END-DATE": "Choisir la date de fin du prêt",
+        "LOAN-REQUEST": "Requête de prêt",
+        "PROLONGATION-REQUEST": "Requête de prolongation",
+        "RETURN-REQUEST": "Requête de rendu"
     },
     "ROLE": {
         "ADMIN": "Admin",

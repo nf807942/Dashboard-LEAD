@@ -24,7 +24,7 @@ use \App\Http\Controllers\LoanRequestController;
 |
 */
 
-// AUTHENTIFICATION
+// AUTHENTICATION
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return User::with('role')->findOrFail($request->user()->id);
 });
@@ -50,7 +50,7 @@ Route::middleware('auth:sanctum')->delete('/admin/user/{id}',
     [AdminController::class, 'deleteUser']
 )->can('admin', User::class);
 
-// --MODULE LOAN --
+// -- MODULE LOAN --
 
 // TYPE
 Route::middleware('auth:sanctum')->get('/loan/types',
@@ -84,12 +84,21 @@ Route::middleware('auth:sanctum')->delete('/loan/resource/{id}',
 )->can('admin', User::class);
 
 // LOAN REQUEST
+Route::middleware('auth:sanctum')->get('/loan/loan-requests',
+    [LoanRequestController::class, 'getLoanRequests']
+)->can('admin', User::class);
 Route::middleware('auth:sanctum')->post('/loan/loan-request',
     [LoanRequestController::class, 'makeLoanRequest']
 );
+Route::middleware('auth:sanctum')->post('/loan/loan-request-accept/{id}',
+    [LoanRequestController::class, 'acceptLoanRequest']
+)->can('admin', User::class);
+Route::middleware('auth:sanctum')->post('/loan/loan-request-reject/{id}',
+    [LoanRequestController::class, 'rejectLoanRequest']
+)->can('admin', User::class);
 
 
-// NOTATION
+// -- MODULE NOTATION --
 
 // STUDENT
 Route::middleware('auth:sanctum')->post('/notation/add-time',
@@ -117,7 +126,7 @@ Route::middleware('auth:sanctum')->post('/notation/import',
     [StudentController::class, 'import']
 )->can('admin', User::class);
 
-// RESERVATION
+// -- MODULE RESERVATION --
 
 // BUILDING
 Route::middleware('auth:sanctum')->get('/reservation/buildings',
@@ -147,7 +156,7 @@ Route::middleware('auth:sanctum')->delete('/reservation/room/{id}',
     [RoomController::class, 'deleteRoom']
 )->can('admin', User::class);
 
-// EXPERIMENT
+// -- MODULE EXPERIMENT --
 
 // EXPERIMENT
 Route::middleware('auth:sanctum')->get('/experiment/experiments',

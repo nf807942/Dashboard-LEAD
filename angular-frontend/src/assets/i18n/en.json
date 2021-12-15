@@ -45,7 +45,7 @@
             "OLD-LOAN": "My previous loans",
             "TYPES": "Types",
             "RESOURCES": "Resources",
-            "LOAN-REQUESTS": "Loan requests",
+            "MANAGE-REQUESTS": "Manage requests",
             "LOANS": "Loans"
         },
         "EXPERIMENT": {
@@ -104,7 +104,14 @@
         "EXPERIMENT-MAN-SUBJECTS": "Max number of subjects",
         "EXPERIMENT-EXPERIMENTALIST": "Experimentalist",
         "EXPERIMENT-START-DATE": "Start date",
-        "EXPERIMENT-END-DATE": "End date"
+        "EXPERIMENT-END-DATE": "End date",
+        "LOAN-REQUEST-USER": "Applicant",
+        "LOAN-REQUEST-RESOURCE": "Resource concerned",
+        "LOAN-REQUEST-TYPE": "Request type",
+        "LOAN-REQUEST-START-DATE": "Start date",
+        "LOAN-REQUEST-END-DATE": "End date",
+        "LOAN-REQUEST-ACCEPT": "Accept",
+        "LOAN-REQUEST-REJECT": "Reject"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",
@@ -121,7 +128,9 @@
         "NOTATION-ADD-POINTS-SUCCESS": "Time successfully added",
         "NOTATION-IMPORT-SUCCESS": "Data successfully imported",
         "FORBIDDEN": "Access forbidden",
-        "MAKE-REQUEST-SUCCESS": "Request sent successfully"
+        "LOAN-MAKE-REQUEST-SUCCESS": "Request sent successfully",
+        "LOAN-ACCEPT-REQUEST-SUCCESS": "Request accepted successfully",
+        "LOAN-REJECT-REQUEST-SUCCESS": "Request rejected"
     },
     "FORM": {
         "REQUIRED": "This field is required",
@@ -149,7 +158,10 @@
         "RESOURCE-TYPE": "resource type",
         "START-DATE": "Loan start datet",
         "END-DATE": "Loan end date",
-        "CHOOSE-END-DATE": "Choose the loan end date"
+        "CHOOSE-END-DATE": "Choose the loan end date",
+        "LOAN-REQUEST": "Loan request",
+        "PROLONGATION-REQUEST": "Requête de prolongation",
+        "RETURN-REQUEST": "Requête de rendu"
     },
     "ROLE": {
         "ADMIN": "Admin",
