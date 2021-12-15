@@ -12,6 +12,7 @@ use \App\Http\Controllers\ResourceController;
 use \App\Http\Controllers\ExperimentController;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\LoanRequestController;
+use \App\Http\Controllers\LoanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,6 +101,10 @@ Route::middleware('auth:sanctum')->post('/loan/loan-request-reject/{id}',
     [LoanRequestController::class, 'rejectLoanRequest']
 )->can('admin', User::class);
 
+// LOAN
+Route::middleware('auth:sanctum')->get('/loan/loans',
+    [LoanController::class, 'getLoans']
+)->can('admin', User::class);
 
 // -- MODULE NOTATION --
 

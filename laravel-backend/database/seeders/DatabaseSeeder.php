@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoomSeeder::class);
         $this->call(ExperimentSeeder::class);
         $this->call(LoanRequestSeeder::class);
+        $this->call(LoanSeeder::class);
     }
 }
