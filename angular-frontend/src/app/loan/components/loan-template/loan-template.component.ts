@@ -17,8 +17,7 @@ export class LoanTemplateComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.crossComponentService.links = [
       {text: 'SIDENAV.LOAN.ADD-LOAN', route:'loan/add-loan'},
-      {text: 'SIDENAV.LOAN.MY-LOAN', route:'loan/my-loan'},
-      {text: 'SIDENAV.LOAN.OLD-LOAN', route:'loan/old-loan'},
+      {text: 'SIDENAV.LOAN.MY-LOANS', route:'loan/my-loan'},
       {gap:true},
       {text: 'SIDENAV.LOAN.TYPES', route:'loan/types', admin: true},
       {text: 'SIDENAV.LOAN.RESOURCES', route:'loan/resources', admin: true},

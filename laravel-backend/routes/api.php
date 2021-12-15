@@ -105,6 +105,9 @@ Route::middleware('auth:sanctum')->post('/loan/loan-request-reject/{id}',
 Route::middleware('auth:sanctum')->get('/loan/loans',
     [LoanController::class, 'getLoans']
 )->can('admin', User::class);
+Route::middleware('auth:sanctum')->get('/loan/my-loans',
+    [LoanController::class, 'getMyLoans']
+);
 
 // -- MODULE NOTATION --
 

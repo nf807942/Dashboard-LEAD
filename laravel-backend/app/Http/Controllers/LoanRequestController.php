@@ -14,7 +14,7 @@ class LoanRequestController extends Controller
         $loanRequest['start_date'] = Carbon::now();
         $loanRequest['end_date'] = Carbon::parse($request['end_date']);
         $loanRequest['resource_id'] = $request['id'];
-        $loanRequest['user_id'] = Auth::id();;
+        $loanRequest['user_id'] = Auth::id();
         $loanRequest['request_type'] = 0;
         $created = LoanRequest::create($loanRequest);
         return response()->json($created, 200);

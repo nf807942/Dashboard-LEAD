@@ -41,7 +41,7 @@
         },
         "LOAN": {
             "ADD-LOAN": "Faire un prêt",
-            "MY-LOAN": "Mes prêts",
+            "MY-LOANS": "Mes prêts",
             "OLD-LOAN": "Précedents prêts",
             "TYPES": "Types",
             "RESOURCES": "Ressources",
@@ -111,7 +111,9 @@
         "LOAN-REQUEST-START-DATE": "Date de départ",
         "LOAN-REQUEST-END-DATE": "Date de fin",
         "LOAN-REQUEST-ACCEPT": "Accepter",
-        "LOAN-REQUEST-REJECT": "Refuser"
+        "LOAN-REQUEST-REJECT": "Refuser",
+        "LOAN-ASK-PROLONGATION": "Demande de prolongation",
+        "LOAN-ASK-RETURN": "Marquer comme rendu"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",

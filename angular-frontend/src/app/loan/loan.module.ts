@@ -5,7 +5,6 @@ import { TypesComponent } from './components/types/types.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { LoansComponent } from './components/loans/loans.component';
 import { LoanRequestsComponent } from './components/loan-requests/loan-requests.component';
-import { OldLoanComponent } from './components/old-loan/old-loan.component';
 import { LoanTemplateComponent } from './components/loan-template/loan-template.component';
 import { SharedModule } from '../shared/shared.module';
 
@@ -19,7 +18,6 @@ import { SharedModule } from '../shared/shared.module';
     ResourcesComponent,
     LoansComponent,
     LoanRequestsComponent,
-    OldLoanComponent,
     LoanTemplateComponent
   ],
   imports: [

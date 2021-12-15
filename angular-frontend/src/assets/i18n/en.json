@@ -41,7 +41,7 @@
         },
         "LOAN": {
             "ADD-LOAN": "Make a loan",
-            "MY-LOAN": "My loans",
+            "MY-LOANS": "My loans",
             "OLD-LOAN": "My previous loans",
             "TYPES": "Types",
             "RESOURCES": "Resources",
@@ -111,7 +111,9 @@
         "LOAN-REQUEST-START-DATE": "Start date",
         "LOAN-REQUEST-END-DATE": "End date",
         "LOAN-REQUEST-ACCEPT": "Accept",
-        "LOAN-REQUEST-REJECT": "Reject"
+        "LOAN-REQUEST-REJECT": "Reject",
+        "LOAN-ASK-PROLONGATION": "Ask for prolongation",
+        "LOAN-ASK-RETURN": "Mark as returned"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",
@@ -160,8 +162,8 @@
         "END-DATE": "Loan end date",
         "CHOOSE-END-DATE": "Choose the loan end date",
         "LOAN-REQUEST": "Loan request",
-        "PROLONGATION-REQUEST": "Requête de prolongation",
-        "RETURN-REQUEST": "Requête de rendu"
+        "PROLONGATION-REQUEST": "Prolongation request",
+        "RETURN-REQUEST": "Return request"
     },
     "ROLE": {
         "ADMIN": "Admin",

@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 import { ConnectionService } from 'src/app/shared/services/connection.service';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { Loan } from '../models/loan';
 import { LoanRequest } from '../models/loan-request';
 import { Resource } from '../models/resource';
 import { Type } from '../models/type';
@@ -99,6 +100,19 @@ export class LoanService {
       this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-REJECT-REQUEST-SUCCESS')
     }));
+  }
+  //#endregion
+
+  //#region Loan
+  getLoans(): Observable<Loan[]> {
+    return this.api.get('loan', 'loans').pipe(
+      map((loans: Loan[]) => loans.map(loan => new Loan(loan)))
+    );
+  }
+  getMyLoans(): Observable<Loan[]> {
+    return this.api.get('loan', 'my-loans').pipe(
+      map((loans: Loan[]) => loans.map(loan => new Loan(loan)))
+    );
   }
   //#endregion
 }
