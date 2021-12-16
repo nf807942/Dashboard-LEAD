@@ -165,7 +165,8 @@
         "PROLONGATION-REQUEST": "Requête de prolongation",
         "RETURN-REQUEST": "Requête de rendu",
         "REJECT-DIALOG-TITLE": "Refuser la requête",
-        "ACCEPT-DIALOG-TITLE": "Accepter la requête"
+        "ACCEPT-DIALOG-TITLE": "Accepter la requête",
+        "DELETE-DIALOG-TITLE": "Supprimer le prêt"
     },
     "ROLE": {
         "ADMIN": "Admin",

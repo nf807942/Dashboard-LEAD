@@ -108,6 +108,9 @@ Route::middleware('auth:sanctum')->get('/loan/loans',
 Route::middleware('auth:sanctum')->get('/loan/my-loans',
     [LoanController::class, 'getMyLoans']
 );
+Route::middleware('auth:sanctum')->delete('/loan/loan/{id}',
+    [LoanController::class, 'deleteLoan']
+)->can('admin', User::class);
 
 // -- MODULE NOTATION --
 

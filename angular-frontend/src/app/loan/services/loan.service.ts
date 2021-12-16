@@ -121,5 +121,10 @@ export class LoanService {
       map((loans: Loan[]) => loans.map(loan => new Loan(loan)))
     );
   }
+  cancelLoan(loan: Loan): Observable<Loan> {
+    return this.api.delete('loan', 'loan', loan.id).pipe(tap(() => {
+      this.updateBadges();
+    }));
+  }
   //#endregion
 }

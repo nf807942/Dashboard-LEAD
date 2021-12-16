@@ -165,7 +165,8 @@
         "PROLONGATION-REQUEST": "Prolongation request",
         "RETURN-REQUEST": "Return request",
         "REJECT-DIALOG-TITLE": "Reject request",
-        "ACCEPT-DIALOG-TITLE": "Accept request"
+        "ACCEPT-DIALOG-TITLE": "Accept request",
+        "DELETE-DIALOG-TITLE": "Delete loan"
     },
     "ROLE": {
         "ADMIN": "Admin",
