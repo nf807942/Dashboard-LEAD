@@ -49,7 +49,7 @@ export class ApiService {
   }
 
   put(module: string, endpoint: string, data: any): Observable<any> {
-    return this.http.put(this.url(module, endpoint, null), data, {withCredentials: true}).pipe(
+    return this.http.post(this.url(module, endpoint+'-put', null), data, {withCredentials: true}).pipe(
       this.errorCatching,
       tap(() =>  this.snackbarService.success(4, 'SNACKBAR.PUT-SUCCESS')),
       catchError(() => of(null))
@@ -57,7 +57,7 @@ export class ApiService {
   }
 
   delete(module: string, endpoint: string, id: number): Observable<any> {
-    return this.http.delete(this.url(module, endpoint, id), {withCredentials: true}).pipe(
+    return this.http.post(this.url(module, endpoint+'-delete', id), null, {withCredentials: true}).pipe(
       this.errorCatching,
       tap(() =>  this.snackbarService.success(4, 'SNACKBAR.DELETE-SUCCESS')),
       catchError(() => of(null))
@@ -65,7 +65,7 @@ export class ApiService {
   }
 
   patch(module: string, endpoint: string, data: any, id: number): Observable<any> {
-    return this.http.patch(this.url(module, endpoint, id), data, {withCredentials: true}).pipe(
+    return this.http.post(this.url(module, endpoint+'-patch', id), data, {withCredentials: true}).pipe(
       this.errorCatching,
       tap(() =>  this.snackbarService.success(4, 'SNACKBAR.PATCH-SUCCESS')),
       catchError(() => of(null))

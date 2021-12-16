@@ -18,7 +18,7 @@ class CreateRoomsTable extends Migration
             $table->integer('number');
             $table->integer('floor');
             $table->unsignedBigInteger('building_id');
-            $table->foreign('building_id')->references('id')->on('buildings');
+            $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
             $table->timestamps();
         });
     }

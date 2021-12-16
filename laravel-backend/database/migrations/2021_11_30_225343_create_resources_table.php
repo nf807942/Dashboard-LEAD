@@ -17,7 +17,7 @@ class CreateResourcesTable extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->timestamps();
         });
     }

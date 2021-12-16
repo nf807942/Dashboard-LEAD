@@ -121,7 +121,7 @@ export class LoanService {
   }
 
   cancelMyLoanRequest(request: LoanRequest): Observable<LoanRequest> {
-    return this.api.delete('loan', 'my-loan-request-cancel', request.id).pipe(tap(() => {
+    return this.api.delete('loan', 'my-loan-request', request.id).pipe(tap(() => {
       this.updateBadges();
     }));
   }
