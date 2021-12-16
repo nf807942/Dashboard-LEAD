@@ -163,7 +163,9 @@
         "CHOOSE-END-DATE": "Choose the loan end date",
         "LOAN-REQUEST": "Loan request",
         "PROLONGATION-REQUEST": "Prolongation request",
-        "RETURN-REQUEST": "Return request"
+        "RETURN-REQUEST": "Return request",
+        "REJECT-DIALOG-TITLE": "Reject request",
+        "ACCEPT-DIALOG-TITLE": "Accept request"
     },
     "ROLE": {
         "ADMIN": "Admin",

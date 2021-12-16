@@ -30,8 +30,8 @@ export class ExperimentsComponent implements OnInit {
     new TextboxQuestion({ key: 'experimentalist', label: 'TABLE.EXPERIMENT-EXPERIMENTALIST', required: true }),
     new RowQuestion({
       rows: [
-        new TextboxQuestion({ key: 'start_date', label: 'TABLE.EXPERIMENT-START-DATE', required: true, type:"date" }),
-        new TextboxQuestion({ key: 'end_date', label: 'TABLE.EXPERIMENT-END-DATE', required: true, type:"date" })
+        new TextboxQuestion({ key: 'start_date', label: 'TABLE.EXPERIMENT-START-DATE', required: true, type: 'date' }),
+        new TextboxQuestion({ key: 'end_date', label: 'TABLE.EXPERIMENT-END-DATE', required: true, type: 'date' })
       ]
     }),
     new HiddenQuestion({

@@ -49,10 +49,35 @@ export class CreateEditDeleteDialogService {
     return {subject, action};
   }
 
+  buildDisplayAction(questions: any, actionColor: string, actionName: string, title: string): {subject: Observable<any>, action: (data: any) => any} {
+    let subject = new Subject<any>();
+
+    let action = this.generateAction(questions, subject, actionColor, actionName, title);
+
+    return {subject, action};
+  }
+
   buildBlankAction(): {subject: Observable<any>, action: (data?: any) => any} {
     let subject = new Subject<any>();
     let action = (data) => {
       subject.next(data);
+    };
+
+    return {subject, action};
+  }
+
+  buildDialogAction(dialog: any, actionColor: string, actionName: string, title: string): {subject: Observable<any>, action: (data?: any) => any} {
+    let subject = new Subject<any>();
+    let action = (data) => {
+      subject.next(data);
+    };
+
+    action = (data?: any) => {
+      let dialogRef = this.dialog.open(dialog, {
+        minWidth: '500px',
+        data: { actionColor: actionColor, actionName: actionName, title: title, element: data}
+      });
+      dialogRef.afterClosed().subscribe((data) => subject.next(data));
     };
 
     return {subject, action};
@@ -63,13 +88,13 @@ export class CreateEditDeleteDialogService {
       if (data) {
 
         questions.forEach(question => {
-          if(data.hasOwnProperty(question.key)) {
+          if(data.hasOwnProperty(question.key) || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(data), question.key)) {
             question.value = data[question.key];
           }
 
           if(question.isRow) {
             question.rows.forEach(row => {
-              if(data.hasOwnProperty(row.key)) {
+              if(data.hasOwnProperty(row.key) || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(data), row.key)) {
                 row.value = data[row.key];
               }
             });

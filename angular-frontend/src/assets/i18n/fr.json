@@ -163,7 +163,9 @@
         "CHOOSE-END-DATE": "Choisir la date de fin du prêt",
         "LOAN-REQUEST": "Requête de prêt",
         "PROLONGATION-REQUEST": "Requête de prolongation",
-        "RETURN-REQUEST": "Requête de rendu"
+        "RETURN-REQUEST": "Requête de rendu",
+        "REJECT-DIALOG-TITLE": "Refuser la requête",
+        "ACCEPT-DIALOG-TITLE": "Accepter la requête"
     },
     "ROLE": {
         "ADMIN": "Admin",

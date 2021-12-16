@@ -22,13 +22,19 @@ export class LoanService {
     private crossComponentService: CrossComponentService,
   ) { }
 
-  updateBadges() {
-    this.connectionService.isAdmin() ?
-    this.getCountLoanRequests().subscribe(count => {
+  updateBadges(value?: number) {
+    if (value) {
       this.crossComponentService.badges = [
-        {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', value: count === 0 ? null : count}
+        {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', value: value === 0 ? null : value}
       ]
-    }) : null;
+    } else {
+      this.connectionService.isAdmin() ?
+      this.getCountLoanRequests().subscribe(count => {
+        this.crossComponentService.badges = [
+          {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', value: count === 0 ? null : count}
+        ]
+      }) : null;
+    }
   }
 
   //#region Type
@@ -80,7 +86,8 @@ export class LoanService {
 
   getLoanRequests(): Observable<LoanRequest[]> {
     return this.api.get('loan', 'loan-requests').pipe(
-      map((requests: LoanRequest[]) => requests.map(request => new LoanRequest(request)))
+      map((requests: LoanRequest[]) => requests.map(request => new LoanRequest(request))),
+      tap(requests => this.updateBadges(requests.length))
     );
   }
 

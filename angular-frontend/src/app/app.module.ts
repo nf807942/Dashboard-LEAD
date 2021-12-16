@@ -18,6 +18,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
 import { LoggedInterceptor } from './shared/interceptors/logged.interceptor';
 import { AdminModule } from './admin/admin.module';
+import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -63,7 +64,10 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         provide: HTTP_INTERCEPTORS,
         useClass: LoggedInterceptor,
         multi: true
-    }
+    },
+    {
+      provide: MAT_DATE_LOCALE, useValue: 'fr-FR'
+    },
   ],
   bootstrap: [AppComponent]
 })

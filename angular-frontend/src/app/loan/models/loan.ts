@@ -7,6 +7,8 @@ export class Loan {
     user_id: User;
     user: User;
     resource: Resource;
+    start_date: Date;
+    end_date: Date;
 
     constructor(data: Partial<Loan>){
         Object.assign(this, data);

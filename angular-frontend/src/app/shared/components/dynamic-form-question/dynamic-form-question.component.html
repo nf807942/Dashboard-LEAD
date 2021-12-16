@@ -20,5 +20,14 @@
             <mat-error *ngIf="form.get(question.key).errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
             <mat-error *ngIf="form.get(question.key).errors?.email">{{"FORM.EMAIL" |translate}}</mat-error>
         </mat-form-field>
+
+        <p *ngSwitchCase="'display'" class="display">
+            <span>{{question.label | translate}} : </span>
+            <ng-container *ngIf="question.translated; else notTranslated">{{question.value | translate}}</ng-container>
+            <ng-template #notTranslated>
+                <ng-container *ngIf="question.type === 'date'">{{question.value | date:'dd/MM/YYYY'}}</ng-container>
+                <ng-container *ngIf="question.type !== 'date'">{{question.value}}</ng-container>
+            </ng-template>
+        </p>
     </div>
 </div>

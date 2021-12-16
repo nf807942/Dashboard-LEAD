@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dynamic-form-question',
-  templateUrl: './dynamic-form-question.component.html'
+  templateUrl: './dynamic-form-question.component.html',
+  styleUrls: ['./dynamic-form-question.component.scss']
 })
 export class DynamicFormQuestionComponent implements OnInit {
   @Input() question!: DynamicFormQuestion;
@@ -44,6 +45,7 @@ export class DynamicFormQuestion {
   controlType: string;
   type: string;
   hidden: boolean;
+  translated: boolean;
 
   options: {key: string, value: string}[];
   options_observable: Observable<any[]>;
@@ -65,6 +67,7 @@ export class DynamicFormQuestion {
           controlType?: string;
           type?: string;
           hidden?: boolean;
+          translated?: boolean;
 
           options?: {key: string, value: string}[];
           options_observable?: Observable<any[]>;
@@ -85,6 +88,7 @@ export class DynamicFormQuestion {
       this.controlType = options.controlType || '';
       this.type = options.type || '';
       this.hidden = options.hidden || false;
+      this.translated = options.translated || false;
 
       this.options = options.options || [];
       this.options_observable = options.options_observable || null;
@@ -110,4 +114,11 @@ export class HiddenQuestion extends DynamicFormQuestion {
 
 export class RowQuestion extends DynamicFormQuestion {
   override isRow = true;
+}
+
+export class DisplayQuestion extends DynamicFormQuestion {
+  override controlType = 'display';
+  override hidden = true;
+  override required = false;
+  override disabled = true;
 }

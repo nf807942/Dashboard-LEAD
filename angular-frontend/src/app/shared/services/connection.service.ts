@@ -46,7 +46,6 @@ export class ConnectionService {
     return this.http.get(environment.url+'sanctum/csrf-cookie', {withCredentials: true}).pipe(
       mergeMap(() => this.http.post(environment.url+'api/login', data, {withCredentials: true})),
       catchError(() =>  of(false)),
-      //catchError((error: HttpErrorResponse) =>  of(error.status !== 422))
       mergeMap((success) => {
         if(success) {
           return this.http.get(environment.url+'api/user', {withCredentials: true});
