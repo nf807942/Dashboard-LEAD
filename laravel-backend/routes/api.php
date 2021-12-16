@@ -88,6 +88,12 @@ Route::middleware('auth:sanctum')->delete('/loan/resource/{id}',
 Route::middleware('auth:sanctum')->get('/loan/loan-requests',
     [LoanRequestController::class, 'getLoanRequests']
 )->can('admin', User::class);
+Route::middleware('auth:sanctum')->get('/loan/my-loan-requests',
+    [LoanRequestController::class, 'getMyLoanRequests']
+);
+Route::middleware('auth:sanctum')->delete('/loan/my-loan-request-cancel/{id}',
+    [LoanRequestController::class, 'cancelMyLoanRequest']
+);
 Route::middleware('auth:sanctum')->get('/loan/count-loan-requests',
     [LoanRequestController::class, 'getCountLoanRequests']
 )->can('admin', User::class);

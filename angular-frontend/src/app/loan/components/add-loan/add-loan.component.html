@@ -35,7 +35,7 @@
             <p class="loan-sub-title">{{"LOAN.CHOOSE-END-DATE" | translate}}</p>
             <mat-form-field appearance="outline">
                     <mat-label>{{"LOAN.END-DATE" | translate}}</mat-label>
-                    <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" [formControl]="endDate">
+                    <input matInput [matDatepickerFilter]="filterAfter" [matDatepicker]="picker" [formControl]="endDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-error *ngIf="endDate.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>

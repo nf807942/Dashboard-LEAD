@@ -42,6 +42,7 @@
         "LOAN": {
             "ADD-LOAN": "Make a loan",
             "MY-LOANS": "My loans",
+            "MY-REQUESTS": "My requests",
             "OLD-LOAN": "My previous loans",
             "TYPES": "Types",
             "RESOURCES": "Resources",
@@ -112,8 +113,10 @@
         "LOAN-REQUEST-END-DATE": "End date",
         "LOAN-REQUEST-ACCEPT": "Accept",
         "LOAN-REQUEST-REJECT": "Reject",
+        "LOAN-REQUEST-CANCEL": "Cancel request",
         "LOAN-ASK-PROLONGATION": "Ask for prolongation",
-        "LOAN-ASK-RETURN": "Mark as returned"
+        "LOAN-ASK-RETURN": "Mark as returned",
+        "LOAN-CANCEL": "Cancel loan"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Items by page",
@@ -166,7 +169,8 @@
         "RETURN-REQUEST": "Return request",
         "REJECT-DIALOG-TITLE": "Reject request",
         "ACCEPT-DIALOG-TITLE": "Accept request",
-        "DELETE-DIALOG-TITLE": "Delete loan"
+        "CANCEL-DIALOG-TITLE": "Delete loan",
+        "CANCEL-REQUEST-DIALOG-TITLE": "Cancel request",
     },
     "ROLE": {
         "ADMIN": "Admin",

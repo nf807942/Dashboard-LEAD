@@ -26,13 +26,23 @@ class LoanRequestController extends Controller
         return response()->json($loanRequests, 200);
     }
 
+    public function getMyLoanRequests() {
+        $loans = LoanRequest::with('user', 'resource', 'loan.user', 'loan.resource')
+            ->where('user_id', Auth::id())
+            ->orWhereHas('loan', function ($query) {
+                return $query->where('user_id', Auth::id());
+            })
+            ->get();
+        return response()->json($loans, 200);
+    }
+
     public function getCountLoanRequests() {
         $count = LoanRequest::count();
         return response()->json($count, 200);
     }
 
     public function acceptLoanRequest($id) {
-        $loanRequest = LoanRequest::with('user')->with('resource')->findOrFail($id);
+        $loanRequest = LoanRequest::with('user', 'resource', 'loan.user', 'loan.resource')->findOrFail($id);
 
         if ($loanRequest->request_type == 0) { // requête de prêt : créer un prêt
             Loan::create($loanRequest->toArray());
@@ -48,8 +58,18 @@ class LoanRequestController extends Controller
     }
 
     public function rejectLoanRequest($id) {
-        $loanRequest = LoanRequest::with('user')->with('resource')->findOrFail($id);
+        $loanRequest = LoanRequest::with('user', 'resource', 'loan.user', 'loan.resource')->findOrFail($id);
         $loanRequest->delete();
         return response()->json($loanRequest, 200);
+    }
+
+    public function cancelMyLoanRequest($id) {
+        $loanRequest = LoanRequest::with('user', 'resource', 'loan.user', 'loan.resource')->findOrFail($id);
+        if ($loanRequest->user_id == Auth::id() || ($loanRequest->loan != null && $loanRequest->loan->user_id == Auth::id())) {
+            $loanRequest->delete();
+            return response()->json($loanRequest, 200);
+        } else {
+            return response()->json(false, 403);
+        }
     }
 }

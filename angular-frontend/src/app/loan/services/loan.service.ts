@@ -91,6 +91,12 @@ export class LoanService {
     );
   }
 
+  getMyLoanRequests(): Observable<LoanRequest[]> {
+    return this.api.get('loan', 'my-loan-requests').pipe(
+      map((requests: LoanRequest[]) => requests.map(request => new LoanRequest(request))),
+    );
+  }
+
   getCountLoanRequests(): Observable<number> {
     return this.api.get('loan', 'count-loan-requests');
   }
@@ -106,6 +112,12 @@ export class LoanService {
     return this.api.post('loan', 'loan-request-reject', null, request.id).pipe(tap(() => {
       this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-REJECT-REQUEST-SUCCESS')
+    }));
+  }
+
+  cancelMyLoanRequest(request: LoanRequest): Observable<LoanRequest> {
+    return this.api.delete('loan', 'my-loan-request-cancel', request.id).pipe(tap(() => {
+      this.updateBadges();
     }));
   }
   //#endregion

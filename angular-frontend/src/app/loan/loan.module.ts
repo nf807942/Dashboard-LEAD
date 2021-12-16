@@ -7,6 +7,7 @@ import { LoansComponent } from './components/loans/loans.component';
 import { LoanRequestsComponent } from './components/loan-requests/loan-requests.component';
 import { LoanTemplateComponent } from './components/loan-template/loan-template.component';
 import { SharedModule } from '../shared/shared.module';
+import { MyRequestsComponent } from './components/my-requests/my-requests.component';
 
 
 
@@ -18,7 +19,8 @@ import { SharedModule } from '../shared/shared.module';
     ResourcesComponent,
     LoansComponent,
     LoanRequestsComponent,
-    LoanTemplateComponent
+    LoanTemplateComponent,
+    MyRequestsComponent,
   ],
   imports: [
     SharedModule

@@ -10,6 +10,7 @@ import { LoanRequestsComponent } from './loan/components/loan-requests/loan-requ
 import { LoanTemplateComponent } from './loan/components/loan-template/loan-template.component';
 import { LoansComponent } from './loan/components/loans/loans.component';
 import { MyLoanComponent } from './loan/components/my-loan/my-loan.component';
+import { MyRequestsComponent } from './loan/components/my-requests/my-requests.component';
 import { ResourcesComponent } from './loan/components/resources/resources.component';
 import { TypesComponent } from './loan/components/types/types.component';
 import { AddPointsComponent } from './notation/components/add-points/add-points.component';
@@ -42,6 +43,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'add-loan', pathMatch: 'full' },
     { path: 'add-loan', component: AddLoanComponent },
     { path: 'my-loan', component: MyLoanComponent },
+    { path: 'my-requests', component: MyRequestsComponent },
     { path: 'types', component: TypesComponent, canActivate: [AdminGuard] },
     { path: 'resources', component: ResourcesComponent, canActivate: [AdminGuard] },
     { path: 'loan-requests', component: LoanRequestsComponent, canActivate: [AdminGuard] },

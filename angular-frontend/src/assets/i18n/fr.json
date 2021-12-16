@@ -42,6 +42,7 @@
         "LOAN": {
             "ADD-LOAN": "Faire un prêt",
             "MY-LOANS": "Mes prêts",
+            "MY-REQUESTS": "Mes requêtes",
             "OLD-LOAN": "Précedents prêts",
             "TYPES": "Types",
             "RESOURCES": "Ressources",
@@ -112,8 +113,10 @@
         "LOAN-REQUEST-END-DATE": "Date de fin",
         "LOAN-REQUEST-ACCEPT": "Accepter",
         "LOAN-REQUEST-REJECT": "Refuser",
+        "LOAN-REQUEST-CANCEL": "Annuler la requête",
         "LOAN-ASK-PROLONGATION": "Demande de prolongation",
-        "LOAN-ASK-RETURN": "Marquer comme rendu"
+        "LOAN-ASK-RETURN": "Marquer comme rendu",
+        "LOAN-CANCEL": "Annuler le prêt"
     },
     "PAGINATOR": {
         "ITEMS_PER_PAGE": "Élements par page",
@@ -166,7 +169,8 @@
         "RETURN-REQUEST": "Requête de rendu",
         "REJECT-DIALOG-TITLE": "Refuser la requête",
         "ACCEPT-DIALOG-TITLE": "Accepter la requête",
-        "DELETE-DIALOG-TITLE": "Supprimer le prêt"
+        "CANCEL-DIALOG-TITLE": "Annuler le prêt",
+        "CANCEL-REQUEST-DIALOG-TITLE": "Annuler le requête",
     },
     "ROLE": {
         "ADMIN": "Admin",
