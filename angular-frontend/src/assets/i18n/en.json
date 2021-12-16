@@ -171,6 +171,9 @@
         "ACCEPT-DIALOG-TITLE": "Accept request",
         "CANCEL-DIALOG-TITLE": "Delete loan",
         "CANCEL-REQUEST-DIALOG-TITLE": "Cancel request",
+        "RETURN-DIALOG-TITLE": "Mark the resource as returned",
+        "PROLONGATION-REQUEST-DIALOG-TITLE": "Prolongation request",
+        "PROLONGATION-REQUEST-DATE": "Requested date"
     },
     "ROLE": {
         "ADMIN": "Admin",

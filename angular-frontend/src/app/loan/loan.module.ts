@@ -8,6 +8,7 @@ import { LoanRequestsComponent } from './components/loan-requests/loan-requests.
 import { LoanTemplateComponent } from './components/loan-template/loan-template.component';
 import { SharedModule } from '../shared/shared.module';
 import { MyRequestsComponent } from './components/my-requests/my-requests.component';
+import { ProlongationDialogComponent } from './components/dialogs/prolongation-dialog/prolongation-dialog.component';
 
 
 
@@ -21,6 +22,7 @@ import { MyRequestsComponent } from './components/my-requests/my-requests.compon
     LoanRequestsComponent,
     LoanTemplateComponent,
     MyRequestsComponent,
+    ProlongationDialogComponent
   ],
   imports: [
     SharedModule

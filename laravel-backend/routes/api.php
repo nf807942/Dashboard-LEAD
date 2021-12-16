@@ -117,6 +117,12 @@ Route::middleware('auth:sanctum')->get('/loan/my-loans',
 Route::middleware('auth:sanctum')->delete('/loan/loan/{id}',
     [LoanController::class, 'deleteLoan']
 )->can('admin', User::class);
+Route::middleware('auth:sanctum')->post('/loan/loan-return/{id}',
+    [LoanController::class, 'returnLoan']
+);
+Route::middleware('auth:sanctum')->post('/loan/loan-prolongation/{id}',
+    [LoanController::class, 'prolongateLoan']
+);
 
 // -- MODULE NOTATION --
 

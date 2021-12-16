@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -128,14 +129,28 @@ export class LoanService {
       map((loans: Loan[]) => loans.map(loan => new Loan(loan)))
     );
   }
+
   getMyLoans(): Observable<Loan[]> {
     return this.api.get('loan', 'my-loans').pipe(
       map((loans: Loan[]) => loans.map(loan => new Loan(loan)))
     );
   }
+
   cancelLoan(loan: Loan): Observable<Loan> {
     return this.api.delete('loan', 'loan', loan.id).pipe(tap(() => {
       this.updateBadges();
+    }));
+  }
+
+  returnLoan(loan: Loan): Observable<Loan> {
+    return this.api.post('loan', 'loan-return', null, loan.id).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.LOAN-MAKE-REQUEST-SUCCESS')
+    }));
+  }
+
+  prolongateLoan(loan: Loan): Observable<Loan> {
+    return this.api.post('loan', 'loan-prolongation', {date: moment(loan.end_date).format('YYYY-MM-DD').toString()}, loan.id).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.LOAN-MAKE-REQUEST-SUCCESS')
     }));
   }
   //#endregion

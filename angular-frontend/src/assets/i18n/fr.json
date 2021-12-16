@@ -171,6 +171,9 @@
         "ACCEPT-DIALOG-TITLE": "Accepter la requête",
         "CANCEL-DIALOG-TITLE": "Annuler le prêt",
         "CANCEL-REQUEST-DIALOG-TITLE": "Annuler le requête",
+        "RETURN-DIALOG-TITLE": "Marquer la ressource comme rendu",
+        "PROLONGATION-REQUEST-DIALOG-TITLE": "Demande de prolongation",
+        "PROLONGATION-REQUEST-DATE": "Date demandée"
     },
     "ROLE": {
         "ADMIN": "Admin",
