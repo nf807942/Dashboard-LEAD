@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BuildingSeeder::class);
         $this->call(RoomSeeder::class);
         $this->call(ExperimentSeeder::class);
-        $this->call(LoanRequestSeeder::class);
         $this->call(LoanSeeder::class);
+        $this->call(LoanRequestSeeder::class);
     }
 }

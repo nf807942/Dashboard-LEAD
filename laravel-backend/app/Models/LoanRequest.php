@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Resource;
 use App\Models\User;
+use App\Models\Loan;
 
 class LoanRequest extends Model
 {
@@ -16,7 +17,8 @@ class LoanRequest extends Model
         'start_date',
         'end_date',
         'user_id',
-        'request_type'
+        'request_type',
+        'loan_id'
     ];
 
     public function resource() {
@@ -25,6 +27,10 @@ class LoanRequest extends Model
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function loan() {
+        return $this->belongsTo(Loan::class);
     }
 
 }

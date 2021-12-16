@@ -13,6 +13,6 @@ class LoanRequestSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\LoanRequest::factory(3)->create();
+        \App\Models\LoanRequest::factory(5)->create();
     }
 }
