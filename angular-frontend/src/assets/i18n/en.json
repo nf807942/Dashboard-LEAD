@@ -23,7 +23,9 @@
         "CONNECT-TO": "Connection to the app",
         "LOADING": "Loading...",
         "BACK": "Back",
-        "NO-RESULT": "No result"
+        "NO-RESULT": "No result",
+        "YES": "Yes",
+        "NO": "No"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language",
@@ -86,6 +88,7 @@
         "USER-ROLE": "Rôle",
         "USER-PASSWORD": "Password",
         "TYPE-NAME": "Type of resource",
+        "TYPE-AVAILABLE": "Available",
         "STUDENT-NAME": "Student",
         "STUDENT-YEAR": "Year",
         "STUDENT-NUMBER": "Student id",

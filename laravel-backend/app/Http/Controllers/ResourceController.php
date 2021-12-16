@@ -9,12 +9,12 @@ use function DeepCopy\deep_copy;
 class ResourceController extends Controller
 {
     public function getResources() {
-        $resources = Resource::with('type')->get();
+        $resources = Resource::with('type', 'loans')->get();
         return response()->json($resources, 200);
     }
 
     public function getResourcesOfType(Request $request) {
-        $resources = Resource::with('type')->where('type_id', $request['id'])->get();
+        $resources = Resource::with('type', 'loans')->where('type_id', $request['id'])->get();
         return response()->json($resources, 200);
     }
 

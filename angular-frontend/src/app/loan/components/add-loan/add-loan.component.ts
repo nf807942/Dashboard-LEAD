@@ -4,6 +4,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { MatSelectionList } from '@angular/material/list';
 import { MatStepper } from '@angular/material/stepper';
 import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { Resource } from '../../models/resource';
 import { Type } from '../../models/type';
@@ -48,7 +49,10 @@ export class AddLoanComponent implements OnInit {
   }
 
   loadResources() {
-    this.resources$ = this.loanService.getResourcesOfType(this.types_list.selectedOptions.selected[0]?.value);
+    this.resources$ = this.loanService.getResourcesOfType(this.types_list.selectedOptions.selected[0]?.value).pipe(
+      tap(data => console.log(data)),
+      map(data => data.filter(resource => resource.loans.length === 0)),
+    );
     this.stepper.next();
   }
 

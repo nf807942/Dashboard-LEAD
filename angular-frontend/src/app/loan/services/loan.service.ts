@@ -58,11 +58,15 @@ export class LoanService {
 
   //#region Resource
   getResources(): Observable<Resource[]> {
-    return this.api.get('loan', 'resources');
+    return this.api.get('loan', 'resources').pipe(
+      map((resources: Resource[]) => resources.map(resource => new Resource(resource))),
+    );
   }
 
   getResourcesOfType(type: Type): Observable<Resource[]> {
-    return this.api.post('loan', 'resources-of-type', {id: type.id});
+    return this.api.post('loan', 'resources-of-type', {id: type.id}).pipe(
+      map((resources: Resource[]) => resources.map(resource => new Resource(resource))),
+    );
   }
 
   putResource(resource: Resource): Observable<Resource> {

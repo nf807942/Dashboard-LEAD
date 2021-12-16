@@ -43,6 +43,7 @@ export class ResourcesComponent implements OnInit {
   columns: CustomColumn[] = [
     {name: 'TABLE.NAME', property: 'name'},
     {name: 'TABLE.TYPE-NAME', property: 'type', subproperty: 'label'},
+    {name: 'TABLE.TYPE-AVAILABLE', property: 'available', translated: true},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
       {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
       {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
