@@ -1,9 +1,11 @@
-<h1 id="welcome-title" color="primary">{{"APP.WELCOME" | translate}}</h1>
+<h1 id="welcome-title">{{"APP.WELCOME" | translate}}</h1>
+<h1 id="visitor-title" color="primary" *ngIf="!connectionService.connected">{{"APP.VISITOR" | translate}}</h1>
 
 <mat-grid-list cols="3" gutterSize="1em" id="modules-grid">
 
     <a [routerLink]="module.route" *ngFor="let module of modulesList;let index = index">
-      <mat-grid-tile [style.background-image]="'url(' + 'assets/images/' + module.image + ')'" matRipple [style.animation-delay]="index * 0.1 + 's'">
+      <mat-grid-tile *ngIf="((module.connected && connectionService.connected) || !module.connected) && ((module.admin && connectionService.isAdmin()) || !module.admin)"
+      [style.background-image]="'url(' + 'assets/images/' + module.image + ')'" matRipple [style.animation-delay]="index * 0.1 + 's'">
         <div class="module-title"><span>{{module.text | translate}}</span></div></mat-grid-tile>
     </a>
 

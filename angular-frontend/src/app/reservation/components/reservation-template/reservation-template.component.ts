@@ -16,7 +16,7 @@ export class ReservationTemplateComponent implements OnInit, OnDestroy {
     this.crossComponentService.links = [
       {text: 'SIDENAV.RESERVATION.RESERVE', route:'reservation/reserve'},
       {text: 'SIDENAV.RESERVATION.MY-RESERVATIONS', route:'reservation/my-reservations'},
-      {gap:true},
+      {gap:true, admin: true},
       {text: 'SIDENAV.RESERVATION.BUILDINGS', route:'reservation/buildings', admin: true},
       {text: 'SIDENAV.RESERVATION.ROOMS', route:'reservation/rooms', admin: true}
     ];

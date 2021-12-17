@@ -5,7 +5,8 @@
     },
     "APP": {
         "DASHBOARD": "Tableau de bord",
-        "WELCOME": "Bienvenue sur votre tableau de bord !",
+        "WELCOME": "Tableau de bord - LEAD",
+        "VISITOR": "Mode visiteur",
         "CLOSE": "Fermer",
         "DETAILS": "Détails",
         "CANCEL": "Annuler",

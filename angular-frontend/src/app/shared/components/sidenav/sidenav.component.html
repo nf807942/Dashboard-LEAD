@@ -3,17 +3,19 @@
         <div class="flex column full-height">
             <mat-nav-list class="no-padding">
                 <div *ngFor="let link of all_links">
-                    <a mat-list-item *ngIf="!link.gap && ((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected)) && ((link.admin && connectionService.isAdmin()) || !link.admin)"
-                    [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive" (click)="link.action ? link.action() : {}">
-                        <div class="flex row sidenav-row">
-                            <div class="flex row align-center sidenav-link">
-                                <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
-                                <span [matBadge]="getBadgeOfLink(link)" matBadgeColor="accent" matBadgeOverlap="false">{{link.text | translate}}</span>
+                    <ng-container *ngIf="((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected)) && ((link.admin && connectionService.isAdmin()) || !link.admin) || link.always">
+                        <a mat-list-item *ngIf="!link.gap"
+                        [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive" (click)="link.action ? link.action() : {}">
+                            <div class="flex row sidenav-row">
+                                <div class="flex row align-center sidenav-link">
+                                    <mat-icon *ngIf="link.icon">{{link.icon}}</mat-icon>
+                                    <span [matBadge]="getBadgeOfLink(link)" matBadgeColor="accent" matBadgeOverlap="false" [class.selected]="rla.isActive">{{link.text | translate}}</span>
+                                </div>
+                                <mat-icon class="hide-on-small" [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
                             </div>
-                            <mat-icon [@chevronAnimation] *ngIf="rla.isActive">chevron_right</mat-icon>
-                        </div>
-                    </a>
-                    <div *ngIf="link.gap" class="sidenav-spacer"></div>
+                        </a>
+                        <div *ngIf="link.gap" class="sidenav-spacer"></div>
+                    </ng-container>
                 </div>
             </mat-nav-list>
             <div class="spacer"></div>

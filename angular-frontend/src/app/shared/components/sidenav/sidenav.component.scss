@@ -1,5 +1,5 @@
 #sidenav {
-    min-width: 200px;
+    width: 200px;
     background-color: #58319B;
 }
 
@@ -17,6 +17,20 @@
     height: 2em;
 }
 
-img {
-    width: 200px;
+@media (max-width: 750px) {
+    #sidenav {
+        width: 100px;
+        padding-top: 1em;
+    }
+    .sidenav-row {
+        font-size: small;
+        justify-content: center;
+        text-align: center;
+    }
+    .sidenav-link {
+        flex-direction: column;
+    }
+    .selected {
+        color: yellow;
+    }
 }

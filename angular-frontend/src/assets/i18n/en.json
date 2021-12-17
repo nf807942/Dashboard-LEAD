@@ -5,7 +5,8 @@
     },
     "APP": {
         "DASHBOARD": "Dashboard",
-        "WELCOME": "Welcome to your dashboard!",
+        "WELCOME": "Dashboard - LEAD",
+        "VISITOR": "Visitor mode",
         "CLOSE": "Close",
         "DETAILS": "Details",
         "CANCEL": "Cancel",

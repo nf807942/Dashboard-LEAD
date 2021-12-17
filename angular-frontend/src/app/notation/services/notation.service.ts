@@ -21,13 +21,13 @@ export class NotationService {
   }
 
   exportXLSX(): void {
-    this.api.get('notation', 'export-XLSX', {responseType: 'blob'}).subscribe(file => {
+    this.api.get('notation', 'export-XLSX', null, {responseType: 'blob'}).subscribe(file => {
       saveAs(file, 'students.xlsx');
     });
   }
 
   exportCSV(): void {
-    this.api.get('notation', 'export-CSV', {responseType: 'blob'}).subscribe(file => {
+    this.api.get('notation', 'export-CSV', null, {responseType: 'blob'}).subscribe(file => {
       saveAs(file, 'students.csv');
     });
   }
