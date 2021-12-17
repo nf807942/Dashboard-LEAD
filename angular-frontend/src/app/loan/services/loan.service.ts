@@ -82,7 +82,7 @@ export class LoanService {
   }
 
   //#region Loan Request
-  makeLoanRequest(request : {id: number, end_date: Date}): Observable<LoanRequest> {
+  makeLoanRequest(request : {id: number, end_date: string}): Observable<LoanRequest> {
     return this.api.post('loan', 'loan-request', request).pipe(tap(() => {
       if(this.connectionService.isAdmin()) this.updateBadges();
       this.snackbarService.success(4, 'SNACKBAR.LOAN-MAKE-REQUEST-SUCCESS')

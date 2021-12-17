@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSelectionList } from '@angular/material/list';
 import { MatStepper } from '@angular/material/stepper';
+import * as moment from 'moment';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
@@ -73,7 +74,7 @@ export class AddLoanComponent implements OnInit {
   }
 
   sendRequest() {
-    this.loanService.makeLoanRequest({id: this.selected.id, end_date: this.endDate.value}).subscribe(() => {
+    this.loanService.makeLoanRequest({id: this.selected.id, end_date: moment(this.endDate.value).format('YYYY-MM-DD').toString()}).subscribe(() => {
       this.endDate.reset();
       this.backToResources();
       this.backToTypes();

@@ -23,8 +23,8 @@ export class ExperimentsComponent implements OnInit {
     new TextboxQuestion({ key: 'time', label: 'TABLE.EXPERIMENT-TIME', required: true }),
     new RowQuestion({
       rows: [
-        new TextboxQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number' }),
-        new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAN-SUBJECTS', required: true, type: 'number' })
+        new TextboxQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number', value: 1 }),
+        new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAN-SUBJECTS', required: true, type: 'number', value: 1 })
       ]
     }),
     new TextboxQuestion({ key: 'experimentalist', label: 'TABLE.EXPERIMENT-EXPERIMENTALIST', required: true }),
