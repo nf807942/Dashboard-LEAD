@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,11 +18,19 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
 import { LoggedInterceptor } from './shared/interceptors/logged.interceptor';
 import { AdminModule } from './admin/admin.module';
-import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS } from '@angular/material/core';
+import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, 'assets/i18n/');
+}
+
+// start week on monday
+@Injectable()
+export class CustomDateAdapter extends NativeDateAdapter {
+  getFirstDayOfWeek(): number {
+     return 1;
+   }
 }
 
 @NgModule({
@@ -68,6 +76,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     {
       provide: MAT_DATE_LOCALE, useValue: 'fr-FR'
     },
+    {provide: DateAdapter, useClass: CustomDateAdapter }
   ],
   bootstrap: [AppComponent]
 })

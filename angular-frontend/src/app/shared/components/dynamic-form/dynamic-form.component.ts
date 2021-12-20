@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, ValidationErrors } from '@angular/forms';
 import { DynamicFormService } from '../../services/dynamic-form.service';
 import { DynamicFormQuestion, DynamicFormQuestionComponent } from '../dynamic-form-question/dynamic-form-question.component';
 
@@ -48,4 +48,21 @@ export class DynamicFormComponent implements OnInit, AfterViewInit {
       this.form.controls[question.key].setValue(parseInt(this.form.controls[question.key].value));
     }
   }
+
+  get valid(): boolean {
+    return this.form.valid;
+  }
 }
+
+export const BeforeAfterValidator = (group: FormGroup): ValidationErrors => {
+  const control1 = group.controls['hourStart'];
+  const control2 = group.controls['hourEnd'];
+  if (control1.value >= control2.value) {
+    control1.setErrors({beforeAfter: true});
+    control2.setErrors({beforeAfter: true});
+  } else {
+     control1.setErrors(null);
+     control2.setErrors(null);
+  }
+  return;
+};

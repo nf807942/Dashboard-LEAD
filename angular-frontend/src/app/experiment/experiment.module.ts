@@ -3,6 +3,7 @@ import { ExperimentsComponent } from './components/experiments/experiments.compo
 import { MyExperimentsComponent } from './components/my-experiments/my-experiments.component';
 import { ExperimentTemplateComponent } from './components/experiment-template/experiment-template.component';
 import { SharedModule } from '../shared/shared.module';
+import { CreateExperimentComponent } from './components/create-experiment/create-experiment.component';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
     MyExperimentsComponent,
     ExperimentsComponent,
     ExperimentTemplateComponent,
+    CreateExperimentComponent,
   ],
   imports: [
     SharedModule

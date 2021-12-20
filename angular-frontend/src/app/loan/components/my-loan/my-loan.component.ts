@@ -53,13 +53,13 @@ export class MyLoanComponent implements OnInit {
     this.crossComponentService.title = 'SIDENAV.LOAN.MY-LOANS';
 
     this.prolongationAction.subject.subscribe((data) => {
-      if (data !== null) {
+      if (data) {
         this.loanService.prolongateLoan(data).subscribe(() => {});
       }
     });
 
     this.returnAction.subject.subscribe((data) => {
-      if (data !== null) {
+      if (data) {
         this.loanService.returnLoan(data).subscribe(() => {});
       }
     });

@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 
+import {NgxMultipleDatesModule} from 'ngx-multiple-dates';
+
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -20,6 +22,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
@@ -31,6 +34,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatToolbarModule
   ],
   exports:[
+    NgxMultipleDatesModule,
+
     MatProgressSpinnerModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
@@ -51,6 +56,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatInputModule,
     MatBadgeModule,
+    MatChipsModule,
     MatIconModule,
     MatMenuModule,
     MatListModule,

@@ -26,7 +26,8 @@
         "BACK": "Retour",
         "NO-RESULT": "Aucun résultat",
         "YES": "Oui",
-        "NO": "Non"
+        "NO": "Non",
+        "NEXT": "Suivant"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue",
@@ -53,6 +54,7 @@
             "LOANS": "Prêts en cours"
         },
         "EXPERIMENT": {
+            "CREATE-EXPERIMENT": "Créer une expérience",
             "MY-EXPERIMENTS": "Mes expériences",
             "OLD-EXPERIMENTS": "Précedentes expériences",
             "EXPERIMENTS": "Expériences"
@@ -104,7 +106,7 @@
         "ROOM-FLOOR": "Étage",
         "EXPERIMENT-TITLE": "Titre",
         "EXPERIMENT-DESCRIPTION": "Description",
-        "EXPERIMENT-TIME": "Durée",
+        "EXPERIMENT-DURATION": "Durée",
         "EXPERIMENT-MIN-SUBJECTS": "Nb min de sujets",
         "EXPERIMENT-MAN-SUBJECTS": "Nb max de sujets",
         "EXPERIMENT-EXPERIMENTALIST": "Expérimentateur",
@@ -178,6 +180,21 @@
         "RETURN-DIALOG-TITLE": "Marquer la ressource comme rendu",
         "PROLONGATION-REQUEST-DIALOG-TITLE": "Demande de prolongation",
         "PROLONGATION-REQUEST-DATE": "Date demandée"
+    },
+    "EXPERIMENT": {
+        "INFORMATIONS": "Informations",
+        "DATES": "Dates et horaire",
+        "TIME-SLOTS": "Créneaux",
+        "RANGE": "Date de départ et de fin",
+        "CHOOSE-DATES": "Dates de l'expérience",
+        "CHOOSE-HOURS": "Horaires de l'expérience",
+        "WEEKEND": "Se déroule aussi en weekend",
+        "EXCLUDED": "Dates à exclure",
+        "HOUR-START": "Heure de début",
+        "HOUR-END": "Heure de fin",
+        "MANAGE-TIME-SLOTS": "Gérer les creneaux",
+        "REGENERATE-TIME-SLOTS": "Recréer les crenaux",
+        "CREATE": "Créer l'expérience"
     },
     "ROLE": {
         "ADMIN": "Admin",

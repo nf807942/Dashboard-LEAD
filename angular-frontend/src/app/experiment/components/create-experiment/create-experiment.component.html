@@ -1,0 +1,73 @@
+<mat-stepper #stepper [@.disabled]="stepper.selectedIndex === 2" linear>
+    <mat-step [stepControl]="firstFormGroup.form">
+    <ng-template matStepLabel>{{"EXPERIMENT.INFORMATIONS" | translate}}</ng-template>
+        <app-dynamic-form [questions]="informations" #firstFormGroup></app-dynamic-form>
+        <div class="stepper-button">
+            <button mat-raised-button matStepperNext color="primary" [disabled]="!firstFormGroup.valid">{{"APP.NEXT" | translate}}</button>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>{{"EXPERIMENT.DATES" | translate}}</ng-template>
+        <p class="stepper-sub-title">{{"EXPERIMENT.CHOOSE-DATES" | translate}}</p>
+        <form [formGroup]="secondFormGroup">
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>{{"EXPERIMENT.RANGE" | translate}}</mat-label>
+                <mat-date-range-input required [rangePicker]="picker" formGroupName="range" [min]="date">
+                    <input formControlName="start" matStartDate>
+                    <input formControlName="end" matEndDate>
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+                <mat-error *ngIf="secondFormGroup.get('range').errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+            </mat-form-field>
+
+            <mat-slide-toggle formControlName="weekend">{{"EXPERIMENT.WEEKEND" | translate}}</mat-slide-toggle>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>{{"EXPERIMENT.EXCLUDED" | translate}}</mat-label>
+                <ngx-multiple-dates [matDatepicker]="picker2" formControlName="excluded" [min]="date"></ngx-multiple-dates>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+
+            <p class="stepper-sub-title">{{"EXPERIMENT.CHOOSE-HOURS" | translate}}</p>
+
+            <div class="flex row gap">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{"EXPERIMENT.HOUR-START" | translate}}</mat-label>
+                    <input matInput formControlName="hourStart" type="number"/>
+                    <mat-error *ngIf="secondFormGroup.get('hourStart').errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>{{"EXPERIMENT.HOUR-END" | translate}}</mat-label>
+                    <input matInput formControlName="hourEnd" type="number"/>
+                    <mat-error *ngIf="secondFormGroup.get('hourEnd').errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+        <div class="stepper-button">
+            <button mat-raised-button matStepperPrevious>{{"APP.BACK" | translate}}</button>
+            <button mat-raised-button matStepperNext color="primary" [disabled]="!secondFormGroup.valid" (click)="generateTimeSlots()">{{"APP.NEXT" | translate}}</button>
+        </div>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>{{"EXPERIMENT.TIME-SLOTS" | translate}}</ng-template>
+        <p class="stepper-sub-title">{{"EXPERIMENT.MANAGE-TIME-SLOTS" | translate}}</p>
+        <ng-container *ngFor="let day of timeSlots">
+            <div class="day"><p>{{day.day.format('dddd DD MMMM YYYY')}}</p></div>
+            <mat-chip-list>
+                <mat-chip *ngFor="let slot of day.slots" (removed)="remove(day, slot)">{{formatSlot(slot)}}<button matChipRemove><mat-icon>cancel</mat-icon></button></mat-chip>
+            </mat-chip-list>
+        </ng-container>
+        <div class="stepper-button">
+            <button mat-raised-button matStepperPrevious>{{"APP.BACK" | translate}}</button>
+            <button mat-raised-button [disabled]="!firstFormGroup.valid || !secondFormGroup.valid" (click)="generateTimeSlots()" [class.rotate-on-hover]="firstFormGroup.valid && secondFormGroup.valid">
+                <mat-icon>replay</mat-icon>{{"EXPERIMENT.REGENERATE-TIME-SLOTS" | translate}}
+            </button>
+            <button mat-raised-button color="primary" [disabled]="!firstFormGroup.valid || !secondFormGroup.valid" (click)="createExperiment()" [class.rotate-on-hover]="firstFormGroup.valid && secondFormGroup.valid">
+                <mat-icon>science</mat-icon>
+                {{"EXPERIMENT.CREATE" | translate}}
+            </button>
+        </div>
+    </mat-step>
+</mat-stepper>

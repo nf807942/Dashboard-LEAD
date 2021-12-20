@@ -12,8 +12,6 @@ export class ProlongationDialogComponent implements OnInit {
 
   endDate: FormControl;
 
-
-
   constructor(
     public dialogRef: MatDialogRef<ProlongationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -23,10 +21,6 @@ export class ProlongationDialogComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  filterAfter = (d: Date | null): boolean => {
-    return new Date(this.data.element.end_date) <= d;
-  };
 
   close(): void {
     let element: Loan = this.data.element;

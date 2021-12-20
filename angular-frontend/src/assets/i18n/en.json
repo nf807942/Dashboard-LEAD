@@ -26,7 +26,8 @@
         "BACK": "Back",
         "NO-RESULT": "No result",
         "YES": "Yes",
-        "NO": "No"
+        "NO": "No",
+        "NEXT": "Next"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language",
@@ -53,6 +54,7 @@
             "LOANS": "Loans"
         },
         "EXPERIMENT": {
+            "CREATE-EXPERIMENT": "Create experiment",
             "MY-EXPERIMENTS": "My experiments",
             "OLD-EXPERIMENTS": "My previous experiments",
             "EXPERIMENTS": "Experiments"
@@ -104,7 +106,7 @@
         "ROOM-FLOOR": "Floor",
         "EXPERIMENT-TITLE": "Title",
         "EXPERIMENT-DESCRIPTION": "Description",
-        "EXPERIMENT-TIME": "Duration",
+        "EXPERIMENT-DURATION": "Duration",
         "EXPERIMENT-MIN-SUBJECTS": "Min number of subjects",
         "EXPERIMENT-MAN-SUBJECTS": "Max number of subjects",
         "EXPERIMENT-EXPERIMENTALIST": "Experimentalist",
@@ -178,6 +180,21 @@
         "RETURN-DIALOG-TITLE": "Mark the resource as returned",
         "PROLONGATION-REQUEST-DIALOG-TITLE": "Prolongation request",
         "PROLONGATION-REQUEST-DATE": "Requested date"
+    },
+    "EXPERIMENT": {
+        "INFORMATIONS": "Informations",
+        "DATES": "Dates and hours",
+        "TIME-SLOTS": "Time slots",
+        "RANGE": "Date range from start to end",
+        "CHOOSE-DATES": "Dates details",
+        "CHOOSE-HOURS": "Schedule of experiment",
+        "WEEKEND": "Also takes place on weekends",
+        "EXCLUDED": "Dates to exclude",
+        "HOUR-START": "Start hour",
+        "HOUR-END": "End hour",
+        "MANAGE-TIME-SLOTS": "Manage time slots",
+        "REGENERATE-TIME-SLOTS": "Regenerate the times slots",
+        "CREATE": "Create the experiment"
     },
     "ROLE": {
         "ADMIN": "Admin",

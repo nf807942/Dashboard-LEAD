@@ -5,6 +5,7 @@
             <mat-label>{{question.label | translate}}</mat-label>
 
             <input matInput *ngSwitchCase="'textbox'" [placeholder]="question.value" [formControlName]="question.key" [type]="question.type">
+            <textarea matInput *ngSwitchCase="'textarea'" [placeholder]="question.value" [formControlName]="question.key"></textarea>
 
             <mat-select *ngSwitchCase="'dropdown'" [formControlName]="question.key">
                 <ng-container *ngIf="!question.options_observable">
@@ -14,6 +15,22 @@
                     <mat-option *ngFor="let opt of observable_values" [value]="opt[question.options_observable_key]">{{opt[question.options_observable_value]}}</mat-option>
                 </ng-container>
             </mat-select>
+
+            <ng-container *ngSwitchCase="'range'">
+                <mat-date-range-input [rangePicker]="picker" [formGroupName]="question.key">
+                    <input formControlName="start" matStartDate>
+                    <input formControlName="end" matEndDate>
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'multidate'">
+                <ngx-multiple-dates [matDatepicker]="picker" [formGroupName]="question.key">
+                </ngx-multiple-dates>
+                <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </ng-container>
 
             <mat-icon matSuffix *ngIf="question.icon">{{question.icon}}</mat-icon>
             <mat-hint *ngIf="question.hint">{{question.hint}}</mat-hint>
@@ -29,5 +46,7 @@
                 <ng-container *ngIf="question.type !== 'date'">{{question.value}}</ng-container>
             </ng-template>
         </p>
+
+        <mat-slide-toggle *ngSwitchCase="'toggle'" [formControlName]="question.key">{{question.label}}</mat-slide-toggle>
     </div>
 </div>

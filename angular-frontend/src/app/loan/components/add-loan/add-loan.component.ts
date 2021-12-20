@@ -81,8 +81,4 @@ export class AddLoanComponent implements OnInit {
     });
   }
 
-  filterAfter = (d: Date | null): boolean => {
-    return this.date <= d;
-  };
-
 }

@@ -1,23 +1,7 @@
-.mat-stepper-horizontal {
-    margin-top: 1em;
-}
-
 .mat-form-field {
-    margin-top: 1em;
-}
-
-.stepper-button {
-    display: flex;
-    gap: 1em;
     margin-top: 1em;
 }
 
 ::ng-deep .mat-horizontal-stepper-header{
     pointer-events: none !important;
-}
-
-.loan-sub-title {
-    font-weight: 500;
-    font-size: large;
-    text-align: center;
 }

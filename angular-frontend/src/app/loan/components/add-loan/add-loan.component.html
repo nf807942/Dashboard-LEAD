@@ -28,18 +28,18 @@
     <mat-step>
         <ng-template matStepLabel>{{"LOAN.MAKE-REQUEST" | translate}}</ng-template>
         <div class="column">
-            <p class="loan-sub-title">{{"LOAN.SUMMARY" | translate}} : </p>
+            <p class="stepper-sub-title">{{"LOAN.SUMMARY" | translate}} : </p>
             <p>{{"LOAN.RESOURCE-NAME" | translate}} : {{selected?.name}}</p>
             <p>{{"LOAN.RESOURCE-TYPE" | translate}} : {{selected?.type.label}}</p>
             <p>{{"LOAN.START-DATE" | translate}} : {{date | date:'dd/MM/YYYY'}}</p>
-            <p class="loan-sub-title">{{"LOAN.CHOOSE-END-DATE" | translate}}</p>
+            <p class="stepper-sub-title">{{"LOAN.CHOOSE-END-DATE" | translate}}</p>
             <mat-form-field appearance="outline">
                     <mat-label>{{"LOAN.END-DATE" | translate}}</mat-label>
-                    <input matInput [matDatepickerFilter]="filterAfter" [matDatepicker]="picker" [formControl]="endDate">
+                    <input matInput [min]="date" [matDatepicker]="picker" [formControl]="endDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     <mat-error *ngIf="endDate.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
-                    <mat-error *ngIf="endDate.errors?.matDatepickerFilter">{{"FORM.DATE" |translate}}</mat-error>
+                    <mat-error *ngIf="endDate.errors?.matDatepickerParse">{{"FORM.DATE" |translate}}</mat-error>
             </mat-form-field>
         </div>
         <div class="stepper-button">

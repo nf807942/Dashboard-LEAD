@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import * as moment from 'moment';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
     private translate: TranslateService) {
     this.translate.setDefaultLang('fr');
     this.translate.use('fr');
+    moment.locale('fr');
   }
 
   ngOnInit(): void {

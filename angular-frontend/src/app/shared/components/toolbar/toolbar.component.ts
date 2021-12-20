@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import * as moment from 'moment';
 import { ConnectionService } from '../../services/connection.service';
 
 @Component({
@@ -25,6 +26,7 @@ export class ToolbarComponent implements OnInit {
   changeLanguage(language: string): void {
     this.translate.use(language);
     this.currentLanguage = language;
+    moment.locale(language);
   }
 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminTemplateComponent } from './admin/components/admin-template/admin-template.component';
 import { UsersComponent } from './admin/components/users/users.component';
+import { CreateExperimentComponent } from './experiment/components/create-experiment/create-experiment.component';
 import { ExperimentTemplateComponent } from './experiment/components/experiment-template/experiment-template.component';
 import { ExperimentsComponent } from './experiment/components/experiments/experiments.component';
 import { MyExperimentsComponent } from './experiment/components/my-experiments/my-experiments.component';
@@ -49,10 +50,11 @@ const routes: Routes = [
     { path: 'loan-requests', component: LoanRequestsComponent, canActivate: [AdminGuard] },
     { path: 'loans', component: LoansComponent, canActivate: [AdminGuard] },
   ]},
-  { path: 'experiment', component: ExperimentTemplateComponent, canActivate: [LoggedGuard], children: [
-    { path: '', redirectTo: 'my-experiments', pathMatch: 'full' },
-    { path: 'my-experiments', component: MyExperimentsComponent },
-    { path: 'experiments', component: ExperimentsComponent },
+  { path: 'experiment', component: ExperimentTemplateComponent, children: [
+    { path: '', redirectTo: 'create-experiment', pathMatch: 'full' },
+    { path: 'create-experiment', component: CreateExperimentComponent, canActivate: [LoggedGuard] },
+    { path: 'my-experiments', component: MyExperimentsComponent, canActivate: [LoggedGuard] },
+    { path: 'experiments', component: ExperimentsComponent, canActivate: [LoggedGuard] },
   ]},
   { path: 'reservation', component: ReservationTemplateComponent, canActivate: [LoggedGuard], children: [
     { path: '', redirectTo: 'reserve', pathMatch: 'full' },

@@ -20,7 +20,7 @@ export class ExperimentsComponent implements OnInit {
   questions: DynamicFormQuestion[] = [
     new TextboxQuestion({ key: 'title', label: 'TABLE.EXPERIMENT-TITLE', required: true }),
     new TextboxQuestion({ key: 'description', label: 'TABLE.EXPERIMENT-DESCRIPTION', required: true }),
-    new TextboxQuestion({ key: 'time', label: 'TABLE.EXPERIMENT-TIME', required: true }),
+    new TextboxQuestion({ key: 'duration', label: 'TABLE.EXPERIMENT-DURATION', required: true }),
     new RowQuestion({
       rows: [
         new TextboxQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number', value: 1 }),
@@ -38,14 +38,14 @@ export class ExperimentsComponent implements OnInit {
       key: 'id',
     }),
   ];
-  createAction = this.createEditDeleteDialogService.buildCreateAction(this.questions);
+
   patchAction = this.createEditDeleteDialogService.buildEditAction(this.questions);
   deleteAction = this.createEditDeleteDialogService.buildDeleteAction(this.questions);
 
   columns: CustomColumn[] = [
     {name: 'TABLE.EXPERIMENT-TITLE', property: 'title'},
     {name: 'TABLE.EXPERIMENT-DESCRIPTION', property: 'description'},
-    {name: 'TABLE.EXPERIMENT-TIME', property: 'time'},
+    {name: 'TABLE.EXPERIMENT-DURATION', property: 'duration'},
     {name: 'TABLE.EXPERIMENT-MIN-SUBJECTS', property: 'min_subjects'},
     {name: 'TABLE.EXPERIMENT-MAN-SUBJECTS', property: 'max_subjects'},
     {name: 'TABLE.EXPERIMENT-EXPERIMENTALIST', property: 'experimentalist'},
@@ -69,12 +69,6 @@ export class ExperimentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.crossComponentService.title = 'SIDENAV.EXPERIMENT.EXPERIMENTS';
-
-    this.createAction.subject.subscribe((data) => {
-      if(data != null) {
-        this.experimentService.putExperiment(data).subscribe(this.experimentService.api.putTableUpdate(this.table));
-      }
-    });
 
     this.patchAction.subject.subscribe((data) => {
       if(data != null) {

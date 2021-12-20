@@ -33,6 +33,13 @@ export class DynamicFormService {
     ].filter(validator => validator !== null);
 
     let value = (qst.value != null) ? qst.value : '';
-    group[qst.key] = new FormControl({value:value, disabled: qst.disabled}, {validators:validators});
+    if (qst.controlType === 'range') {
+      group[qst.key] = new FormGroup({
+        start: new FormControl({value:value?.start, disabled: qst.disabled}, {validators:validators}),
+        end: new FormControl({value:value?.end, disabled: qst.disabled}, {validators:validators})
+      });
+    } else {
+      group[qst.key] = new FormControl({value:value, disabled: qst.disabled}, {validators:validators});
+    }
   }
 }

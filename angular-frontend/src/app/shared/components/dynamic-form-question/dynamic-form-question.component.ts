@@ -104,8 +104,25 @@ export class TextboxQuestion extends DynamicFormQuestion {
   override controlType = 'textbox';
 }
 
+export class TextAreaQuestion extends DynamicFormQuestion {
+  override controlType = 'textarea';
+}
+
 export class DropdownQuestion extends DynamicFormQuestion {
   override controlType = 'dropdown';
+}
+
+export class RangeQuestion extends DynamicFormQuestion {
+  override controlType = 'range';
+}
+
+export class MultiDateQuestion extends DynamicFormQuestion {
+  override controlType = 'multidate';
+}
+
+export class ToogleQuestion extends DynamicFormQuestion {
+  override controlType = 'toggle';
+  override hidden = true
 }
 
 export class HiddenQuestion extends DynamicFormQuestion {
