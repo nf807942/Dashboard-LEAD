@@ -16,7 +16,7 @@ class Experiment extends Model
         'min_subjects',
         'max_subjects',
         'experimentalist',
-        'time'
+        'duration'
     ];
 
 }

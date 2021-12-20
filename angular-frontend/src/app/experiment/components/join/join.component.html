@@ -1,0 +1,44 @@
+<ng-container *ngIf="experiment; else loading">
+    <br/>
+    <p class="experiment-title">{{experiment.title | uppercase}}</p><br/>
+    <p class="experiment-description">{{experiment.description}}</p>
+    <p>{{"EXPERIMENT.JOIN-DURATION" | translate}} : {{experiment.duration}} {{"APP.MINUTE" | translate}}</p>
+    <hr/>
+    <p class="stepper-sub-title">{{"EXPERIMENT.JOIN-AVAILABLE-TIME-SLOTS" | translate}} : </p>
+    <ng-container *ngFor="let day of [{day: 'bonjour', slots: [{start:180, end:410}, {start:180, end:420}]}, {day: 'bonjour2', slots: [{start:180, end:400}, {start:183, end:400}]}]">
+        <div class="day"><p>{{day.day}} : </p></div>
+        <mat-chip-list #list (chipSelectionChanges)="selectSlot($event)">
+            <mat-chip #chip="matChip" (click)="unselectAll(); chip.toggleSelected(); selectSlot(day, slot)" *ngFor="let slot of day.slots">{{formatSlot(slot)}}</mat-chip>
+        </mat-chip-list>
+    </ng-container>
+
+    <ng-container *ngIf="selected">
+        <br/>
+        <p class="stepper-sub-title">{{"EXPERIMENT.JOIN-CHOSEN-TIME-SLOT" | translate}} : </p>
+        <p class="day">{{selected.day}} : {{formatSlot(selected.slot)}}</p>
+
+        <br/>
+        <p class="stepper-sub-title">{{"APP.EMAIL" | translate}} : </p>
+        <mat-form-field appearance="outline">
+            <mat-label>{{"APP.EMAIL" | translate}}</mat-label>
+            <input matInput  [formControl]="email" required/>
+            <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+    </ng-container>
+
+    <div class="stepper-button">
+        <button mat-raised-button (click)="back()" >
+            <mat-icon>arrow_back</mat-icon>{{"APP.BACK" | translate}}
+        </button>
+        <button mat-raised-button color="primary" [disabled]="!email.valid || !selected" (click)="join()" >
+            {{"EXPERIMENT.JOIN" | translate}}<mat-icon>login</mat-icon>
+        </button>
+    </div>
+</ng-container>
+
+<ng-template #loading>
+    <div class="spinner-center">
+        <mat-spinner></mat-spinner>
+        {{"APP.LOADING" | translate}}
+    </div>
+</ng-template>

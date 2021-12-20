@@ -27,7 +27,9 @@
         "NO-RESULT": "Aucun résultat",
         "YES": "Oui",
         "NO": "Non",
-        "NEXT": "Suivant"
+        "NEXT": "Suivant",
+        "MINUTE": "minutes",
+        "EMAIL": "Adresse mail"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue",
@@ -57,7 +59,8 @@
             "CREATE-EXPERIMENT": "Créer une expérience",
             "MY-EXPERIMENTS": "Mes expériences",
             "OLD-EXPERIMENTS": "Précedentes expériences",
-            "EXPERIMENTS": "Expériences"
+            "EXPERIMENTS": "Expériences",
+            "JOIN": "Rejoindre"
         } ,
         "RESERVATION": {
             "BUILDINGS": "Bâtiments",
@@ -194,7 +197,12 @@
         "HOUR-END": "Heure de fin",
         "MANAGE-TIME-SLOTS": "Gérer les creneaux",
         "REGENERATE-TIME-SLOTS": "Recréer les crenaux",
-        "CREATE": "Créer l'expérience"
+        "CREATE": "Créer l'expérience",
+
+        "JOIN-AVAILABLE-TIME-SLOTS": "Créneaux disponible",
+        "JOIN-DURATION": "Durée de l'expérience",
+        "JOIN-CHOSEN-TIME-SLOT": "Créneau choisi",
+        "JOIN": "S'inscrire pour l'expérience"
     },
     "ROLE": {
         "ADMIN": "Admin",

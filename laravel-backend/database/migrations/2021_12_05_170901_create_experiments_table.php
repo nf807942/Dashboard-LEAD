@@ -22,7 +22,7 @@ class CreateExperimentsTable extends Migration
             $table->integer('min_subjects')->default(1);
             $table->integer('max_subjects')->default(1);
             $table->string('experimentalist');
-            $table->integer('time');
+            $table->integer('duration');
             $table->timestamps();
         });
     }

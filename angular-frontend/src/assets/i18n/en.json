@@ -27,7 +27,9 @@
         "NO-RESULT": "No result",
         "YES": "Yes",
         "NO": "No",
-        "NEXT": "Next"
+        "NEXT": "Next",
+        "MINUTE": "minutes",
+        "EMAIL": "Email address"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language",
@@ -57,7 +59,8 @@
             "CREATE-EXPERIMENT": "Create experiment",
             "MY-EXPERIMENTS": "My experiments",
             "OLD-EXPERIMENTS": "My previous experiments",
-            "EXPERIMENTS": "Experiments"
+            "EXPERIMENTS": "Experiments",
+            "JOIN": "Join"
         },
         "RESERVATION": {
             "BUILDINGS": "Buildings",
@@ -194,7 +197,12 @@
         "HOUR-END": "End hour",
         "MANAGE-TIME-SLOTS": "Manage time slots",
         "REGENERATE-TIME-SLOTS": "Regenerate the times slots",
-        "CREATE": "Create the experiment"
+        "CREATE": "Create the experiment",
+
+        "JOIN-AVAILABLE-TIME-SLOTS": "Available time slots",
+        "JOIN-DURATION": "Experiment duration",
+        "JOIN-CHOSEN-TIME-SLOT": "Chosen time slot",
+        "JOIN": "Register for the experiment"
     },
     "ROLE": {
         "ADMIN": "Admin",

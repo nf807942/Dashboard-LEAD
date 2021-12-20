@@ -12,6 +12,15 @@ class ExperimentController extends Controller
         return response()->json($experiments, 200);
     }
 
+    public function getRunningExperiments() {
+        $experiments = Experiment::all();
+        return response()->json($experiments, 200);
+    }
+
+    public function getExperiment($id) {
+        $experiment = Experiment::findOrFail($id);
+        return response()->json($experiment, 200);
+    }
     public function putExperiment(Request $request) {
         $experiment = $request->all();
         $created = Experiment::create($experiment);

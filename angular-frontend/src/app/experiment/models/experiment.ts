@@ -7,5 +7,5 @@ export class Experiment {
     min_subjects: number;
     max_subjects: number;
     experimentalist: string;
-    time: number;
+    duration: number;
 }

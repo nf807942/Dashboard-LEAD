@@ -21,7 +21,7 @@ class ExperimentFactory extends Factory
             'min_subjects' => $this->faker->randomDigit(),
             'max_subjects' => $this->faker->randomDigit(),
             'experimentalist' => $this->faker->name(),
-            'time' => $this->faker->numberBetween($min = 0, $max = 120),
+            'duration' => $this->faker->numberBetween($min = 0, $max = 120),
         ];
     }
 }

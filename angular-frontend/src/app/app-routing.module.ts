@@ -5,6 +5,8 @@ import { UsersComponent } from './admin/components/users/users.component';
 import { CreateExperimentComponent } from './experiment/components/create-experiment/create-experiment.component';
 import { ExperimentTemplateComponent } from './experiment/components/experiment-template/experiment-template.component';
 import { ExperimentsComponent } from './experiment/components/experiments/experiments.component';
+import { JoinListComponent } from './experiment/components/join-list/join-list.component';
+import { JoinComponent } from './experiment/components/join/join.component';
 import { MyExperimentsComponent } from './experiment/components/my-experiments/my-experiments.component';
 import { AddLoanComponent } from './loan/components/add-loan/add-loan.component';
 import { LoanRequestsComponent } from './loan/components/loan-requests/loan-requests.component';
@@ -51,10 +53,12 @@ const routes: Routes = [
     { path: 'loans', component: LoansComponent, canActivate: [AdminGuard] },
   ]},
   { path: 'experiment', component: ExperimentTemplateComponent, children: [
-    { path: '', redirectTo: 'create-experiment', pathMatch: 'full' },
+    { path: '', redirectTo: 'join', pathMatch: 'full' },
     { path: 'create-experiment', component: CreateExperimentComponent, canActivate: [LoggedGuard] },
     { path: 'my-experiments', component: MyExperimentsComponent, canActivate: [LoggedGuard] },
     { path: 'experiments', component: ExperimentsComponent, canActivate: [LoggedGuard] },
+    { path: 'join', component: JoinListComponent },
+    { path: 'join/:id', component: JoinComponent },
   ]},
   { path: 'reservation', component: ReservationTemplateComponent, canActivate: [LoggedGuard], children: [
     { path: '', redirectTo: 'reserve', pathMatch: 'full' },

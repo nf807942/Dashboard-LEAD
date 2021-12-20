@@ -188,6 +188,12 @@ Route::middleware('auth:sanctum')->post('/reservation/room-delete/{id}',
 Route::middleware('auth:sanctum')->get('/experiment/experiments',
     [ExperimentController::class, 'getExperiments']
 );
+Route::get('/experiment/running-experiments',
+    [ExperimentController::class, 'getRunningExperiments']
+);
+Route::get('/experiment/experiment/{id}',
+    [ExperimentController::class, 'getExperiment']
+);
 Route::middleware('auth:sanctum')->post('/experiment/experiment-put',
     [ExperimentController::class, 'putExperiment']
 );

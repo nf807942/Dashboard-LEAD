@@ -1,0 +1,13 @@
+<ng-template matStepLabel>{{"EXPERIMENT.RUNNING" | translate}}</ng-template>
+<div *ngIf="experiments$ | async as experiments; else loading">
+    <mat-nav-list>
+        <a mat-list-item [routerLink]="experiment.id" *ngFor="let experiment of experiments">{{experiment.title}}</a>
+     </mat-nav-list>
+</div>
+
+<ng-template #loading>
+    <div class="spinner-center">
+        <mat-spinner></mat-spinner>
+        {{"APP.LOADING" | translate}}
+    </div>
+</ng-template>

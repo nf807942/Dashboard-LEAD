@@ -38,6 +38,7 @@ export class CreateExperimentComponent implements OnInit {
   secondFormGroup: FormGroup;
   date: Date;
 
+  formatSlot = formatSlot;
   timeSlots = [];
 
   constructor(
@@ -114,19 +115,21 @@ export class CreateExperimentComponent implements OnInit {
     }
   }
 
-  formatSlot(slot: any): string {
-    return this.formatHour(slot.start) + ' - ' +this.formatHour(slot.end);
-  }
 
-  formatHour(time: number): string {
-    let hour = this.addZeroIfSub10(Math.floor(time / 60));
-    let minute = this.addZeroIfSub10(time % 60);
 
-    return hour + 'h' + minute;
-  }
+}
 
-  addZeroIfSub10(str: number): string {
-    return (str < 10) ? '0' + str : str + '';
-  }
+export function formatSlot(slot: any): string {
+  return formatHour(slot.start) + ' - ' +formatHour(slot.end);
+}
 
+export function formatHour(time: number): string {
+  let hour = addZeroIfSub10(Math.floor(time / 60));
+  let minute = addZeroIfSub10(time % 60);
+
+  return hour + 'h' + minute;
+}
+
+export function addZeroIfSub10(str: number): string {
+  return (str < 10) ? '0' + str : str + '';
 }

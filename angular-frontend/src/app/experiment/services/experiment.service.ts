@@ -17,6 +17,14 @@ export class ExperimentService {
     return this.api.get('experiment', 'experiments');
   }
 
+  getRunningExperiments(): Observable<Experiment[]> {
+    return this.api.get('experiment', 'running-experiments');
+  }
+
+  getExperiment(id: number): Observable<Experiment> {
+    return this.api.get('experiment', 'experiment', id);
+  }
+
   putExperiment(experiment: Experiment): Observable<Experiment> {
     return this.api.put('experiment', 'experiment', experiment);
   }
