@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ExperimentController extends Controller
 {
     public function getExperiments() {
-        $experiments = Experiment::all();
+        $experiments = Experiment::with('experimentalist')->get();
         return response()->json($experiments, 200);
     }
 

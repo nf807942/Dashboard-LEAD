@@ -27,7 +27,6 @@ export class ExperimentsComponent implements OnInit {
         new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAN-SUBJECTS', required: true, type: 'number', value: 1 })
       ]
     }),
-    new TextboxQuestion({ key: 'experimentalist', label: 'TABLE.EXPERIMENT-EXPERIMENTALIST', required: true }),
     new RowQuestion({
       rows: [
         new TextboxQuestion({ key: 'start_date', label: 'TABLE.EXPERIMENT-START-DATE', required: true, type: 'date' }),
@@ -48,7 +47,7 @@ export class ExperimentsComponent implements OnInit {
     {name: 'TABLE.EXPERIMENT-DURATION', property: 'duration'},
     {name: 'TABLE.EXPERIMENT-MIN-SUBJECTS', property: 'min_subjects'},
     {name: 'TABLE.EXPERIMENT-MAN-SUBJECTS', property: 'max_subjects'},
-    {name: 'TABLE.EXPERIMENT-EXPERIMENTALIST', property: 'experimentalist'},
+    {name: 'TABLE.EXPERIMENT-EXPERIMENTALIST', property: 'experimentalist_name'},
     {name: 'TABLE.EXPERIMENT-START-DATE', property: 'start_date', type: 'date'},
     {name: 'TABLE.EXPERIMENT-END-DATE', property: 'end_date', type: 'date'},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [

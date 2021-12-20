@@ -1,3 +1,5 @@
+import { User } from "src/app/shared/services/connection.service";
+
 export class Experiment {
     id: number;
     title: string;
@@ -6,6 +8,14 @@ export class Experiment {
     end_date: Date;
     min_subjects: number;
     max_subjects: number;
-    experimentalist: string;
+    experimentalist: User;
     duration: number;
+
+    constructor(data: Partial<Experiment>){
+        Object.assign(this, data);
+    }
+
+    get experimentalist_name(): string {
+        return this.experimentalist.name;
+    }
 }

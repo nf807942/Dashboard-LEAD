@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { Experiment } from '../models/experiment';
 
@@ -14,7 +15,9 @@ export class ExperimentService {
 
   //#region Experiment
   getExperiments(): Observable<Experiment[]> {
-    return this.api.get('experiment', 'experiments');
+    return this.api.get('experiment', 'experiments').pipe(
+      map((experiments: Experiment[]) => experiments.map(experiment => new Experiment(experiment))),
+    );
   }
 
   getRunningExperiments(): Observable<Experiment[]> {

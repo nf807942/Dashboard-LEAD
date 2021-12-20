@@ -21,7 +21,8 @@ class CreateExperimentsTable extends Migration
             $table->date('end_date');
             $table->integer('min_subjects')->default(1);
             $table->integer('max_subjects')->default(1);
-            $table->string('experimentalist');
+            $table->unsignedBigInteger('experimentalist_id');
+            $table->foreign('experimentalist_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('duration');
             $table->timestamps();
         });

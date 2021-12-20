@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
 class Experiment extends Model
 {
     use HasFactory;
@@ -15,8 +16,12 @@ class Experiment extends Model
         'end_date',
         'min_subjects',
         'max_subjects',
-        'experimentalist',
-        'duration'
+        'duration',
+        'experimentalist_id'
     ];
+
+    public function experimentalist() {
+        return $this->belongsTo(User::class);
+    }
 
 }
