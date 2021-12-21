@@ -1,11 +1,11 @@
 <h2 mat-dialog-title>{{"LOAN.PROLONGATION-REQUEST-DIALOG-TITLE" | translate}}</h2>
 <mat-dialog-content>
 
-    <p><span>{{"TABLE.LOAN-REQUEST-RESOURCE" | translate}} : </span>{{data.element.resource_name}}</p>
+    <p><span>{{"TABLE.LOAN-REQUEST-RESOURCE" | translate}} : </span>{{data.resource_name}}</p>
 
     <mat-form-field appearance="outline">
         <mat-label>{{"LOAN.PROLONGATION-REQUEST-DATE" | translate}}</mat-label>
-        <input matInput [min]="data.element.end_date" [matDatepicker]="picker" [formControl]="endDate">
+        <input matInput [min]="data.end_date" [matDatepicker]="picker" [formControl]="endDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
         <mat-error *ngIf="endDate.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>

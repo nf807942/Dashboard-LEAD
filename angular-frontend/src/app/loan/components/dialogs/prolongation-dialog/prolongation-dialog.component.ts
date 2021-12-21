@@ -23,7 +23,7 @@ export class ProlongationDialogComponent implements OnInit {
   }
 
   close(): void {
-    let element: Loan = this.data.element;
+    let element: Loan = this.data;
     element.end_date = this.endDate.value;
     this.dialogRef.close(element);
   }

@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
+import { environment } from 'src/environments/environment';
 import { Experiment } from '../models/experiment';
 
 @Injectable({
@@ -46,6 +47,14 @@ export class ExperimentService {
 
   deleteExperiment(experiment: Experiment): Observable<Experiment> {
     return this.api.delete('experiment', 'experiment', experiment.id);
+  }
+
+  getExperimentQR(experiment: Experiment): Observable<Blob> {
+    return this.api.post('experiment', 'experiment-qrcode', {url: this.getExperimentSharingLink(experiment)}, null, {responseType: 'blob'});
+  }
+
+  getExperimentSharingLink(experiment: Experiment): string {
+    return environment.url_front+'experiment/join/'+experiment.id;
   }
   //#endregion
 }

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Experiment;
 use App\Models\ExperimentTimeSlot;
 use Illuminate\Http\Request;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ExperimentController extends Controller
 {
@@ -30,6 +31,13 @@ class ExperimentController extends Controller
         $experiment = Experiment::with('experimentTimeSlots')->findOrFail($id);
         return response()->json($experiment, 200);
     }
+
+    public function getExperimentQR(Request $request) {
+        $url = $request->input('url');
+        $qrcode = QrCode::size(256)->errorCorrection('H')->generate($url);
+        return $qrcode;
+    }
+
     public function putExperiment(Request $request) {
         $experiment = $request->all();
         $experiment['experimentalist_id'] = Auth::id();

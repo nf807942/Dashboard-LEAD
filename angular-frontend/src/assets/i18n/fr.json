@@ -29,7 +29,8 @@
         "NO": "Non",
         "NEXT": "Suivant",
         "MINUTE": "minutes",
-        "EMAIL": "Adresse mail"
+        "EMAIL": "Adresse mail",
+        "DOWNLOAD": "Télécharger"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Changer la langue",
@@ -206,7 +207,11 @@
         "JOIN-AVAILABLE-TIME-SLOTS": "Créneaux disponible",
         "JOIN-DURATION": "Durée de l'expérience",
         "JOIN-CHOSEN-TIME-SLOT": "Créneau choisi",
-        "JOIN": "S'inscrire pour l'expérience"
+        "JOIN": "S'inscrire pour l'expérience",
+
+        "SHARING": "Partage",
+        "LINK": "Lien pour inscription à l'expérience",
+        "SHARING-DIALOG-TITLE": "Partage de l'expérience"
     },
     "ROLE": {
         "ADMIN": "Admin",

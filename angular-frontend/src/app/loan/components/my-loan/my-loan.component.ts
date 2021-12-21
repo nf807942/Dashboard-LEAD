@@ -26,7 +26,7 @@ export class MyLoanComponent implements OnInit {
     new HiddenQuestion({ key: 'id' }),
   ];
 
-  prolongationAction = this.createEditDeleteDialogService.buildDialogAction(ProlongationDialogComponent, 'warn', 'TABLE.LOAN-CANCEL', 'LOAN.CANCEL-DIALOG-TITLE');
+  prolongationAction = this.createEditDeleteDialogService.buildDialogAction(ProlongationDialogComponent);
   returnAction = this.createEditDeleteDialogService.buildDisplayAction(this.questions, 'primary', 'TABLE.LOAN-ASK-RETURN', 'LOAN.RETURN-DIALOG-TITLE');
 
   columns: CustomColumn[] = [

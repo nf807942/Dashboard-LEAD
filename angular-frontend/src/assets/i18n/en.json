@@ -29,7 +29,8 @@
         "NO": "No",
         "NEXT": "Next",
         "MINUTE": "minutes",
-        "EMAIL": "Email address"
+        "EMAIL": "Email address",
+        "DOWNLOAD": "Download"
     },
     "TOOLTIPS": {
         "CHANGE-LANGUAGE": "Change language",
@@ -206,7 +207,11 @@
         "JOIN-AVAILABLE-TIME-SLOTS": "Available time slots",
         "JOIN-DURATION": "Experiment duration",
         "JOIN-CHOSEN-TIME-SLOT": "Chosen time slot",
-        "JOIN": "Register for the experiment"
+        "JOIN": "Register for the experiment",
+
+        "SHARING": "Sharing",
+        "LINK": "Link to register for the experiment",
+        "SHARING-DIALOG-TITLE": "Sharing of the experiment"
     },
     "ROLE": {
         "ADMIN": "Admin",

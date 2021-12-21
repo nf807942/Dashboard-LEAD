@@ -66,7 +66,7 @@ export class CreateEditDeleteDialogService {
     return {subject, action};
   }
 
-  buildDialogAction(dialog: any, actionColor: string, actionName: string, title: string): {subject: Observable<any>, action: (data?: any) => any} {
+  buildDialogAction(dialog: any): {subject: Observable<any>, action: (data?: any) => any} {
     let subject = new Subject<any>();
     let action = (data) => {
       subject.next(data);
@@ -75,7 +75,7 @@ export class CreateEditDeleteDialogService {
     action = (data?: any) => {
       let dialogRef = this.dialog.open(dialog, {
         minWidth: '500px',
-        data: { actionColor: actionColor, actionName: actionName, title: title, element: data}
+        data: data
       });
       dialogRef.afterClosed().subscribe((data) => subject.next(data));
     };

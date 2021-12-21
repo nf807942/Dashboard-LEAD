@@ -7,6 +7,7 @@ import { TableComponent } from 'src/app/shared/components/table/table.component'
 import { CreateEditDeleteDialogService } from 'src/app/shared/services/create-edit-delete-dialog.service';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { Experiment } from '../../models/experiment';
+import { SharingDialogComponent } from '../dialogs/sharing-dialog/sharing-dialog.component';
 
 @Component({
   selector: 'app-experiments',
@@ -40,6 +41,7 @@ export class ExperimentsComponent implements OnInit {
 
   patchAction = this.createEditDeleteDialogService.buildEditAction(this.questions);
   deleteAction = this.createEditDeleteDialogService.buildDeleteAction(this.questions);
+  QRAction = this.createEditDeleteDialogService.buildDialogAction(SharingDialogComponent);
 
   columns: CustomColumn[] = [
     {name: 'TABLE.EXPERIMENT-TITLE', property: 'title'},
@@ -51,6 +53,7 @@ export class ExperimentsComponent implements OnInit {
     {name: 'TABLE.EXPERIMENT-START-DATE', property: 'start_date', type: 'date'},
     {name: 'TABLE.EXPERIMENT-END-DATE', property: 'end_date', type: 'date'},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
+      {buttonIcon: 'share', buttonText: 'EXPERIMENT.SHARING', buttonAction: this.QRAction.action},
       {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
       {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
     ]},

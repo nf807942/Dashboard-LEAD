@@ -198,6 +198,9 @@ Route::get('/experiment/experiment/{id}',
 Route::post('/experiment/reserve-time-slot/{id}',
     [ExperimentTimeSlotController::class, 'reserveTimeSlot']
 );
+Route::middleware('auth:sanctum')->post('/experiment/experiment-qrcode',
+    [ExperimentController::class, 'getExperimentQR']
+);
 Route::middleware('auth:sanctum')->post('/experiment/experiment-put',
     [ExperimentController::class, 'putExperiment']
 );
