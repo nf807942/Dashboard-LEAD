@@ -11,19 +11,10 @@ class ExperimentTimeSlotController extends Controller
         $slotToReserve = ExperimentTimeSlot::where('experiment_id', $id)
         ->where('start', $request['start'])
         ->where('end', $request['end'])
+        ->where('email', null)
         ->firstOrFail();
         $slotToReserve['email'] = $request['email'];
         $slotToReserve->save();
-        /*$experiment['experimentalist_id'] = Auth::id();
-        $created = Experiment::create($experiment);
-
-        foreach ($experiment['timeSlots'] as $slot){
-            ExperimentTimeSlot::create([
-                'start' => $slot['start'],
-                'end' => $slot['end'],
-                'experiment_id' => $created['id']
-            ]);
-        }*/
 
         return response()->json($slotToReserve, 200);
     }

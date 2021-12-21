@@ -17,9 +17,7 @@ export class ExperimentTemplateComponent implements OnInit, OnDestroy {
       {text: 'SIDENAV.EXPERIMENT.JOIN', route:'experiment/join'},
       {gap:true, connected: true},
       {text: 'SIDENAV.EXPERIMENT.CREATE-EXPERIMENT', route:'experiment/create-experiment', connected: true},
-      {text: 'SIDENAV.EXPERIMENT.MY-EXPERIMENTS', route:'experiment/my-experiments', connected: true},
-      {gap:true, admin: true},
-      {text: 'SIDENAV.EXPERIMENT.EXPERIMENTS', route:'experiment/experiments', admin: true}
+      {text: 'SIDENAV.EXPERIMENT.EXPERIMENTS', route:'experiment/experiments', connected: true}
     ];
     this.crossComponentService.toolbarTitle = 'MODULES.EXPERIMENT';
   }

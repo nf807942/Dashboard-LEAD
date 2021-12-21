@@ -10,7 +10,14 @@ use Illuminate\Http\Request;
 class ExperimentController extends Controller
 {
     public function getExperiments() {
-        $experiments = Experiment::with('experimentalist')->get();
+        $user = Auth::user();
+        $role = $user->role->label;
+
+        if ($role == 'ADMIN') {
+            $experiments = Experiment::with('experimentalist')->get();
+        } else {
+            $experiments = Experiment::with('experimentalist')->where('experimentalist_id', $user->id)->get();
+        }
         return response()->json($experiments, 200);
     }
 

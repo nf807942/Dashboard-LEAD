@@ -121,7 +121,7 @@ export class CreateExperimentComponent implements OnInit {
 
     this.experimentService.putExperiment(value).subscribe((data) => {
       if (data) {
-        this.router.navigate(['/experiment/my-experiments']);
+        this.router.navigate(['/experiment/experiments']);
       }
     });
   }
