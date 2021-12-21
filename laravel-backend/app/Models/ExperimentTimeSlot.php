@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\Experiment;
+use App\Models\ExperimentReservation;
 
 class ExperimentTimeSlot extends Model
 {
@@ -16,6 +17,7 @@ class ExperimentTimeSlot extends Model
     protected $fillable = [
         'end',
         'start',
+        'email',
         'experiment_id'
     ];
 

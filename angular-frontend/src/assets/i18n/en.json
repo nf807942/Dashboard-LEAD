@@ -145,7 +145,8 @@
         "FORBIDDEN": "Access forbidden",
         "LOAN-MAKE-REQUEST-SUCCESS": "Request sent successfully",
         "LOAN-ACCEPT-REQUEST-SUCCESS": "Request accepted successfully",
-        "LOAN-REJECT-REQUEST-SUCCESS": "Request rejected"
+        "LOAN-REJECT-REQUEST-SUCCESS": "Request rejected",
+        "EXPERIMENT-RESERVE-SUCCESS": "Your reservation has been successfully processed"
     },
     "FORM": {
         "REQUIRED": "This field is required",

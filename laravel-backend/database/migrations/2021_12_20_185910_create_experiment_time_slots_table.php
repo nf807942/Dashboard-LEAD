@@ -14,8 +14,10 @@ class CreateExperimentTimeSlotsTable extends Migration
     public function up()
     {
         Schema::create('experiment_time_slots', function (Blueprint $table) {
+            $table->id();
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->string('email')->nullable();
             $table->unsignedBigInteger('experiment_id');
             $table->foreign('experiment_id')->references('id')->on('experiments')->onDelete('cascade');
         });

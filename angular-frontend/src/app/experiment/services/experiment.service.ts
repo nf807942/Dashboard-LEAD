@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { Experiment } from '../models/experiment';
 
 @Injectable({
@@ -11,6 +12,7 @@ export class ExperimentService {
 
   constructor(
     public api: ApiService,
+    private snackbarService: SnackbarService
   ) { }
 
   //#region Experiment
@@ -26,6 +28,12 @@ export class ExperimentService {
 
   getExperiment(id: number): Observable<Experiment> {
     return this.api.get('experiment', 'experiment', id);
+  }
+
+  reserveTimeSlot(id: number, slot: any): Observable<Experiment> {
+    return this.api.post('experiment', 'reserve-time-slot', slot, id).pipe(tap(() => {
+      this.snackbarService.success(4, 'SNACKBAR.EXPERIMENT-RESERVE-SUCCESS')
+    }));
   }
 
   putExperiment(experiment: Experiment): Observable<Experiment> {

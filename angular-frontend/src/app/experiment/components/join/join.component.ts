@@ -6,7 +6,7 @@ import * as moment from 'moment';
 import { Moment } from 'moment';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
 import { Experiment } from '../../models/experiment';
-import { TimeSlot } from '../../models/time-slot';
+import { DaySlots, TimeSlot } from '../../models/time-slot';
 import { ExperimentService } from '../../services/experiment.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class JoinComponent implements OnInit {
   experiment: Experiment;
   days: {day: Moment, slots: TimeSlot[]}[];
 
-  selected = null;
+  selected: TimeSlot = null;
 
   email: FormControl;
 
@@ -61,14 +61,17 @@ export class JoinComponent implements OnInit {
   }
 
   join(): void {
-    
+    let data = {start: this.selected.start.format('YYYY-MM-DD HH:mm:ss'), end: this.selected.end.format('YYYY-MM-DD HH:mm:ss'), email: this.email.value}
+    this.experimentService.reserveTimeSlot(this.experiment.id, data).subscribe((data) => {
+      this.router.navigate(['experiment/join']);
+    });
   }
 
   unselectAll() {
     this.lists.forEach(list => list.chips.forEach(chip => chip.selected = false))
   }
 
-  selectSlot(day, slot) {
-    this.selected = {day: day.day, slot: slot};
+  selectSlot(slot) {
+    this.selected = slot;
   }
 }

@@ -145,7 +145,8 @@
         "FORBIDDEN": "Accès interdit",
         "LOAN-MAKE-REQUEST-SUCCESS": "La requête a bien été envoyée",
         "LOAN-ACCEPT-REQUEST-SUCCESS": "La requête a bien été acceptée",
-        "LOAN-REJECT-REQUEST-SUCCESS": "La requête a été rejetée"
+        "LOAN-REJECT-REQUEST-SUCCESS": "La requête a été rejetée",
+        "EXPERIMENT-RESERVE-SUCCESS": "Votre réservation a bien été prise en compte"
     },
     "FORM": {
         "REQUIRED": "Ce champ est requis",

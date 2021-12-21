@@ -10,6 +10,7 @@ use \App\Http\Controllers\RoomController;
 use \App\Http\Controllers\TypeController;
 use \App\Http\Controllers\ResourceController;
 use \App\Http\Controllers\ExperimentController;
+use \App\Http\Controllers\ExperimentTimeSlotController;
 use \App\Http\Controllers\AdminController;
 use \App\Http\Controllers\LoanRequestController;
 use \App\Http\Controllers\LoanController;
@@ -193,6 +194,9 @@ Route::get('/experiment/running-experiments',
 );
 Route::get('/experiment/experiment/{id}',
     [ExperimentController::class, 'getExperiment']
+);
+Route::post('/experiment/reserve-time-slot/{id}',
+    [ExperimentTimeSlotController::class, 'reserveTimeSlot']
 );
 Route::middleware('auth:sanctum')->post('/experiment/experiment-put',
     [ExperimentController::class, 'putExperiment']
