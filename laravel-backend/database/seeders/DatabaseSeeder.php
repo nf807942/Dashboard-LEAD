@@ -20,8 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ResourceSeeder::class);
         $this->call(BuildingSeeder::class);
         $this->call(RoomSeeder::class);
-        $this->call(ExperimentSeeder::class);
+        //$this->call(ExperimentSeeder::class);
         $this->call(LoanSeeder::class);
         $this->call(LoanRequestSeeder::class);
+        //$this->call(ExperimentTimeSlotSeeder::class);
     }
 }

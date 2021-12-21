@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\User;
+use App\Models\ExperimentTimeSlot;
+
 class Experiment extends Model
 {
     use HasFactory;
@@ -19,6 +21,10 @@ class Experiment extends Model
         'duration',
         'experimentalist_id'
     ];
+
+    public function experimentTimeSlots() {
+        return $this->hasMany(ExperimentTimeSlot::class);
+    }
 
     public function experimentalist() {
         return $this->belongsTo(User::class);
