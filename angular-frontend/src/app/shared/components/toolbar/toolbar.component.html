@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
     <button (click)="clickMenu.emit()" mat-icon-button><mat-icon mat-button>menu</mat-icon></button>
     
-    <a [routerLink]="'/'" id="title-toolbar" class="hide-on-small">{{'APP.DASHBOARD' | translate}}</a>
+    <a [routerLink]="'/'" id="title-toolbar" class="hide-on-small">{{title | translate}}</a>
     <span class="spacer"></span>
     <a mat-button *ngIf="connectionService.isAdmin()" routerLink="/admin" mat-button [matTooltip]="'TOOLTIPS.ADMINISTRATION' | translate"><mat-icon>manage_accounts</mat-icon></a>
     <a mat-button *ngIf="connectionService.connected && connectionService.user" routerLink="/account" mat-button [matTooltip]="'TOOLTIPS.ACCOUNT' | translate"><mat-icon>account_circle</mat-icon> {{connectionService.user.name | uppercase}}</a>
     <button mat-button [matMenuTriggerFor]="menuLanguage" [matTooltip]="'TOOLTIPS.CHANGE-LANGUAGE' | translate">
-        <mat-icon>language</mat-icon> <span class="hide-on-small">{{'LANGUAGE.' + currentLanguage | uppercase | translate}}</span>
+        <mat-icon>language</mat-icon><span class="hide-on-small"> {{'LANGUAGE.' + currentLanguage | uppercase | translate}}</span>
         <mat-icon>arrow_drop_down</mat-icon>
     </button>
     <mat-menu #menuLanguage="matMenu">

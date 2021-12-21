@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from 'src/environments/environment';
 
 // Custom modules
 import { SharedModule } from './shared/shared.module';
@@ -18,7 +17,7 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { CustomMatPaginatorIntl } from './shared/components/table/custom-mat-pagniator-intl';
 import { LoggedInterceptor } from './shared/interceptors/logged.interceptor';
 import { AdminModule } from './admin/admin.module';
-import { MAT_DATE_LOCALE, DateAdapter, MAT_DATE_FORMATS, NativeDateAdapter } from '@angular/material/core';
+import { MAT_DATE_LOCALE, DateAdapter, NativeDateAdapter } from '@angular/material/core';
 
 // loader factory for ngx-translate
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {

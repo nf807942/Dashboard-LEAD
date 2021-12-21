@@ -3,7 +3,7 @@
         <div class="flex column full-height">
             <mat-nav-list class="no-padding">
                 <div *ngFor="let link of all_links">
-                    <ng-container *ngIf="((link.logout && !connectionService.connected) || (!link.logout && connectionService.connected)) && ((link.admin && connectionService.isAdmin()) || !link.admin) || link.always">
+                    <ng-container *ngIf="((link.connected && connectionService.connected) || (link.connected === false && !connectionService.connected) || link.connected === undefined) && ((link.admin && connectionService.isAdmin()) || !link.admin)">
                         <a mat-list-item *ngIf="!link.gap"
                         [routerLink]="link.route" routerLinkActive [routerLinkActiveOptions]="{ exact: true }" #rla="routerLinkActive" (click)="link.action ? link.action() : {}">
                             <div class="flex row sidenav-row">

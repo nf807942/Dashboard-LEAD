@@ -20,10 +20,11 @@ export class ReservationTemplateComponent implements OnInit, OnDestroy {
       {text: 'SIDENAV.RESERVATION.BUILDINGS', route:'reservation/buildings', admin: true},
       {text: 'SIDENAV.RESERVATION.ROOMS', route:'reservation/rooms', admin: true}
     ];
+    this.crossComponentService.toolbarTitle = 'MODULES.RESERVATION';
   }
 
   ngOnDestroy(): void {
-    this.crossComponentService.links = [];
+    this.crossComponentService.quitModule();
   }
 
 }

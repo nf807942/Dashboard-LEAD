@@ -25,12 +25,13 @@ export class LoanTemplateComponent implements OnInit, OnDestroy {
       {text: 'SIDENAV.LOAN.LOANS', route:'loan/loans', admin: true},
       {text: 'SIDENAV.LOAN.MANAGE-REQUESTS', route:'loan/loan-requests', admin: true},
     ];
+    this.crossComponentService.toolbarTitle = 'MODULES.LOAN';
 
     this.loanService.updateBadges();
   }
 
   ngOnDestroy(): void {
-    this.crossComponentService.links = [];
+    this.crossComponentService.quitModule();
   }
 
 }

@@ -16,10 +16,11 @@ export class AdminTemplateComponent implements OnInit {
     this.crossComponentService.links = [
       {text: 'SIDENAV.ADMIN.USERS', route:'admin/users'},
     ];
+    this.crossComponentService.toolbarTitle = 'MODULES.ADMIN';
   }
 
   ngOnDestroy(): void {
-    this.crossComponentService.links = [];
+    this.crossComponentService.quitModule();
   }
 
 }

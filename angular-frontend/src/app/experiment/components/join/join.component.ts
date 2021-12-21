@@ -40,6 +40,7 @@ export class JoinComponent implements OnInit {
 
     this.experimentService.getExperiment(this.id).subscribe((data) => {
       this.experiment = data;
+      this.crossComponentService.title = this.experiment.title;
       this.days = [];
       this.experiment.experiment_time_slots.forEach(slot => {
         let startOfDay = moment(slot.start).startOf('day');

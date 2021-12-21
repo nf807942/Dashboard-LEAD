@@ -36,14 +36,14 @@ export class SidenavComponent implements OnInit {
   @ViewChild('drawer') drawer;
 
   first_links = [
-    {icon: 'apps', text: 'SIDENAV.MODULES', route:'', always: true},
-    {icon: '', text: '', route:'', gap: true, always: true},
+    {icon: 'apps', text: 'SIDENAV.MODULES', route:''},
+    {icon: '', text: '', route:'', gap: true},
   ];
   mids_links = [];
   last_links = [
-    {icon: '', text: '', route:'', gap: true, always: true},
-    {icon: 'logout', text: 'SIDENAV.LOGOUT', action: () => this.connectionService.logout()},
-    {icon: 'login', text: 'SIDENAV.LOGIN', route:'login', logout: true},
+    {icon: '', text: '', route:'', gap: true},
+    {icon: 'logout', text: 'SIDENAV.LOGOUT', action: () => this.connectionService.logout(), connected: true},
+    {icon: 'login', text: 'SIDENAV.LOGIN', route:'login', connected: false},
   ];
 
   all_links = [...this.first_links, ...this.mids_links, ...this.last_links]

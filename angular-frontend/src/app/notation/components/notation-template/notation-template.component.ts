@@ -17,10 +17,11 @@ export class NotationTemplateComponent implements OnInit, OnDestroy {
       {text: 'SIDENAV.NOTATION.ADD-POINTS', route:'notation/add-points'},
       {text: 'SIDENAV.NOTATION.STUDENTS', route:'notation/students'}
     ];
+    this.crossComponentService.toolbarTitle = 'MODULES.NOTATION';
   }
 
   ngOnDestroy(): void {
-    this.crossComponentService.links = [];
+    this.crossComponentService.quitModule();
   }
 
 }

@@ -20,12 +20,13 @@
 
 mat-grid-tile {
     background-size: cover;
-    //background-color: #DCD0F1;
     background-color: #C5B0E8;
-    transition: background-color 0.3s;
+    transform: scale(1);
+    transition: all 0.3s ease;
+
     animation-name: fadeIn;
-    animation-fill-mode: both;
-    animation-timing-function: ease-out;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease;
     animation-duration: 0.8s;
 
     font-size: 20px;
@@ -39,8 +40,8 @@ mat-grid-tile {
 }
 
 mat-grid-tile:hover {
-    //@at-root: #C5B0E8;
     background-color: #AE90DF;
+    transform: scale(1.05);
 }
 
 #modules-grid {

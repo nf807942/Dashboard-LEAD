@@ -85,6 +85,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: #f44336;
 }
 
+.panel-white {
+    background-color: white;
+    padding: 1em;
+}
+
 .spinner-center {
     display: flex;
     flex-direction: column;
@@ -120,5 +125,18 @@ button.rotate-on-hover:hover {
 @media (max-width: 750px) {
     .hide-on-small {
         display: none!important;
+    }
+}
+
+.rotate-icon-infinite:hover mat-icon, .rotate-icon-infinite:active mat-icon {
+    animation: rotating 1s ease-in-out infinite;
+}
+
+@keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
     }
 }

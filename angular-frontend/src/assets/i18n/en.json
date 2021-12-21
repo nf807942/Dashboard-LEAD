@@ -77,7 +77,8 @@
         "LOAN": "Loan module",
         "EXPERIMENT": "Experiment module",
         "RESERVATION": "Reservation module",
-        "INTERNSHIP": "Internship module"
+        "INTERNSHIP": "Internship module",
+        "ADMIN": "Administrator module"
     },
     "TABLE": {
         "FILTER": "Filter",
@@ -199,6 +200,7 @@
         "REGENERATE-TIME-SLOTS": "Regenerate the times slots",
         "CREATE": "Create the experiment",
 
+        "AVAILABLE": "Experiments available",
         "NO-RESULT": "No experiment available for registration",
         "JOIN-AVAILABLE-TIME-SLOTS": "Available time slots",
         "JOIN-DURATION": "Experiment duration",

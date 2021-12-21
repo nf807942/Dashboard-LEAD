@@ -1,8 +1,22 @@
 <ng-template matStepLabel>{{"EXPERIMENT.RUNNING" | translate}}</ng-template>
 <div *ngIf="experiments$ | async as experiments; else loading">
-    <mat-nav-list *ngIf="experiments.length !== 0; else noResult">
-        <a mat-list-item [routerLink]="experiment.id" *ngFor="let experiment of experiments">{{experiment.title}}</a>
-    </mat-nav-list>
+    <ng-container *ngIf="experiments.length !== 0; else noResult">
+        <div class="experiment-available margin-bottom">{{"EXPERIMENT.AVAILABLE" | translate}} : </div>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let experiment of experiments">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>{{experiment.title}}</mat-panel-title>
+                    <mat-panel-description>{{experiment.duration}} {{"APP.MINUTE" | translate}}</mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{experiment.description}}</p>
+                <mat-action-row>
+                    <a class="rotate-icon-infinite" [routerLink]="experiment.id" mat-raised-button color="primary" (click)="null">
+                        {{"EXPERIMENT.JOIN" | translate}} <mat-icon>science</mat-icon>
+                    </a>
+                  </mat-action-row>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </ng-container>
 </div>
 
 <ng-template #loading>

@@ -8,6 +8,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -43,6 +44,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatNativeDateModule,
     MatFormFieldModule,
     MatPaginatorModule,
+    MatExpansionModule,
     MatGridListModule,
     MatSnackBarModule,
     MatSidenavModule,

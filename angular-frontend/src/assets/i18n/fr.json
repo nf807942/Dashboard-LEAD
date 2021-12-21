@@ -77,7 +77,8 @@
         "LOAN": "Module prêts",
         "EXPERIMENT": "Module expérience",
         "RESERVATION": "Module salles",
-        "INTERNSHIP": "Module stage"
+        "INTERNSHIP": "Module stage",
+        "ADMIN": "Module administrateur"
     },
     "TABLE": {
         "FILTER": "Filtre",
@@ -199,6 +200,7 @@
         "REGENERATE-TIME-SLOTS": "Recréer les crenaux",
         "CREATE": "Créer l'expérience",
 
+        "AVAILABLE": "Exériences disponibles",
         "NO-RESULT": "Aucune expérience disponible pour inscription",
         "JOIN-AVAILABLE-TIME-SLOTS": "Créneaux disponible",
         "JOIN-DURATION": "Durée de l'expérience",
