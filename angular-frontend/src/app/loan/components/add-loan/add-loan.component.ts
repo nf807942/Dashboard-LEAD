@@ -51,7 +51,6 @@ export class AddLoanComponent implements OnInit {
 
   loadResources() {
     this.resources$ = this.loanService.getResourcesOfType(this.types_list.selectedOptions.selected[0]?.value).pipe(
-      tap(data => console.log(data)),
       map(data => data.filter(resource => resource.loans.length === 0)),
     );
     this.stepper.next();

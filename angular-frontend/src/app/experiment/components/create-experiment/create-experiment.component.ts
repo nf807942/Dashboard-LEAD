@@ -2,10 +2,12 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { DynamicFormQuestion, TextboxQuestion, RowQuestion, TextAreaQuestion } from 'src/app/shared/components/dynamic-form-question/dynamic-form-question.component';
 import { BeforeAfterValidator, DynamicFormComponent } from 'src/app/shared/components/dynamic-form/dynamic-form.component';
 import { CrossComponentService } from 'src/app/shared/services/cross-component.service';
+import { ExperimentService } from '../../services/experiment.service';
 
 @Component({
   selector: 'app-create-experiment',
@@ -38,12 +40,13 @@ export class CreateExperimentComponent implements OnInit {
   secondFormGroup: FormGroup;
   date: Date;
 
-  formatSlot = formatSlot;
   timeSlots = [];
 
   constructor(
     private fb: FormBuilder,
     private crossComponentService: CrossComponentService,
+    private experimentService: ExperimentService,
+    private router: Router
   ) {
     this.secondFormGroup = this.fb.group({
       range: this.fb.group({
@@ -96,15 +99,31 @@ export class CreateExperimentComponent implements OnInit {
     days.forEach(day => {
       let slots = [];
       for (let i = 0; i < nb_slots; i++) {
-        
-        slots.push({start: (hourStart * 60) + i * duration, end: (hourStart * 60) + (i + 1) * (duration)})
+        let start = moment(day);
+        let end = moment(day);
+        start.minutes((hourStart * 60) + i * duration);
+        end.minutes((hourStart * 60) + (i + 1) * (duration));
+        slots.push({start: start, end: end})
       }
       this.timeSlots.push({day: day, slots: slots});
     });
   }
 
   createExperiment(): void {
+    let formatedTimeSlots = [].concat(...this.timeSlots.map(
+      day => day.slots.map(
+        slot => {return {start: slot.start.format('YYYY-MM-DD HH:mm:ss'), end: slot.end.format('YYYY-MM-DD HH:mm:ss')};}
+      )
+    ));
+    let value = {...this.firstFormGroup.value, ...this.secondFormGroup.value, timeSlots: formatedTimeSlots};
+    value.start_date = moment(value.range.start).format('YYYY-MM-DD');
+    value.end_date = moment(value.range.end).format('YYYY-MM-DD');
 
+    this.experimentService.putExperiment(value).subscribe((data) => {
+      if (data) {
+        this.router.navigate(['/experiment/my-experiments']);
+      }
+    });
   }
 
   remove(day: any, slot: string): void {
@@ -114,22 +133,4 @@ export class CreateExperimentComponent implements OnInit {
       day.slots.splice(index, 1);
     }
   }
-
-
-
-}
-
-export function formatSlot(slot: any): string {
-  return formatHour(slot.start) + ' - ' +formatHour(slot.end);
-}
-
-export function formatHour(time: number): string {
-  let hour = addZeroIfSub10(Math.floor(time / 60));
-  let minute = addZeroIfSub10(time % 60);
-
-  return hour + 'h' + minute;
-}
-
-export function addZeroIfSub10(str: number): string {
-  return (str < 10) ? '0' + str : str + '';
 }

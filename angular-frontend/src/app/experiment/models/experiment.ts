@@ -1,4 +1,5 @@
 import { User } from "src/app/shared/services/connection.service";
+import { TimeSlot } from "./time-slot";
 
 export class Experiment {
     id: number;
@@ -10,6 +11,7 @@ export class Experiment {
     max_subjects: number;
     experimentalist: User;
     duration: number;
+    experiment_time_slots: TimeSlot[];
 
     constructor(data: Partial<Experiment>){
         Object.assign(this, data);

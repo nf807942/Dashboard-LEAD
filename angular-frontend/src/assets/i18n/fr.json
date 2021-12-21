@@ -199,6 +199,7 @@
         "REGENERATE-TIME-SLOTS": "Recréer les crenaux",
         "CREATE": "Créer l'expérience",
 
+        "NO-RESULT": "Aucune expérience disponible pour inscription",
         "JOIN-AVAILABLE-TIME-SLOTS": "Créneaux disponible",
         "JOIN-DURATION": "Durée de l'expérience",
         "JOIN-CHOSEN-TIME-SLOT": "Créneau choisi",

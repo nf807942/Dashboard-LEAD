@@ -199,6 +199,7 @@
         "REGENERATE-TIME-SLOTS": "Regenerate the times slots",
         "CREATE": "Create the experiment",
 
+        "NO-RESULT": "No experiment available for registration",
         "JOIN-AVAILABLE-TIME-SLOTS": "Available time slots",
         "JOIN-DURATION": "Experiment duration",
         "JOIN-CHOSEN-TIME-SLOT": "Chosen time slot",
