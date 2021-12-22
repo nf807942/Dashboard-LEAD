@@ -20,7 +20,7 @@ export class JoinComponent implements OnInit {
 
   id: number;
   experiment: Experiment;
-  days: {day: Moment, slots: TimeSlot[]}[];
+  days: {day: Moment, slots: TimeSlot[]}[] = [];
 
   selected: TimeSlot = null;
 
@@ -46,9 +46,9 @@ export class JoinComponent implements OnInit {
         let startOfDay = moment(slot.start).startOf('day');
         let index = this.days.findIndex(_day => _day.day.isSame(startOfDay, 'day'));
         if (index === -1) {
-          this.days.push({day: startOfDay, slots: [{start: moment(slot.start), end: moment(slot.end)}]});
+          this.days.push({day: startOfDay, slots: [new TimeSlot({start: moment(slot.start), end: moment(slot.end)})]});
         } else {
-          this.days[index].slots.push({start: moment(slot.start), end: moment(slot.end)});
+          this.days[index].slots.push(new TimeSlot({start: moment(slot.start), end: moment(slot.end)}));
         }
       })
     });

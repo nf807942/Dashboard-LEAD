@@ -4,35 +4,30 @@
         <p>{{"EXPERIMENT.JOIN-DURATION" | translate}} : {{experiment.duration}} {{"APP.MINUTE" | translate}}</p>
         <hr/>
         <p class="stepper-sub-title">{{"EXPERIMENT.JOIN-AVAILABLE-TIME-SLOTS" | translate}} : </p>
-        <ng-container *ngFor="let day of days">
-            <div class="day"><p>{{day.day.format('dddd DD MMMM YYYY')}} : </p></div>
-            <mat-chip-list #list (chipSelectionChanges)="selectSlot($event)">
-                <mat-chip #chip="matChip" (click)="unselectAll(); chip.toggleSelected(); selectSlot(slot)" *ngFor="let slot of day.slots">
-                    {{slot.start.format('HH:mm')}} - {{slot.end.format('HH:mm')}}
-                </mat-chip>
-            </mat-chip-list>
+        <ng-container *ngIf="days.length !== 0; else noResult">
+            <ng-container *ngFor="let day of days">
+                <div class="day"><p>{{day.day.format('dddd DD MMMM YYYY')}} : </p></div>
+                <mat-chip-list #list (chipSelectionChanges)="selectSlot($event)">
+                    <mat-chip #chip="matChip" (click)="unselectAll(); chip.toggleSelected(); selectSlot(slot)" *ngFor="let slot of day.slots">
+                        {{slot.start.format('HH:mm')}} - {{slot.end.format('HH:mm')}}
+                    </mat-chip>
+                </mat-chip-list>
+            </ng-container>
+            <br/>
+            <p class="stepper-sub-title">{{"APP.EMAIL" | translate}} : </p>
+            <mat-form-field appearance="outline">
+                <mat-label>{{"APP.EMAIL" | translate}}</mat-label>
+                <input matInput  [formControl]="email" required type="email"/>
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-error *ngIf="email.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
+                <mat-error *ngIf="email.errors?.email">{{"FORM.EMAIL" |translate}}</mat-error>
+            </mat-form-field>
         </ng-container>
-
-        <!--<br/>
-        <p class="stepper-sub-title">{{"EXPERIMENT.JOIN-CHOSEN-TIME-SLOT" | translate}} : </p>
-        <p class="day">{{selected.day.format('dddd DD MMMM YYYY')}} : {{selected.slot.start.format('HH:mm')}} - {{selected.slot.end.format('HH:mm')}}</p>
-        -->
-        <br/>
-        <p class="stepper-sub-title">{{"APP.EMAIL" | translate}} : </p>
-        <mat-form-field appearance="outline">
-            <mat-label>{{"APP.EMAIL" | translate}}</mat-label>
-            <input matInput  [formControl]="email" required type="email"/>
-            <mat-icon matSuffix>email</mat-icon>
-            <mat-error *ngIf="email.errors?.required">{{"FORM.REQUIRED" |translate}}</mat-error>
-            <mat-error *ngIf="email.errors?.email">{{"FORM.EMAIL" |translate}}</mat-error>
-        </mat-form-field>
-
-
         <div class="stepper-button">
             <button mat-raised-button (click)="back()" >
                 <mat-icon>arrow_back</mat-icon>{{"APP.BACK" | translate}}
             </button>
-            <button [class.rotate-icon-infinite]="email.valid && selected" mat-raised-button color="primary" [disabled]="!email.valid || !selected" (click)="join()" >
+            <button *ngIf="days.length !== 0" [class.rotate-icon-infinite]="email.valid && selected" mat-raised-button color="primary" [disabled]="!email.valid || !selected" (click)="join()" >
                 {{"EXPERIMENT.JOIN" | translate}} <mat-icon>science</mat-icon>
             </button>
         </div>
@@ -43,5 +38,11 @@
     <div class="spinner-center">
         <mat-spinner></mat-spinner>
         {{"APP.LOADING" | translate}}
+    </div>
+</ng-template>
+
+<ng-template #noResult>
+    <div class="spinner-center">
+        {{"APP.NO-RESULT" | translate}}
     </div>
 </ng-template>

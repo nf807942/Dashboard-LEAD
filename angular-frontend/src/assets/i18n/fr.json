@@ -61,7 +61,8 @@
             "MY-EXPERIMENTS": "Mes expériences",
             "OLD-EXPERIMENTS": "Précedentes expériences",
             "EXPERIMENTS": "Expériences",
-            "JOIN": "Rejoindre"
+            "JOIN": "Rejoindre",
+            "INSCRIPTIONS": "Inscriptions"
         } ,
         "RESERVATION": {
             "BUILDINGS": "Bâtiments",
@@ -112,10 +113,14 @@
         "EXPERIMENT-TITLE": "Titre",
         "EXPERIMENT-DESCRIPTION": "Description",
         "EXPERIMENT-DURATION": "Durée",
-        "EXPERIMENT-MIN-SUBJECTS": "Nb min de sujets",
-        "EXPERIMENT-MAN-SUBJECTS": "Nb max de sujets",
+        "EXPERIMENT-MIN-SUBJECTS": "Nombre min de sujets",
+        "EXPERIMENT-MAX-SUBJECTS": "Nombre max de sujets",
+        "EXPERIMENT-SUBJECTS": "Nombre de sujets",
+        "EXPERIMENT-INSCRIPTIONS": "Inscriptions",
         "EXPERIMENT-EXPERIMENTALIST": "Expérimentateur",
         "EXPERIMENT-START-DATE": "Date de début",
+        "EXPERIMENT-SUBJECT-EMAIL": "Email du sujet",
+        "EXPERIMENT-SUBJECT-HOUR": "Heure de passage",
         "EXPERIMENT-END-DATE": "Date de fin",
         "LOAN-REQUEST-USER": "Demandeur",
         "LOAN-REQUEST-RESOURCE": "Ressource concernée",
@@ -211,7 +216,11 @@
 
         "SHARING": "Partage",
         "LINK": "Lien pour inscription à l'expérience",
-        "SHARING-DIALOG-TITLE": "Partage de l'expérience"
+        "SHARING-DIALOG-TITLE": "Partage de l'expérience",
+
+        "INSCRIPTIONS": "Inscriptions",
+        "UNSUBSCRIBE": "Désinscrire",
+        "UNSUBSCRIBE-DIALOG-TITLE": "Désinscrire le sujet"
     },
     "ROLE": {
         "ADMIN": "Admin",

@@ -6,6 +6,7 @@ import { JoinComponent } from './components/join/join.component';
 import { CreateExperimentComponent } from './components/create-experiment/create-experiment.component';
 import { JoinListComponent } from './components/join-list/join-list.component';
 import { SharingDialogComponent } from './components/dialogs/sharing-dialog/sharing-dialog.component';
+import { ExperimentInscriptionsComponent } from './components/experiment-inscriptions/experiment-inscriptions.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SharingDialogComponent } from './components/dialogs/sharing-dialog/shar
     CreateExperimentComponent,
     JoinListComponent,
     SharingDialogComponent,
+    ExperimentInscriptionsComponent,
   ],
   imports: [
     SharedModule

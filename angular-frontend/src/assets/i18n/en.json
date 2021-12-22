@@ -61,7 +61,8 @@
             "MY-EXPERIMENTS": "My experiments",
             "OLD-EXPERIMENTS": "My previous experiments",
             "EXPERIMENTS": "Experiments",
-            "JOIN": "Join"
+            "JOIN": "Join",
+            "INSCRIPTIONS": "Inscriptions"
         },
         "RESERVATION": {
             "BUILDINGS": "Buildings",
@@ -113,10 +114,14 @@
         "EXPERIMENT-DESCRIPTION": "Description",
         "EXPERIMENT-DURATION": "Duration",
         "EXPERIMENT-MIN-SUBJECTS": "Min number of subjects",
-        "EXPERIMENT-MAN-SUBJECTS": "Max number of subjects",
+        "EXPERIMENT-MAX-SUBJECTS": "Max number of subjects",
+        "EXPERIMENT-SUBJECTS": "Number of subjects",
+        "EXPERIMENT-INSCRIPTIONS": "Inscriptions",
         "EXPERIMENT-EXPERIMENTALIST": "Experimentalist",
         "EXPERIMENT-START-DATE": "Start date",
         "EXPERIMENT-END-DATE": "End date",
+        "EXPERIMENT-SUBJECT-EMAIL": "Email of subject",
+        "EXPERIMENT-SUBJECT-HOUR": "Passing time",
         "LOAN-REQUEST-USER": "Applicant",
         "LOAN-REQUEST-RESOURCE": "Resource concerned",
         "LOAN-REQUEST-TYPE": "Request type",
@@ -211,7 +216,11 @@
 
         "SHARING": "Sharing",
         "LINK": "Link to register for the experiment",
-        "SHARING-DIALOG-TITLE": "Sharing of the experiment"
+        "SHARING-DIALOG-TITLE": "Sharing of the experiment",
+
+        "RESERVATIONS": "Inscriptions",
+        "UNSUBSCRIBE": "Unsubscribe",
+        "UNSUBSCRIBE-DIALOG-TITLE": "Unsubscribe the subject"
     },
     "ROLE": {
         "ADMIN": "Admin",

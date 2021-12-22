@@ -195,6 +195,12 @@ Route::get('/experiment/running-experiments',
 Route::get('/experiment/experiment/{id}',
     [ExperimentController::class, 'getExperiment']
 );
+Route::middleware('auth:sanctum')->get('/experiment/inscriptions/{id}',
+    [ExperimentTimeSlotController::class, 'getInscriptions']
+);
+Route::middleware('auth:sanctum')->post('/experiment/unsubscribe-delete/{id}',
+    [ExperimentTimeSlotController::class, 'unsubscribe']
+);
 Route::post('/experiment/reserve-time-slot/{id}',
     [ExperimentTimeSlotController::class, 'reserveTimeSlot']
 );

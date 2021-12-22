@@ -32,7 +32,7 @@ export class CreateExperimentComponent implements OnInit {
     new RowQuestion({
       rows: [
         new TextboxQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number', value: 1 }),
-        new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAN-SUBJECTS', required: true, type: 'number', value: 1 })
+        new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAX-SUBJECTS', required: true, type: 'number', value: 1 })
       ]
     }),
   ];

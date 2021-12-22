@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 import { SnackbarService } from 'src/app/shared/services/snackbar.service';
 import { environment } from 'src/environments/environment';
 import { Experiment } from '../models/experiment';
+import { TimeSlot } from '../models/time-slot';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,16 @@ export class ExperimentService {
     return this.api.get('experiment', 'experiment', id);
   }
 
+  getInscriptions(id: number): Observable<TimeSlot[]> {
+    return this.api.get('experiment', 'inscriptions', id).pipe(
+      map((inscriptions: TimeSlot[]) => inscriptions.map(inscription => new TimeSlot(inscription))),
+    );
+  }
+
+  unsubscribe(inscription: TimeSlot): Observable<TimeSlot[]> {
+    return this.api.delete('experiment', 'unsubscribe', inscription.id);
+  }
+
   reserveTimeSlot(id: number, slot: any): Observable<Experiment> {
     return this.api.post('experiment', 'reserve-time-slot', slot, id).pipe(tap(() => {
       this.snackbarService.success(4, 'SNACKBAR.EXPERIMENT-RESERVE-SUCCESS')
@@ -42,7 +53,8 @@ export class ExperimentService {
   }
 
   patchExperiment(experiment: Experiment): Observable<{old: Experiment, new: Experiment}> {
-    return this.api.patch('experiment', 'experiment', experiment, experiment.id);
+    return this.api.patch('experiment', 'experiment', experiment, experiment.id).pipe(
+      map((experiment: any) => {return {old: new Experiment(experiment.old), new: new Experiment(experiment.new)}}));
   }
 
   deleteExperiment(experiment: Experiment): Observable<Experiment> {

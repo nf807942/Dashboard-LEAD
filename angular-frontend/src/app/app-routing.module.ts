@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminTemplateComponent } from './admin/components/admin-template/admin-template.component';
 import { UsersComponent } from './admin/components/users/users.component';
 import { CreateExperimentComponent } from './experiment/components/create-experiment/create-experiment.component';
+import { ExperimentInscriptionsComponent } from './experiment/components/experiment-inscriptions/experiment-inscriptions.component';
 import { ExperimentTemplateComponent } from './experiment/components/experiment-template/experiment-template.component';
 import { ExperimentsComponent } from './experiment/components/experiments/experiments.component';
 import { JoinListComponent } from './experiment/components/join-list/join-list.component';
@@ -55,6 +56,7 @@ const routes: Routes = [
     { path: '', redirectTo: 'join', pathMatch: 'full' },
     { path: 'create-experiment', component: CreateExperimentComponent, canActivate: [LoggedGuard] },
     { path: 'experiments', component: ExperimentsComponent, canActivate: [LoggedGuard] },
+    { path: 'inscriptions/:id', component: ExperimentInscriptionsComponent, canActivate: [LoggedGuard] },
     { path: 'join', component: JoinListComponent },
     { path: 'join/:id', component: JoinComponent },
   ]},

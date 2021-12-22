@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ExperimentService } from 'src/app/experiment/services/experiment.service';
-import { DynamicFormQuestion, TextboxQuestion, HiddenQuestion, RowQuestion } from 'src/app/shared/components/dynamic-form-question/dynamic-form-question.component';
+import { DynamicFormQuestion, TextboxQuestion, HiddenQuestion, RowQuestion, DisplayQuestion } from 'src/app/shared/components/dynamic-form-question/dynamic-form-question.component';
 import { CustomColumn } from 'src/app/shared/components/table/custom-column';
 import { TableComponent } from 'src/app/shared/components/table/table.component';
 import { CreateEditDeleteDialogService } from 'src/app/shared/services/create-edit-delete-dialog.service';
@@ -19,19 +20,19 @@ export class ExperimentsComponent implements OnInit {
   @ViewChild('table') table: TableComponent;
 
   questions: DynamicFormQuestion[] = [
-    new TextboxQuestion({ key: 'title', label: 'TABLE.EXPERIMENT-TITLE', required: true }),
-    new TextboxQuestion({ key: 'description', label: 'TABLE.EXPERIMENT-DESCRIPTION', required: true }),
-    new TextboxQuestion({ key: 'duration', label: 'TABLE.EXPERIMENT-DURATION', required: true }),
+    new DisplayQuestion({ key: 'title', label: 'TABLE.EXPERIMENT-TITLE' }),
+    new DisplayQuestion({ key: 'description', label: 'TABLE.EXPERIMENT-DESCRIPTION', required: true }),
+    new DisplayQuestion({ key: 'duration', label: 'TABLE.EXPERIMENT-DURATION', required: true }),
     new RowQuestion({
       rows: [
-        new TextboxQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number', value: 1 }),
-        new TextboxQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAN-SUBJECTS', required: true, type: 'number', value: 1 })
+        new DisplayQuestion({ key: 'min_subjects', label: 'TABLE.EXPERIMENT-MIN-SUBJECTS', required: true, type: 'number', value: 1 }),
+        new DisplayQuestion({ key: 'max_subjects', label: 'TABLE.EXPERIMENT-MAX-SUBJECTS', required: true, type: 'number', value: 1 })
       ]
     }),
     new RowQuestion({
       rows: [
-        new TextboxQuestion({ key: 'start_date', label: 'TABLE.EXPERIMENT-START-DATE', required: true, type: 'date' }),
-        new TextboxQuestion({ key: 'end_date', label: 'TABLE.EXPERIMENT-END-DATE', required: true, type: 'date' })
+        new DisplayQuestion({ key: 'start_date', label: 'TABLE.EXPERIMENT-START-DATE', required: true, type: 'date' }),
+        new DisplayQuestion({ key: 'end_date', label: 'TABLE.EXPERIMENT-END-DATE', required: true, type: 'date' })
       ]
     }),
     new HiddenQuestion({
@@ -39,20 +40,20 @@ export class ExperimentsComponent implements OnInit {
     }),
   ];
 
-  patchAction = this.createEditDeleteDialogService.buildEditAction(this.questions);
+  patchAction = this.createEditDeleteDialogService.buildBlankAction();
   deleteAction = this.createEditDeleteDialogService.buildDeleteAction(this.questions);
   QRAction = this.createEditDeleteDialogService.buildDialogAction(SharingDialogComponent);
+  reservationAction = this.createEditDeleteDialogService.buildBlankAction();
 
   columns: CustomColumn[] = [
     {name: 'TABLE.EXPERIMENT-TITLE', property: 'title'},
-    {name: 'TABLE.EXPERIMENT-DESCRIPTION', property: 'description'},
     {name: 'TABLE.EXPERIMENT-DURATION', property: 'duration'},
-    {name: 'TABLE.EXPERIMENT-MIN-SUBJECTS', property: 'min_subjects'},
-    {name: 'TABLE.EXPERIMENT-MAN-SUBJECTS', property: 'max_subjects'},
+    {name: 'TABLE.EXPERIMENT-INSCRIPTIONS', property: 'subjects'},
     {name: 'TABLE.EXPERIMENT-EXPERIMENTALIST', property: 'experimentalist_name'},
     {name: 'TABLE.EXPERIMENT-START-DATE', property: 'start_date', type: 'date'},
     {name: 'TABLE.EXPERIMENT-END-DATE', property: 'end_date', type: 'date'},
     {name: 'TABLE.ACTIONS', property: 'actions', button: true, buttons: [
+      {buttonIcon: 'search', buttonText: 'EXPERIMENT.INSCRIPTIONS', buttonAction: this.reservationAction.action},
       {buttonIcon: 'share', buttonText: 'EXPERIMENT.SHARING', buttonAction: this.QRAction.action},
       {buttonColor: 'accent', buttonIcon: 'edit', buttonText: 'TABLE.EDIT', buttonAction: this.patchAction.action},
       {buttonColor: 'warn', buttonIcon: 'delete', buttonText: 'TABLE.DELETE', buttonAction: this.deleteAction.action}
@@ -62,6 +63,7 @@ export class ExperimentsComponent implements OnInit {
   experiments: Observable<Experiment[]> = null;
 
   constructor(
+    private router: Router,
     private experimentService: ExperimentService,
     private crossComponentService: CrossComponentService,
     public createEditDeleteDialogService: CreateEditDeleteDialogService,
@@ -72,11 +74,7 @@ export class ExperimentsComponent implements OnInit {
   ngOnInit(): void {
     this.crossComponentService.title = 'SIDENAV.EXPERIMENT.EXPERIMENTS';
 
-    this.patchAction.subject.subscribe((data) => {
-      if(data != null) {
-        this.experimentService.patchExperiment(data).subscribe(this.experimentService.api.patchTableUpdate(this.table));
-      }
-    });
+    this.reservationAction.subject.subscribe((data) => this.router.navigate(['experiment/inscriptions/'+data.id]));
 
     this.deleteAction.subject.subscribe((data) => {
       if(data != null) {

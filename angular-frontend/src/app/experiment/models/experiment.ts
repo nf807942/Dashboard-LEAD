@@ -20,4 +20,8 @@ export class Experiment {
     get experimentalist_name(): string {
         return this.experimentalist.name;
     }
+
+    get subjects(): string {
+        return this.experiment_time_slots.filter(slot => slot.email).length + ' / ' + this.min_subjects + ' - ' + this.max_subjects;
+    }
 }
